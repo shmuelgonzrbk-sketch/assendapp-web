@@ -4,7 +4,8 @@
     "namespace": "android_app",
     "package_name": "com.assendapp.app",
     "sha256_cert_fingerprints": [
-      "EF:66:5C:B3:30:A5:86:DB:D8:C6:C4:03:E5:A2:53:72:12:63:E6:20:60:95:FB:C2:6B:BF:1B:E7:AF:DC:34:D5"
+      "EF:66:5C:B3:30:A5:86:DB:D8:C6:C4:03:E5:A2:53:72:12:63:E6:20:60:95:FB:C2:6B:BF:1B:E7:AF:DC:34:D5",
+      "93:60:1B:66:60:D4:92:A4:F0:27:0C:4A:E5:13:37:01:13:82:9B:7B:8F:D7:73:04:5C:F0:06:1B:31:CC:FA:54"
     ]
   }
 }]
