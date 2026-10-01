@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.assendapp.app",
+    "sha256_cert_fingerprints": [
+      "EF:66:5C:B3:30:A5:86:DB:D8:C6:C4:03:E5:A2:53:72:12:63:E6:20:60:95:FB:C2:6B:BF:1B:E7:AF:DC:34:D5"
+    ]
+  }
+}]

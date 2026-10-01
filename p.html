@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Te compartieron un contacto · AscendProgress</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body style="display:grid;place-items:center;min-height:100vh;padding:24px">
+  <main class="card" style="max-width:420px;width:100%;text-align:center;padding:32px">
+    <div class="grad" style="width:64px;height:64px;border-radius:20px;margin:0 auto 18px;display:grid;place-items:center;color:#fff;font-size:28px;font-weight:800">A</div>
+    <h2 style="font-size:1.4rem;margin:0 0 6px">Te compartieron a <span id="nombre">un contacto</span></h2>
+    <p style="color:var(--muted);margin-bottom:22px">Ábrelo en AscendProgress para agregarlo a tus personas. Sus datos no pasan por ningún servidor.</p>
+    <a id="abrir" class="btn btn-main grad" style="justify-content:center;width:100%;margin-bottom:10px" href="#">Abrir en AscendProgress</a>
+    <a id="play" class="btn btn-ghost" style="justify-content:center;width:100%" href="#">Instalar desde Google Play</a>
+  </main>
+<script>
+const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app"\;
+const d = location.hash.slice(1);
+document.getElementById("play").href = PLAY;
+try {
+  let b = d.replace(/-/g, "+").replace(/_/g, "/"); while (b.length % 4) b += "=";
+  const json = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(b), c => c.charCodeAt(0))));
+  if (json.n) document.getElementById("nombre").textContent = json.n;
+} catch (e) {}
+const esAndroid = /android/i.test(navigator.userAgent);
+const intento = "intent://persona?d=" + d + "#Intent;scheme=ascendprogress;package=com.assendapp.app;S.browser_fallback_url=" + encodeURIComponent(PLAY) + ";end";
+document.getElementById("abrir").href = esAndroid ? intento : PLAY;
+if (esAndroid && d) setTimeout(() => { location.href = intento; }, 300);
+</script>
+</body>
+</html>
