@@ -16,18 +16,37 @@
     <a id="play" class="btn btn-ghost" style="justify-content:center;width:100%" href="#">Instalar desde Google Play</a>
   </main>
 <script>
-const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app"\;
+const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
 const d = location.hash.slice(1);
+const ua = navigator.userAgent;
+const esAndroid = /android/i.test(ua);
+const enAppInterna = /FBAN|FBAV|Instagram|WhatsApp|; wv\)/i.test(ua);
 document.getElementById("play").href = PLAY;
 try {
   let b = d.replace(/-/g, "+").replace(/_/g, "/"); while (b.length % 4) b += "=";
   const json = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(b), c => c.charCodeAt(0))));
   if (json.n) document.getElementById("nombre").textContent = json.n;
 } catch (e) {}
-const esAndroid = /android/i.test(navigator.userAgent);
-const intento = "intent://persona?d=" + d + "#Intent;scheme=ascendprogress;package=com.assendapp.app;S.browser_fallback_url=" + encodeURIComponent(PLAY) + ";end";
-document.getElementById("abrir").href = esAndroid ? intento : PLAY;
-if (esAndroid && d) setTimeout(() => { location.href = intento; }, 300);
+
+if (enAppInterna) {
+  const aviso = document.createElement("p");
+  aviso.style.cssText = "margin:14px 0 0;padding:12px;border-radius:14px;background:var(--soft);font-size:.9rem";
+  aviso.innerHTML = "Estás dentro de otra app. Para abrir AscendProgress toca <b>⋮</b> arriba a la derecha y elige <b>Abrir en Chrome</b>.";
+  document.querySelector("main").appendChild(aviso);
+}
+
+document.getElementById("abrir").addEventListener("click", function (ev) {
+  ev.preventDefault();
+  if (!esAndroid) { location.href = PLAY; return; }
+  const inicio = Date.now();
+  location.href = "ascendprogress://persona?d=" + d;
+  // Si en 2 s no se abrió la app (sigue visible la página), ir a Play Store
+  setTimeout(function () {
+    if (!document.hidden && Date.now() - inicio < 3000) {
+      location.href = "intent://persona?d=" + d + "#Intent;scheme=ascendprogress;package=com.assendapp.app;S.browser_fallback_url=" + encodeURIComponent(PLAY) + ";end";
+    }
+  }, 2000);
+});
 </script>
 </body>
 </html>
