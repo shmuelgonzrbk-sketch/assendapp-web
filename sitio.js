@@ -50,3 +50,8 @@
   }
   setTimeout(siguiente, 600);
 })();
+
+// Si la persona pidió menos movimiento, el video queda quieto
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('video[autoplay]').forEach(function (v) { v.pause(); v.removeAttribute('autoplay'); });
+}

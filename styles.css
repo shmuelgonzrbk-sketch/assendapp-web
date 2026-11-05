@@ -407,3 +407,6 @@ section{padding-block:clamp(56px,3rem + 3.5vw,104px)}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 @media (max-width:480px){.pasos > li{grid-template-columns:minmax(0,1fr);gap:14px}.pasos > li::before{width:48px;height:48px;font-size:1.4rem;border-radius:14px}}
+
+.pantalla-video{min-height:0;aspect-ratio:9/20;background:var(--tinta)}
+.pantalla-video video{width:100%;height:100%;object-fit:cover;display:block}
