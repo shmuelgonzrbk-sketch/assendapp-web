@@ -341,3 +341,6 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   }
   window.addEventListener('scroll', marcar, { passive: true }); marcar();
 })();
+
+// respaldo-3d: si en 10 s el 3D no apareció, se muestra el teléfono normal
+setTimeout(function(){document.querySelectorAll('.movil:not(.con-3d)').forEach(function(m){m.classList.add('sin-3d');});},10000);

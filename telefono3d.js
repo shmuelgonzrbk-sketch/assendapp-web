@@ -311,14 +311,19 @@ async function iniciar(caja) {
         if (pausa > 3500 && Math.abs(meta - rotY) < 0.25) reiniciar.hidden = true;
       }
     }
+    // Entrada: sale desde lejos, chiquito y girando con fuerza, y crece hasta su tamaño
+    let escalaIntro = 1;
     if (intro < 1) {
       if (arrastrando) intro = 1;
       else {
         intro = Math.min(1, intro + dt / 2.8);
-        const e = 1 - Math.pow(1 - intro, 5);          // rápido al inicio, frena suave
-        rotY = REPOSO_Y - (1 - e) * Math.PI * 6; rotX = REPOSO_X; velY = velX = 0;
+        const e = 1 - Math.pow(1 - intro, 5);                       // gira rápido y frena suave
+        rotY = REPOSO_Y - (1 - e) * Math.PI * 6; rotX = REPOSO_X + (1 - e) * 0.35; velY = velX = 0;
+        const c = Math.min(1, intro / 0.85);                        // crece poco a poco, como acercándose
+        escalaIntro = 0.03 + 0.97 * (1 - Math.pow(1 - c, 2.2));
       }
     }
+    telefono.scale.setScalar(escalaIntro);
     telefono.rotation.set(rotX, rotY, 0, 'YXZ');
     if (distBase) {
       const meta = Math.max(distBase, distNecesaria());
@@ -331,7 +336,7 @@ async function iniciar(caja) {
     // La sombra se ensancha o se angosta según cuánto del frente se ve
     const ancho = Math.abs(Math.cos(rotY)) * W + Math.abs(Math.sin(rotY)) * (D + 0.4);
     sombra.scale.set(ancho * 1.6 + 1.5, 3.2 + Math.abs(Math.sin(rotY)) * 1.5, 1);
-    sombra.material.opacity = 0.75 - Math.abs(rotX) * 0.5;
+    sombra.material.opacity = (0.75 - Math.abs(rotX) * 0.5) * escalaIntro;
 
     if (chat && !menosMovimiento) { chat.avanzar(dt); mapa.needsUpdate = true; }
     renderer.render(escena, camara);

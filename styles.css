@@ -803,3 +803,8 @@ html:has(.legal){scroll-padding-top:88px}
 @media (prefers-reduced-motion:reduce){.con-webgl .movil::before,.con-webgl #mapaDemo::before{animation:none}}
 
 /* sin-blanco */
+
+/* entrada-3d: mientras carga el 3D no se muestra el teléfono fijo; el 3D llega desde lejos */
+.con-webgl .movil:not(.con-3d):not(.sin-3d) .movil-cuerpo{visibility:hidden}
+.con-webgl .movil:not(.con-3d):not(.sin-3d)::after{display:none}
+.movil-3d{animation:none}
