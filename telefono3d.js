@@ -202,6 +202,11 @@ async function iniciar(caja) {
   let arrastrando = false, ultimoToque = -1e9, ultimoX = 0, ultimoY = 0, ultimoT = 0, volviendo = false;
   let tiempo = 0;
   let intro = matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 0;   // vuelta de entrada
+  // Solo en celular: la entrada empieza cuando el teléfono ya se ve bien en la pantalla
+  let introListo = !matchMedia('(max-width: 900px), (pointer: coarse)').matches;
+  if (!introListo) new IntersectionObserver(([en], ob) => {
+    if (en.intersectionRatio >= 0.45) { introListo = true; ob.disconnect(); }
+  }, { threshold: [0.45] }).observe(caja);
 
   const idaAlReposo = () => {
     // El reposo más cercano a la vuelta actual, para no dar media vuelta de regreso
@@ -313,7 +318,8 @@ async function iniciar(caja) {
     }
     // Entrada: sale desde lejos, chiquito y girando con fuerza, y crece hasta su tamaño
     let escalaIntro = 1;
-    if (intro < 1) {
+    if (intro < 1 && !introListo) escalaIntro = 0.001;           // en celular: espera a que llegues al teléfono
+    else if (intro < 1) {
       if (arrastrando) intro = 1;
       else {
         intro = Math.min(1, intro + dt / 2.8);
