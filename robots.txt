@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /p
-Sitemap: https://ascendprogress.vercel.app/sitemap.xml
+Sitemap: https://orbyday.vercel.app/sitemap.xml
