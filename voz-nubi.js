@@ -1,5 +1,5 @@
-// Animación del modo voz de Nubi dibujada en un canvas (pantalla del teléfono
-// mientras no exista el video real /video/nubi-voz.mp4). Copia la pantalla "Hablar con Nubi" de la app.
+// Animación del modo voz de Orby dibujada en un canvas (pantalla del teléfono
+// mientras no exista el video real /video/nubi-voz.mp4). Copia la pantalla "Hablar con Orby" de la app.
 
 const AZUL = '#2443A6', AZUL2 = '#315CF5', TINTA = '#1d2433', GRIS = '#6b7385';
 const FUENTE = '"Manrope", "Roboto", system-ui, sans-serif';
@@ -79,7 +79,7 @@ export function crearVoz({ ancho = 720, alto = 1600 } = {}) {
     ctx.beginPath(); ctx.moveTo(254 * S, 72 * S); ctx.lineTo(258 * S, 67 * S); ctx.stroke();
     texto('Voz rápida', 300, 75, 12.5, 800, TINTA);
 
-    // Círculo de Nubi con anillos
+    // Círculo de Orby con anillos
     const cx = 180, cy = 330;
     let pulso = 0;
     if (fase === 'habla') pulso = (Math.sin(lt * 9) * 0.5 + 0.5) * 0.7 + (Math.sin(lt * 23) * 0.5 + 0.5) * 0.3;
@@ -103,7 +103,7 @@ export function crearVoz({ ancho = 720, alto = 1600 } = {}) {
     icono(cx, cy + rebote, 90);
 
     // Estado
-    const estado = fase === 'oye' ? 'Te escucho…' : fase === 'piensa' ? 'Pensando…' : 'Nubi está hablando';
+    const estado = fase === 'oye' ? 'Te escucho…' : fase === 'piensa' ? 'Pensando…' : 'Orby está hablando';
     texto(estado, 180, 448, 15.5, 800, TINTA);
 
     // Lo que oye (se va escribiendo) o lo que responde (subtítulo)
@@ -144,7 +144,7 @@ export function crearVoz({ ancho = 720, alto = 1600 } = {}) {
     ctx.strokeStyle = '#fff'; ctx.lineWidth = 2.2 * S;
     ctx.beginPath(); ctx.arc(180 * S, 696 * S, 9 * S, 0.1 * Math.PI, 0.9 * Math.PI); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(180 * S, 705 * S); ctx.lineTo(180 * S, 710 * S); ctx.stroke();
-    texto(mic ? 'Habla cuando quieras' : 'Toca a Nubi para interrumpirla', 180, 752, 12, 600, GRIS);
+    texto(mic ? 'Habla cuando quieras' : 'Toca a Orby para interrumpirla', 180, 752, 12, 600, GRIS);
 
     // Barra de gestos
     rr(130 * S, 789 * S, 100 * S, 4 * S, 2 * S); ctx.fillStyle = TINTA; ctx.fill();

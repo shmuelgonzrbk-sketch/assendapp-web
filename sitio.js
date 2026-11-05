@@ -285,9 +285,9 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     function enviar() {
       esperar(160).then(function () {
         if (mio !== turno) return;
-        entrada.textContent = 'Escríbele a Nubi…'; barra.classList.remove('activa');
+        entrada.textContent = 'Escríbele a Orby…'; barra.classList.remove('activa');
         cuerpo.appendChild(nodo('div', 'dc-msg yo', '')).textContent = ej.f;
-        var fila = nodo('div', 'dc-fila', avatar() + '<span class="dc-pensando" aria-label="Nubi está escribiendo"><i></i><i></i><i></i></span>');
+        var fila = nodo('div', 'dc-fila', avatar() + '<span class="dc-pensando" aria-label="Orby está escribiendo"><i></i><i></i><i></i></span>');
         return esperar(260).then(function () { if (mio === turno) cuerpo.appendChild(fila); return esperar(750); }).then(function () {
           if (mio !== turno) return;
           fila.innerHTML = avatar();

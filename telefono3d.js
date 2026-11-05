@@ -73,7 +73,7 @@ async function iniciar(caja) {
   const escenario = document.createElement('div');
   escenario.className = 'movil-3d';
   escenario.innerHTML = `
-    <canvas tabindex="0" aria-label="Teléfono con la app Nubi. Arrástralo o usa las flechas del teclado para girarlo."></canvas>
+    <canvas tabindex="0" aria-label="Teléfono con la app Orby. Arrástralo o usa las flechas del teclado para girarlo."></canvas>
     <p class="movil-pista" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>Arrastra para explorar</p>
     <button class="movil-reiniciar" type="button" aria-label="Volver el teléfono a su posición inicial" hidden>
       <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>Volver al frente</button>`;

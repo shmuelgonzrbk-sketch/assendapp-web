@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Te compartieron un contacto | Nubi</title>
-<meta name="description" content="Alguien te compartió un contacto para que lo agregues en Nubi.">
+<title>Te compartieron un contacto | Orby</title>
+<meta name="description" content="Alguien te compartió un contacto para que lo agregues en Orby.">
 <meta name="robots" content="noindex">
 <meta name="referrer" content="no-referrer">
 <meta name="theme-color" content="#FAF9F6">
 <meta property="og:title" content="Te compartieron un contacto">
-<meta property="og:description" content="Ábrelo en Nubi para agregarlo a tus personas.">
+<meta property="og:description" content="Ábrelo en Orby para agregarlo a tus personas.">
 <meta property="og:image" content="https://ascendprogress.vercel.app/nubi-512.png">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="preload" href="/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -127,7 +127,7 @@ main{flex:1}
 </head>
 <body>
 <header class="cp-barra"><div class="ancho">
-  <a class="marca" href="/" aria-label="Nubi, ir al inicio"><svg viewBox="0 0 120 120" aria-hidden="true" style="width:38px;height:38px"><use href="#nubi"/></svg><span>Nubi</span></a>
+  <a class="marca" href="/" aria-label="Orby, ir al inicio"><svg viewBox="0 0 120 120" aria-hidden="true" style="width:38px;height:38px"><use href="#nubi"/></svg><span>Orby</span></a>
   <span class="cp-etiqueta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg>Contacto compartido</span>
 </div></header>
 
@@ -140,15 +140,15 @@ main{flex:1}
   <div class="cp-texto" id="texto">
     <span class="pega" id="pega">Te llegó un contacto</span>
     <h1 id="titulo">Alguien quiere compartir algo contigo.</h1>
-    <p class="lead" id="subtitulo">Tu próximo contacto está a un paso de llegar a Nubi.</p>
+    <p class="lead" id="subtitulo">Tu próximo contacto está a un paso de llegar a Orby.</p>
     <div>
       <div class="cp-acciones" id="acciones">
-        <button class="btn azul" type="button" id="abrir">Abrir en Nubi</button>
-        <a class="btn" id="play" href="#">Instalar Nubi</a>
+        <button class="btn azul" type="button" id="abrir">Abrir en Orby</button>
+        <a class="btn" id="play" href="#">Instalar Orby</a>
       </div>
       <p class="cp-nota" id="nota" aria-live="polite"></p>
       <p class="cp-aviso" id="avisoApp" hidden></p>
-      <div class="cp-qr" id="qr" hidden><div id="qrDibujo" aria-hidden="true"></div><p><b>Ábrelo en tu celular</b>Nubi es para Android. Escanea este código con la cámara del celular para abrir el contacto allí.</p></div>
+      <div class="cp-qr" id="qr" hidden><div id="qrDibujo" aria-hidden="true"></div><p><b>Ábrelo en tu celular</b>Orby es para Android. Escanea este código con la cámara del celular para abrir el contacto allí.</p></div>
     </div>
   </div>
   <div class="cp-objeto" id="objeto" aria-live="polite">
@@ -162,10 +162,10 @@ main{flex:1}
 <section class="cp-privacidad" aria-labelledby="priv-titulo"><div class="ancho">
   <div>
     <h2 id="priv-titulo">Tus contactos, bajo tu control.</h2>
-    <p class="lead">Los datos del contacto viajan dentro del propio enlace. No pasan por ningún servidor de Nubi: esta página los lee aquí, en tu teléfono.</p>
+    <p class="lead">Los datos del contacto viajan dentro del propio enlace. No pasan por ningún servidor de Orby: esta página los lee aquí, en tu teléfono.</p>
     <ul class="puntos">
       <li>La parte del enlace que lleva los datos (después del #) no se envía a internet al abrir esta página</li>
-      <li>Nubi no guarda una copia: el contacto solo existe en el teléfono de quien lo envió y en el tuyo</li>
+      <li>Orby no guarda una copia: el contacto solo existe en el teléfono de quien lo envió y en el tuyo</li>
       <li>El enlace sí pasa por la app que usaron para enviártelo, como WhatsApp</li>
     </ul>
   </div>
@@ -179,7 +179,7 @@ main{flex:1}
 </div></section>
 </main>
 
-<footer class="cp-pie"><div class="ancho"><span>Nubi es una herramienta independiente. No está afiliada a la Watch Tower Bible and Tract Society of Pennsylvania.</span><span><a href="/privacidad">Privacidad</a> · <a href="/">Conoce Nubi</a></span></div></footer>
+<footer class="cp-pie"><div class="ancho"><span>Orby es una herramienta independiente. No está afiliada a la Watch Tower Bible and Tract Society of Pennsylvania.</span><span><a href="/privacidad">Privacidad</a> · <a href="/">Conoce Orby</a></span></div></footer>
 
 <script>
 const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
@@ -236,10 +236,10 @@ const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
     $('pega').textContent = 'Enlace incompleto';
     $('titulo').textContent = 'Este enlace no trae un contacto.';
     $('subtitulo').textContent = c.error === 'vacio'
-      ? 'Parece que se perdió la parte final del enlace. Pídele a quien te lo envió que lo comparta otra vez desde Nubi.'
+      ? 'Parece que se perdió la parte final del enlace. Pídele a quien te lo envió que lo comparta otra vez desde Orby.'
       : 'No pudimos leer los datos. A veces pasa si el enlace se cortó al copiarlo. Pide que te lo reenvíen.';
     abrir.remove();
-    play.textContent = 'Conocer Nubi'; play.href = '/'; play.classList.add('azul');
+    play.textContent = 'Conocer Orby'; play.href = '/'; play.classList.add('azul');
     tarjeta.classList.add('vacia');
     var cab = el('div', 'cab');
     var av = el('div', 'cp-avatar'); av.style.background = '#E9E5DD'; av.innerHTML = icono('roto'); av.querySelector('svg').style.cssText = 'width:30px;height:30px';
@@ -248,7 +248,7 @@ const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
     tarjeta.appendChild(el('p', 'cp-solo', 'Por privacidad, los datos del contacto viajan solo dentro del enlace. Si el enlace llegó cortado, no hay otra copia en ningún lado.'));
   } else {
     // ── Contacto listo ──
-    document.title = 'Te compartieron a ' + c.nombre + ' | Nubi';
+    document.title = 'Te compartieron a ' + c.nombre + ' | Orby';
     $('titulo').textContent = 'Alguien quiere compartir a ' + c.nombre.split(/\s+/)[0] + ' contigo.';
     var cab2 = el('div', 'cab');
     var col = colorDe(c.nombre);
@@ -269,7 +269,7 @@ const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
       });
       tarjeta.appendChild(ul);
     } else {
-      tarjeta.appendChild(el('p', 'cp-solo', 'Este contacto solo trae el nombre. Podrás completar su dirección y demás datos al agregarlo en Nubi.'));
+      tarjeta.appendChild(el('p', 'cp-solo', 'Este contacto solo trae el nombre. Podrás completar su dirección y demás datos al agregarlo en Orby.'));
     }
   }
 
@@ -278,14 +278,14 @@ const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
   // ── Dentro de WhatsApp, Instagram, etc. ──
   if (enAppInterna && !c.error) {
     aviso.hidden = false;
-    aviso.innerHTML = 'Estás dentro de otra app. Si «Abrir en Nubi» no funciona, toca <b>⋮</b> arriba a la derecha y elige <b>Abrir en Chrome</b>.';
+    aviso.innerHTML = 'Estás dentro de otra app. Si «Abrir en Orby» no funciona, toca <b>⋮</b> arriba a la derecha y elige <b>Abrir en Chrome</b>.';
   }
 
-  // ── En computadora o iPhone: Nubi es para Android ──
+  // ── En computadora o iPhone: Orby es para Android ──
   if (!esAndroid && !c.error) {
-    abrir.textContent = 'Nubi es solo para Android';
+    abrir.textContent = 'Orby es solo para Android';
     abrir.disabled = true; abrir.classList.remove('azul');
-    play.classList.add('azul'); play.textContent = 'Ver Nubi en Google Play';
+    play.classList.add('azul'); play.textContent = 'Ver Orby en Google Play';
     if (!esMovil) {
       var s = document.createElement('script'); s.src = '/vendor/qrcode.js';
       s.onload = function () {
@@ -307,7 +307,7 @@ const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
   if (esAndroid && !c.error) abrir.addEventListener('click', function () {
     var inicio = Date.now(), salio = false;
     abrir.disabled = true;
-    abrir.innerHTML = '<span class="giro" aria-hidden="true"></span>Abriendo Nubi…';
+    abrir.innerHTML = '<span class="giro" aria-hidden="true"></span>Abriendo Orby…';
     nota.textContent = '';
     var alOcultar = function () { if (document.hidden) salio = true; };
     document.addEventListener('visibilitychange', alOcultar);
@@ -319,14 +319,14 @@ const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
       }
       setTimeout(function () {
         restaurar();
-        if (!salio) nota.innerHTML = '¿No se abrió? Si aún no tienes Nubi, <b>instálala</b> y vuelve a este mismo enlace: el contacto seguirá aquí.';
+        if (!salio) nota.innerHTML = '¿No se abrió? Si aún no tienes Orby, <b>instálala</b> y vuelve a este mismo enlace: el contacto seguirá aquí.';
       }, 1800);
     }, 2000);
     // Al volver al navegador, el enlace sigue sirviendo
     document.addEventListener('visibilitychange', function volver() {
       if (!document.hidden && salio) {
         restaurar();
-        nota.innerHTML = '¿Ya lo agregaste? Si Nubi no lo mostró, toca <b>Abrir en Nubi</b> otra vez.';
+        nota.innerHTML = '¿Ya lo agregaste? Si Orby no lo mostró, toca <b>Abrir en Orby</b> otra vez.';
         document.removeEventListener('visibilitychange', volver);
         document.removeEventListener('visibilitychange', alOcultar);
       }

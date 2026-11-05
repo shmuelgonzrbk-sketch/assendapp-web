@@ -1,4 +1,4 @@
-// Animación del chat de Nubi dibujada en un canvas (se usa como pantalla
+// Animación del chat de Orby dibujada en un canvas (se usa como pantalla
 // del teléfono mientras no exista el video real /video/nubi-chat.mp4).
 // Copia el diseño del chat de la app: cabecera, burbujas, chips y barra para escribir.
 
@@ -190,7 +190,7 @@ export function crearChat({ ancho = 720, alto = 1600 } = {}) {
     ctx.lineWidth = 2.2 * S; ctx.strokeStyle = TINTA; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     ctx.beginPath(); ctx.moveTo(14 * S, 55 * S); ctx.lineTo(19 * S, 60 * S); ctx.lineTo(24 * S, 55 * S); ctx.stroke();
     nubiMini(32, 40, 38);
-    texto('Nubi', 78, 56, 17, 800, TINTA);
+    texto('Orby', 78, 56, 17, 800, TINTA);
     ctx.beginPath(); ctx.arc(81 * S, 69 * S, 2.6 * S, 0, Math.PI * 2); ctx.fillStyle = '#9aa0b0'; ctx.fill();
     texto('Modo básico', 88, 73, 11.5, 600, GRIS);
     // altavoz silenciado
@@ -214,7 +214,7 @@ export function crearChat({ ancho = 720, alto = 1600 } = {}) {
       texto(mostrar, 30, 757, 14, 500, TINTA);
       if (Math.floor(tl * 2.5) % 2 === 0) { ctx.fillStyle = AZUL; ctx.fillRect((31 + medir(mostrar, 14, 500)) * S, 743 * S, 1.6 * S, 19 * S); }
       ctx.restore();
-    } else texto('Escríbele a Nubi…', 30, 757, 14, 500, '#8a91a3');
+    } else texto('Escríbele a Orby…', 30, 757, 14, 500, '#8a91a3');
     ctx.beginPath(); ctx.arc(326 * S, 752 * S, 22 * S, 0, Math.PI * 2); ctx.fillStyle = AZUL; ctx.fill();
     if (escribiendo) {
       ctx.strokeStyle = '#fff'; ctx.lineWidth = 2.4 * S;
