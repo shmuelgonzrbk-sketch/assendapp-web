@@ -314,9 +314,9 @@ async function iniciar(caja) {
     if (intro < 1) {
       if (arrastrando) intro = 1;
       else {
-        intro = Math.min(1, intro + dt / 1.5);
-        const e = 1 - Math.pow(1 - intro, 4);          // rápido al inicio, frena suave
-        rotY = REPOSO_Y - (1 - e) * Math.PI * 2; rotX = REPOSO_X; velY = velX = 0;
+        intro = Math.min(1, intro + dt / 2.8);
+        const e = 1 - Math.pow(1 - intro, 5);          // rápido al inicio, frena suave
+        rotY = REPOSO_Y - (1 - e) * Math.PI * 6; rotX = REPOSO_X; velY = velX = 0;
       }
     }
     telefono.rotation.set(rotX, rotY, 0, 'YXZ');
