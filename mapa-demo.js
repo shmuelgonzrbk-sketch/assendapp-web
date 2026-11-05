@@ -9,7 +9,7 @@ if (caja) {
     ob.disconnect();
     cargar().then(iniciar).catch((err) => { caja.classList.add('sin-mapa'); console.warn('Mapa de demostración no disponible:', err); });
     setTimeout(() => { if (!caja.classList.contains('mapa-listo')) caja.classList.add('sin-mapa'); }, 15000);
-  }, { rootMargin: '1200px' }).observe(caja);
+  }, { rootMargin: '3000px' }).observe(caja);
 }
 
 const ESTILO = window.NUBI_ESTILO_MAPA || 'https://tiles.openfreemap.org/styles/liberty';
