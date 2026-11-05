@@ -223,3 +223,121 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   }
   elegir(semana.findIndex(function (x) { return x.hoy; }), false);
 })();
+
+// «Prueba a decirle»: demostración de conversación (respuestas de ejemplo, sin IA real)
+(function () {
+  var raiz = document.getElementById('demoNubi');
+  if (!raiz) return;
+  var cuerpo = document.getElementById('demoCuerpo'), entrada = document.getElementById('demoEntrada');
+  var chips = document.getElementById('demoChips'), barra = raiz.querySelector('.dc-escribir');
+  var menosMov = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var OK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  // a: acciones comprendidas [texto, tipo] · tipo: '' hecho, 'dato' detalle, 'falta' le falta un dato
+  var EJ = [
+    { f: 'Conocí a Rosa en el mercado, vuelvo el viernes a las 4',
+      r: 'Listo, guardé a Rosa en tus revisitas. La visitas el viernes a las 4:00 p. m. y te aviso antes.',
+      a: [['Persona nueva: Rosa', ''], ['Revisita', 'dato'], ['Vie 4:00 p. m.', 'dato'], ['Aviso antes', 'dato']], b: ['Deshacer'] },
+    { f: 'Hoy hice 2 horas y media',
+      r: 'Anotado: 2 h 30 min hoy. Llevas 10 h 30 min este mes y te faltan 39 h 30 min para tu meta.',
+      a: [['Horas: +2 h 30 min', ''], ['Hoy', 'dato'], ['Meta al 21 %', 'dato']], b: ['Deshacer'] },
+    { f: 'Tengo lectura de la Biblia el jueves',
+      r: 'Agregué tu lectura de la Biblia para el jueves a las 7:00 p. m. ¿Qué pasaje te tocó?',
+      a: [['Asignación nueva', ''], ['Lectura de la Biblia', 'dato'], ['Jue 7:00 p. m.', 'dato'], ['Falta el pasaje', 'falta']] },
+    { f: '¿A quién me toca visitar?',
+      r: 'Esta semana tienes 3 visitas:\n· Rosa Pérez, viernes 4:00 p. m.\n· José Mendoza, sábado 10:30 a. m.\n· Miguel Flores, se te pasó el lunes',
+      a: [['Consulté tu agenda', ''], ['3 visitas', 'dato'], ['1 atrasada', 'falta']] },
+    { f: 'Cambia la visita de Rosa al sábado a las 5',
+      r: 'Listo, pasé la visita de Rosa al sábado a las 5:00 p. m. También moví su aviso.',
+      a: [['Visita movida', ''], ['Rosa Pérez', 'dato'], ['Sáb 5:00 p. m.', 'dato']], b: ['Deshacer'] },
+    { f: 'Ayúdame con un horario, trabajo de lunes a viernes de 8 a 1',
+      r: 'Te propongo esto para llegar a tu meta:\n· Lunes, miércoles y viernes, 3:00 a 5:00 p. m.\n· Sábado, 9:00 a. m. a 12:00 p. m.\nSon 9 h por semana.',
+      a: [['Horario propuesto', ''], ['Respeta tu trabajo', 'dato'], ['9 h por semana', 'dato']], b: ['Aplicar a Mi Horario', 'Más horas'] },
+    { f: 'Pásame el contacto de Pedro',
+      r: 'Aquí tienes a Pedro Ramírez:',
+      a: [['Contacto encontrado', ''], ['Pedro Ramírez', 'dato']], b: ['Llamar', 'WhatsApp', 'Cómo llegar', 'Compartir'] },
+    { f: 'Fui donde María pero no estaba',
+      r: 'Anoté en el historial de María que hoy no estaba. ¿Quieres programar otra visita?',
+      a: [['Visita anotada', ''], ['María López', 'dato'], ['No estaba', 'falta']], b: ['Programar visita'] },
+  ];
+
+  var turno = 0, tiempos = [];
+  function esperar(ms) { return new Promise(function (ok) { tiempos.push(setTimeout(ok, menosMov ? 0 : ms)); }); }
+  function nodo(tag, cls, html) { var e = document.createElement(tag); e.className = cls; if (html != null) e.innerHTML = html; return e; }
+  function avatar() { return '<svg class="dc-av" viewBox="0 0 120 120" aria-hidden="true"><use href="#nubi"/></svg>'; }
+
+  function mostrar(i) {
+    var mio = ++turno, ej = EJ[i];
+    tiempos.forEach(clearTimeout); tiempos = [];
+    [].forEach.call(chips.children, function (c, k) { c.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
+    cuerpo.classList.add('saliendo');
+    esperar(170).then(function () {
+      if (mio !== turno) return;
+      cuerpo.innerHTML = ''; cuerpo.classList.remove('saliendo');
+      // Se escribe la frase en la barra y se envía
+      barra.classList.add('activa');
+      var n = 0, paso = function () {
+        if (mio !== turno) return;
+        n += 2; entrada.textContent = ej.f.slice(0, n);
+        if (n < ej.f.length && !menosMov) tiempos.push(setTimeout(paso, 16)); else enviar();
+      };
+      paso();
+    });
+    function enviar() {
+      esperar(160).then(function () {
+        if (mio !== turno) return;
+        entrada.textContent = 'Escríbele a Nubi…'; barra.classList.remove('activa');
+        cuerpo.appendChild(nodo('div', 'dc-msg yo', '')).textContent = ej.f;
+        var fila = nodo('div', 'dc-fila', avatar() + '<span class="dc-pensando" aria-label="Nubi está escribiendo"><i></i><i></i><i></i></span>');
+        return esperar(260).then(function () { if (mio === turno) cuerpo.appendChild(fila); return esperar(750); }).then(function () {
+          if (mio !== turno) return;
+          fila.innerHTML = avatar();
+          fila.appendChild(nodo('div', 'dc-msg el', '')).textContent = ej.r;
+          var acc = nodo('div', 'dc-acciones', '');
+          ej.a.forEach(function (x, k) {
+            var s = nodo('span', 'dc-acc ' + x[1], (x[1] ? '' : OK) + '');
+            s.appendChild(document.createTextNode(x[0])); s.style.animationDelay = (0.25 + k * 0.08) + 's'; acc.appendChild(s);
+          });
+          cuerpo.appendChild(acc);
+          if (ej.b) {
+            var bt = nodo('div', 'dc-botones', '');
+            ej.b.forEach(function (x, k) { var s = nodo('span', k === 0 ? 'prin' : '', ''); s.textContent = x; s.style.animationDelay = (0.45 + k * 0.06) + 's'; bt.appendChild(s); });
+            cuerpo.appendChild(bt);
+          }
+        });
+      });
+    }
+  }
+
+  EJ.forEach(function (ej, i) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'dc-chip'; b.textContent = '«' + ej.f + '»';
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () { mostrar(i); });
+    chips.appendChild(b);
+  });
+
+  // El primer ejemplo se reproduce solo al llegar a la sección
+  if ('IntersectionObserver' in window && !menosMov) {
+    new IntersectionObserver(function (e, ob) { if (e[0].isIntersecting) { ob.disconnect(); mostrar(0); } }, { threshold: 0.45 }).observe(raiz);
+  } else mostrar(0);
+})();
+
+// Índice de las páginas legales: muestra la sección actual y se cierra al elegir
+(function () {
+  var ind = document.querySelector('.legal .indice-movil');
+  if (!ind) return;
+  var sum = ind.querySelector('summary');
+  var actual = document.createElement('span'); actual.className = 'actual'; sum.appendChild(actual);
+  var links = [].slice.call(ind.querySelectorAll('a[href^="#"]'));
+  links.forEach(function (a) { a.addEventListener('click', function () { ind.open = false; }); });
+  document.addEventListener('click', function (e) { if (ind.open && !ind.contains(e.target)) ind.open = false; });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && ind.open) { ind.open = false; sum.focus(); } });
+  var secciones = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);
+  function marcar() {
+    var y = window.scrollY + 170, k = 0;
+    secciones.forEach(function (s, i) { if (s.offsetTop <= y) k = i; });
+    links.forEach(function (a, i) { a.classList.toggle('activo', i === k); });
+    actual.textContent = links[k] ? links[k].textContent : '';
+  }
+  window.addEventListener('scroll', marcar, { passive: true }); marcar();
+})();
