@@ -225,6 +225,7 @@ async function iniciar(caja) {
     // Resistencia tipo goma al pasar el límite de inclinación
     const fuera = Math.abs(rotX) > LIM_X ? 0.3 : 1;
     rotX += dy * fy * fuera;
+    rotX = Math.max(-LIM_X - 0.3, Math.min(LIM_X + 0.3, rotX));
     velY = (dx * fx) * (16 / dt); velX = (dy * fy * fuera) * (16 / dt);
     ultimoX = e.clientX; ultimoY = e.clientY; ultimoT = ahora;
   };
@@ -252,6 +253,19 @@ async function iniciar(caja) {
   });
 
   // ── Tamaño ──
+  // La cámara se aleja sola cuando el teléfono gira, para que siempre se vea completo
+  let distBase = 0, camZ = 0;
+  const _rot = new THREE.Matrix4(), _eul = new THREE.Euler(), _v = new THREE.Vector3();
+  const distNecesaria = () => {
+    _rot.makeRotationFromEuler(_eul.set(rotX, rotY, 0, 'YXZ'));
+    let ex = 0, ey = 0, ez = 0;
+    for (const sx of [-1, 1]) for (const sy of [-1, 1]) for (const sz of [-1, 1]) {
+      _v.set(sx * W / 2, sy * H / 2, sz * D / 2).applyMatrix4(_rot);
+      ex = Math.max(ex, Math.abs(_v.x)); ey = Math.max(ey, Math.abs(_v.y)); ez = Math.max(ez, _v.z);
+    }
+    const tv = Math.tan(THREE.MathUtils.degToRad(camara.fov / 2));
+    return Math.max(ey * 1.2 / tv, ex * 1.25 / (tv * camara.aspect)) + ez;
+  };
   const ajustar = () => {
     const r = escenario.getBoundingClientRect();
     if (!r.width) return;
@@ -260,9 +274,8 @@ async function iniciar(caja) {
     // Que el teléfono quepa a lo alto con un margen
     const alto = H * 1.2;
     const dist = (alto / 2) / Math.tan(THREE.MathUtils.degToRad(camara.fov / 2));
-    camara.position.z = Math.max(dist, (W * 1.35 / 2) / Math.tan(THREE.MathUtils.degToRad(camara.fov / 2)) / camara.aspect);
-    camara.position.y = camara.position.z * 0.1;
-    camara.lookAt(0, -0.6, 0);
+    distBase = Math.max(dist, (W * 1.35 / 2) / Math.tan(THREE.MathUtils.degToRad(camara.fov / 2)) / camara.aspect);
+    if (!camZ) camZ = distBase;
     camara.updateProjectionMatrix();
   };
   new ResizeObserver(ajustar).observe(escenario);
@@ -298,6 +311,12 @@ async function iniciar(caja) {
       }
     }
     telefono.rotation.set(rotX, rotY, 0, 'YXZ');
+    if (distBase) {
+      const meta = Math.max(distBase, distNecesaria());
+      camZ += (meta - camZ) * (1 - Math.pow(0.85, f));
+      camara.position.set(0, camZ * 0.1, camZ);
+      camara.lookAt(0, -0.6, 0);
+    }
     telefono.position.y = menosMovimiento ? 0 : Math.sin(tiempo * 0.9) * 0.12;
 
     // La sombra se ensancha o se angosta según cuánto del frente se ve
