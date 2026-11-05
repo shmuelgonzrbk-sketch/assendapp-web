@@ -7,7 +7,7 @@ import { crearVoz } from './voz-nubi.js';
 
 // Cada .movil de la página se vuelve un teléfono 3D.
 // data-respaldo="chat" o "voz": mientras no exista su video, la pantalla muestra esa animación.
-document.querySelectorAll('.movil').forEach((caja) => iniciar(caja).catch((e) => console.warn('Teléfono 3D no disponible:', e)));
+document.querySelectorAll('.movil').forEach((caja) => iniciar(caja).catch((e) => { caja.classList.add('sin-3d'); console.warn('Teléfono 3D no disponible:', e); }));
 
 // Sin WebGL: el chat animado va dentro del teléfono de CSS
 function chatSinWebGL(caja, chat, menosMovimiento) {
@@ -67,7 +67,7 @@ function texturaSombra() {
 async function iniciar(caja) {
   const menosMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let chat = caja.dataset.respaldo === 'chat' ? crearChat() : caja.dataset.respaldo === 'voz' ? crearVoz() : null;
-  if (!hayWebGL()) { if (chat) chatSinWebGL(caja, chat, menosMovimiento); return; }
+  if (!hayWebGL()) { caja.classList.add('sin-3d'); if (chat) chatSinWebGL(caja, chat, menosMovimiento); return; }
 
   // ── Escenario ──
   const escenario = document.createElement('div');
@@ -91,7 +91,7 @@ async function iniciar(caja) {
   const pmrem = new THREE.PMREMGenerator(renderer);
   escena.environment = pmrem.fromScene(new RoomEnvironment(renderer), 0.04).texture;
 
-  const camara = new THREE.PerspectiveCamera(24, 1, 1, 200);
+  const camara = new THREE.PerspectiveCamera(24, 1, 20, 160); // capas separadas: más precisión de profundidad en celulares
   camara.position.set(0, 4.5, 46);
 
   const luz = new THREE.DirectionalLight(0xffffff, 1.6); luz.position.set(-12, 18, 20); escena.add(luz);
@@ -133,23 +133,23 @@ async function iniciar(caja) {
   const zFrente = D / 2 + B, zAtras = -(D / 2 + B);
   // Cristal frontal (negro, con reflejos)
   const frente = new THREE.Mesh(planoRedondo(W - 0.16, H - 0.16, R - 0.08), vidrioNegro);
-  frente.position.z = zFrente + 0.002; telefono.add(frente);
+  frente.position.z = zFrente + 0.02; telefono.add(frente);
   // Pantalla con el video
   const SW = W - 0.42, SH = SW * 20 / 9 > H - 0.42 ? H - 0.42 : SW * 20 / 9;
-  const pantallaMat = new THREE.MeshBasicMaterial({ map: mapa || null, color: mapa ? 0xffffff : 0x111111, toneMapped: false });
+  const pantallaMat = new THREE.MeshBasicMaterial({ map: mapa || null, color: mapa ? 0xffffff : 0x111111, toneMapped: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -8 });
   const pantalla = new THREE.Mesh(planoRedondo(SW, SH, R - 0.22), pantallaMat);
-  pantalla.position.z = zFrente + 0.006; telefono.add(pantalla);
+  pantalla.position.z = zFrente + 0.05; pantalla.renderOrder = 1; telefono.add(pantalla);
   // Capa de vidrio encima: solo aporta reflejos suaves
   const brillo = new THREE.Mesh(planoRedondo(W - 0.16, H - 0.16, R - 0.08),
     new THREE.MeshPhysicalMaterial({ color: 0xffffff, transparent: true, opacity: 0.06, roughness: 0.02, metalness: 0, clearcoat: 1, envMapIntensity: 1.6, depthWrite: false }));
-  brillo.position.z = zFrente + 0.012; telefono.add(brillo);
+  brillo.position.z = zFrente + 0.09; brillo.renderOrder = 2; telefono.add(brillo);
   // Cámara frontal
   const perforacion = new THREE.Mesh(new THREE.CircleGeometry(0.17, 32), new THREE.MeshPhysicalMaterial({ color: 0x020203, roughness: 0.1, clearcoat: 1 }));
-  perforacion.position.set(0, SH / 2 - 0.42, zFrente + 0.014); telefono.add(perforacion);
+  perforacion.position.set(0, SH / 2 - 0.42, zFrente + 0.07); perforacion.renderOrder = 2; telefono.add(perforacion);
 
   // Tapa trasera de vidrio esmerilado
   const atras = new THREE.Mesh(planoRedondo(W - 0.16, H - 0.16, R - 0.08), traseraMat);
-  atras.rotation.y = Math.PI; atras.position.z = zAtras - 0.002; telefono.add(atras);
+  atras.rotation.y = Math.PI; atras.position.z = zAtras - 0.02; telefono.add(atras);
 
   // Módulo de cámaras traseras
   const modulo = new THREE.Mesh(bloque(2.5, 3.4, 0.08, 0.55, 0.06), new THREE.MeshPhysicalMaterial({ color: 0x1b1d21, metalness: 0.6, roughness: 0.25, clearcoat: 1 }));

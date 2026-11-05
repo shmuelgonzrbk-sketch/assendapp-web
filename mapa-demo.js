@@ -7,8 +7,9 @@ if (caja) {
   new IntersectionObserver((e, ob) => {
     if (!e[0].isIntersecting) return;
     ob.disconnect();
-    cargar().then(iniciar).catch((err) => console.warn('Mapa de demostración no disponible:', err));
-  }, { rootMargin: '300px' }).observe(caja);
+    cargar().then(iniciar).catch((err) => { caja.classList.add('sin-mapa'); console.warn('Mapa de demostración no disponible:', err); });
+    setTimeout(() => { if (!caja.classList.contains('mapa-listo')) caja.classList.add('sin-mapa'); }, 15000);
+  }, { rootMargin: '1200px' }).observe(caja);
 }
 
 const ESTILO = window.NUBI_ESTILO_MAPA || 'https://tiles.openfreemap.org/styles/liberty';
@@ -52,7 +53,7 @@ function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.
 function esc(s) { return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 
 function iniciar() {
-  if (!hayWebGL() || !window.maplibregl) return;
+  if (!hayWebGL() || !window.maplibregl) { caja.classList.add('sin-mapa'); return; }
   const ml = window.maplibregl;
 
   // ── Estructura dentro de la tarjeta ──
@@ -67,7 +68,7 @@ function iniciar() {
     </div>
     <div class="md-zoom"><button type="button" data-z="1" aria-label="Acercar">+</button><button type="button" data-z="-1" aria-label="Alejar">−</button></div>
     <button class="md-yo" type="button" aria-label="Ir a mi ubicación"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></button>
-    <p class="md-pista">Toca un pin para ver a la persona, o un punto del mapa para agregar a alguien.</p>
+    <p class="md-pista">Arrastra para moverte y pellizca para acercar. Toca un pin para ver a la persona o un punto para agregar a alguien.</p>
     <div class="md-ficha" hidden></div>
     <p class="md-aviso" hidden></p>`;
   caja.appendChild(marco);
@@ -78,7 +79,7 @@ function iniciar() {
 
   const map = new ml.Map({
     container: nodoMapa, style: ESTILO, center: RESPALDO, zoom: 14.6,
-    attributionControl: false, cooperativeGestures: true, pitchWithRotate: false, dragRotate: false,
+    attributionControl: false, cooperativeGestures: false, pitchWithRotate: false, dragRotate: false,
     fadeDuration: menosMov ? 0 : 300,
     locale: {
       'CooperativeGesturesHandler.WindowsHelpText': 'Usa Ctrl + rueda del mouse para acercar el mapa',
@@ -88,6 +89,13 @@ function iniciar() {
   });
   map.addControl(new ml.AttributionControl({ compact: true }), 'bottom-left');
   map.touchZoomRotate.disableRotation();
+  // En la PC la rueda sigue bajando la página; con Ctrl (o el gesto de pellizcar del trackpad) acerca el mapa
+  map.scrollZoom.disable();
+  nodoMapa.addEventListener('wheel', (e) => {
+    if (!(e.ctrlKey || e.metaKey)) return;
+    e.preventDefault();
+    map.zoomTo(map.getZoom() - e.deltaY * 0.01, { duration: 0, around: map.unproject([e.offsetX, e.offsetY]) });
+  }, { passive: false });
 
   let centro = RESPALDO, marcadorYo = null, nuevo = null, personas = [], filtro = 'todos';
   const ir = (o) => (menosMov ? map.jumpTo(o) : map.easeTo({ ...o, duration: 700 }));

@@ -790,3 +790,18 @@ html:has(.legal){scroll-padding-top:150px}
 /* sin índice legal */
 html:has(.legal){scroll-padding-top:88px}
 .legal{grid-template-columns:minmax(0,1fr);max-width:760px}
+
+/* ── Carga sin saltos: espacio de carga en vez de la imagen estática ── */
+@keyframes carga{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes aparece{from{opacity:0;transform:scale(.985)}}
+.con-webgl .movil:not(.con-3d):not(.sin-3d) .movil-cuerpo{visibility:hidden}
+.con-webgl .movil:not(.con-3d):not(.sin-3d)::before{content:"";position:absolute;inset:0 4%;border-radius:48px;
+  background:linear-gradient(100deg,rgba(23,23,23,.06) 30%,rgba(23,23,23,.12) 50%,rgba(23,23,23,.06) 70%) 0 0/200% 100%;animation:carga 1.4s linear infinite}
+.ia .con-webgl .movil:not(.con-3d):not(.sin-3d)::before,.con-webgl .ia .movil:not(.con-3d):not(.sin-3d)::before{background-image:linear-gradient(100deg,rgba(255,255,255,.12) 30%,rgba(255,255,255,.24) 50%,rgba(255,255,255,.12) 70%)}
+.movil-3d{animation:aparece .5s ease both}
+.con-webgl #mapaDemo:not(.mapa-listo):not(.sin-mapa) > svg{display:none}
+.con-webgl #mapaDemo:not(.mapa-listo):not(.sin-mapa)::before{content:"Cargando el mapa…";display:grid;place-items:center;height:clamp(400px,46vw,540px);border-radius:14px;
+  font-weight:700;font-size:.9rem;color:var(--gris);background:linear-gradient(100deg,#EFEDE8 30%,#F7F5F1 50%,#EFEDE8 70%) 0 0/200% 100%;animation:carga 1.4s linear infinite}
+@media (max-width:600px){.con-webgl #mapaDemo:not(.mapa-listo):not(.sin-mapa)::before{height:460px}}
+.mapa-listo .md-marco{animation:aparece .45s ease both}
+@media (prefers-reduced-motion:reduce){.con-webgl .movil::before,.con-webgl #mapaDemo::before{animation:none}}
