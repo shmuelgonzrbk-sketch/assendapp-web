@@ -57,13 +57,20 @@
   <div class="escena">
     <div class="fondo"></div>
     <svg class="chispa c1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5C13 8 16 11 22.5 12 16 13 13 16 12 22.5 11 16 8 13 1.5 12 8 11 11 8 12 1.5z" fill="#F2C94C" stroke="#171717" stroke-width="2" stroke-linejoin="round"/></svg><svg class="chispa c2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5C13 8 16 11 22.5 12 16 13 13 16 12 22.5 11 16 8 13 1.5 12 8 11 11 8 12 1.5z" fill="#F2C94C" stroke="#171717" stroke-width="2" stroke-linejoin="round"/></svg>
-    <div class="telefono"><div class="pantalla pantalla-video">
-      <video autoplay muted loop playsinline preload="metadata" poster="/video/nubi-app.jpg" aria-label="Video de la app Nubi en uso">
-        <source src="/video/nubi-app.mp4" type="video/mp4">
-      </video>
-    </div></div>
-    <div class="papelito">Visita a Rosa<small>vie 4:00 p. m.</small></div>
-    <svg class="nubi-grande" viewBox="-14 -26 170 180" role="img" aria-label="Nubi, la mascota de la app, saludando">
+    <div class="movil" role="img" aria-label="La app Nubi funcionando en un teléfono">
+      <div class="movil-cuerpo">
+        <span class="boton b1"></span><span class="boton b2"></span>
+        <div class="movil-pantalla">
+          <video autoplay muted loop playsinline preload="metadata" poster="/video/nubi-app.jpg" aria-hidden="true">
+            <source src="/video/nubi-app.mp4" type="video/mp4">
+          </video>
+          <span class="camara"></span>
+          <span class="brillo"></span>
+        </div>
+      </div>
+    </div>
+    
+<svg class="nubi-grande" viewBox="-14 -26 170 180" role="img" aria-label="Nubi, la mascota de la app, saludando">
 <path d="M14 84C2 86-6 96-4 106" fill="none" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
 <circle cx="-4" cy="108" r="7" fill="#fff" stroke="#171717" stroke-width="4.5"/>
 <path d="M106 70C122 60 128 42 124 26" fill="none" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
@@ -101,25 +108,50 @@
   <div class="texto"><span class="pega cielo">Personas y revisitas</span><h2>Cada persona, con su historia.</h2>
   <p class="lead">Guarda su dirección, el tema que conversaron, la pregunta que quedó pendiente y una libreta por visita. Antes de tocar la puerta ya sabes por dónde seguir.</p>
   <ul class="puntos"><li>Llama, escribe por WhatsApp o abre la ruta desde su ficha</li><li>Marca cuándo vuelves y recibe un aviso antes</li><li>Los cursos llevan la lección en la que van</li><li>Pasa un contacto a otro publicador con un enlace</li></ul></div>
-  <div class="dibujo"><div class="tarjeta ficha" role="img" aria-label="Ejemplo de la ficha de una persona en Nubi">
-  <div class="arriba"><span class="avatar">R</span><div><h3>Rosa Pérez</h3><span class="sub">Revisita en el territorio 12</span></div></div>
-  <div class="dato"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg><div><b>Tema que conversaron</b>¿Por qué existe el sufrimiento?</div></div>
-  <div class="dato"><svg class="ic" aria-hidden="true"><use href="#i-libro"/></svg><div><b>Pregunta pendiente</b>¿Qué pasa cuando morimos?</div></div>
-  <div class="dato"><svg class="ic" aria-hidden="true"><use href="#i-calendario"/></svg><div><b>Próxima visita</b>Viernes 14 de noviembre, 4:00 p. m.</div></div>
-  <div class="contactar"><span><svg class="ic" aria-hidden="true"><use href="#i-llamar"/></svg>Llamar</span><span><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</span><span><svg class="ic" aria-hidden="true"><use href="#i-ruta"/></svg>Cómo llegar</span><span><svg class="ic" aria-hidden="true"><use href="#i-compartir"/></svg>Compartir</span></div>
-</div><span class="pega etiqueta-flotante">Aviso 30 min antes</span></div>
+  <div class="dibujo"><div class="ficha-app" id="fichaApp">
+  <button class="fa-cab" type="button" aria-expanded="true" aria-controls="faCuerpo">
+    <span class="fa-avatar">A</span>
+    <span class="fa-nombre"><b>Ana Lucía Vargas</b><small>Curso bíblico · 11:00</small></span>
+    <span class="fa-chip">Regular</span>
+    <svg class="fa-flecha" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
+  </button>
+  <div class="fa-cuerpo" id="faCuerpo"><div>
+    <dl class="fa-datos">
+      <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg>Tema</dt><dd>La esperanza de la resurrección</dd></div>
+      <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2"/><path d="M4 7v12a2 2 0 0 0 2 2h11M11 7h5M11 11h5"/></svg>Publicación</dt><dd>Video: ¿Por qué estudiar la Biblia?</dd></div>
+      <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Progreso</dt><dd>Lección 27</dd></div>
+      <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Dirección</dt><dd>Jr. Bolívar 812, Huamachuco</dd></div>
+      <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M13 7l4 4"/></svg>Última nota</dt><dd>Le gustó mucho el tema. Quedamos en leer juntos el siguiente párrafo.</dd></div>
+    </dl>
+    <p class="fa-aviso"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16v-5a6 6 0 0 1 9.5-4.9M18 11v5l2 2H8M10 21h4M3 3l18 18"/></svg>Sin aviso</p>
+    <div class="fa-botones">
+      <span class="fa-b verde"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="currentColor" stroke="none"/></svg>Llamar</span>
+      <span class="fa-b azulito"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l10 10-10 10L2 12z" fill="currentColor" stroke="none"/><path d="M9 14v-2a2 2 0 0 1 2-2h4M13 8l2 2-2 2" stroke="#fff"/></svg>Cómo llegar</span>
+      <span class="fa-b lila"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="currentColor" stroke="none"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7z" fill="currentColor" stroke="none"/></svg>Ver ficha</span>
+    </div>
+  </div></div>
+</div><p class="ilustrativo">Así se ve una tarjeta en Actividades de hoy. Datos de ejemplo.</p></div>
 </div></section>
 
 <section class="bloque invertido"><div class="ancho">
   <div class="texto"><span class="pega cielo">Horas</span><h2>Tus horas, sin sacar cuentas.</h2>
   <p class="lead">Suma tiempo en un toque o díctalo. Nubi te dice cuánto llevas, cuánto te falta para tu meta y si vas adelantado.</p>
   <ul class="puntos"><li>Meta mensual o semanal según tu tipo de publicador</li><li>Tu informe se arma solo y lo envías por WhatsApp</li><li>Mi Horario compara lo que planeaste con lo que hiciste</li></ul></div>
-  <div class="dibujo"><div class="tarjeta medidor" role="img" aria-label="Ejemplo del contador de horas: 32,5 de 50 horas en el mes">
-  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><b style="font-family:var(--titulo);font-size:1.1rem">Noviembre</b><span class="pega cielo">Precursor regular</span></div>
-  <div class="cifra">32,5<small>de 50 h</small></div>
-  <div class="barra-horas"><i></i></div>
-  <div class="semanas"><div><b>8,5</b><small>Sem 1</small></div><div><b>10</b><small>Sem 2</small></div><div><b>9</b><small>Sem 3</small></div><div class="hoy"><b>5</b><small>Esta</small></div></div>
-</div></div>
+  <div class="dibujo"><div class="meta-app" id="metaApp">
+  <div class="ma-cab">
+    <span class="ma-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7z"/></svg></span>
+    <div class="ma-tit"><b>Precursor Regular</b><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Noviembre 2026</span></div>
+    <div class="ma-aro" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="27" class="fondo"/><circle cx="32" cy="32" r="27" class="lleno" id="maAro"/></svg><span id="maPct1">16%</span></div>
+  </div>
+  <p class="ma-cifra"><b id="maHoras">8</b><span>h</span></p>
+  <p class="ma-de">de <b>50 h</b> de meta</p>
+  <div class="ma-barra"><i id="maBarra"></i><span id="maPct2">16%</span></div>
+  <div class="ma-medio">
+    <span class="ma-atraso"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8" fill="currentColor" stroke="none"/><path d="M12 9v4l2 2M9 2h6" stroke="#fff"/></svg>Vas 5 h atrasado esta semana</span>
+    <span class="ma-hoy"><small>Hoy</small><b>0 min</b></span>
+  </div>
+  <p class="ma-pie"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#8a91a3" stroke="none"/><path d="M12 11v6M12 7.5v.5" stroke="#fff"/></svg>Necesitas ≈ <b>1 h 37 min por día</b> · quedan 26 días</p>
+</div><p class="ilustrativo">Así se ve tu meta en la app. Datos de ejemplo.</p></div>
 </div></section>
 
 <section class="bloque"><div class="ancho">
@@ -141,17 +173,18 @@
     <ul class="puntos"><li>Anotar horas</li><li>Agregar personas</li><li>Programar revisitas</li><li>Corregir datos</li><li>Contarte tu semana</li><li>Armar tu horario</li><li>Crear asignaciones</li><li>Pasarte un contacto</li></ul>
     <p class="aviso-ia">Nubi funciona dentro de tu teléfono. Si hace algo que no querías, toca Deshacer. Está en fase de prueba y puede equivocarse.</p>
     <div class="acciones"><a class="btn sol" href="/nubi-ia">Descubre Nubi IA</a></div></div>
-    <div><div class="tarjeta chat-ia">
-  <div class="cab"><svg class="" viewBox="0 0 120 120" aria-hidden="true"><use href="#nubi"/></svg><b>Nubi</b><span class="pega blanca"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg>Modo voz</span></div>
-  <div class="charla">
-    <div class="globo yo">Cambia la visita de Rosa al sábado a las 5</div>
-    <div class="globo el">Listo, la pasé al sábado 15 a las 5:00 p. m. También moví su aviso.</div>
-    <div class="deshacer"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Visita movida <span>Deshacer</span></div>
-    <div class="globo yo">Pásame el contacto de Pedro</div>
-    <div class="globo el">Aquí tienes a Pedro Ramírez:</div>
-    <div class="botones-chat"><span><svg class="ic" aria-hidden="true"><use href="#i-llamar"/></svg>Llamar</span><span><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</span><span><svg class="ic" aria-hidden="true"><use href="#i-ruta"/></svg>Cómo llegar</span></div>
-  </div>
-</div><p class="ilustrativo" style="color:#E3E9FF">Ejemplo ilustrativo de una conversación.</p></div>
+    <div><div class="movil movil-ia" data-respaldo="chat">
+      <div class="movil-cuerpo">
+        <span class="boton b1"></span><span class="boton b2"></span>
+        <div class="movil-pantalla">
+          <video muted loop playsinline preload="none" aria-hidden="true">
+            <source src="/video/nubi-chat.mp4" type="video/mp4">
+          </video>
+          <span class="camara"></span>
+          <span class="brillo"></span>
+        </div>
+      </div>
+    </div><p class="ilustrativo" style="color:#E3E9FF">Ejemplo ilustrativo de una conversación.</p></div>
   </div>
 </section>
 
@@ -276,5 +309,6 @@
   </div>
 </footer>
 <script src="/sitio.js" defer></script>
+<script type="module">addEventListener("load",function(){import("/telefono3d.js")})</script>
 </body>
 </html>

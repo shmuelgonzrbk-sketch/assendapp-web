@@ -55,3 +55,39 @@
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.querySelectorAll('video[autoplay]').forEach(function (v) { v.pause(); v.removeAttribute('autoplay'); });
 }
+
+// La tarjeta de "Cada persona" se despliega sola al llegar a ella
+(function () {
+  var f = document.getElementById('fichaApp');
+  if (!f) return;
+  var boton = f.querySelector('.fa-cab');
+  function poner(abierta) { f.classList.toggle('cerrada', !abierta); boton.setAttribute('aria-expanded', abierta ? 'true' : 'false'); }
+  boton.addEventListener('click', function () { poner(f.classList.contains('cerrada')); });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  poner(false);
+  new IntersectionObserver(function (e, ob) {
+    if (e[0].isIntersecting) { setTimeout(function () { poner(true); }, 350); ob.disconnect(); }
+  }, { threshold: 0.6 }).observe(f);
+})();
+
+// La meta de "Tus horas" se llena al llegar a ella
+(function () {
+  var m = document.getElementById('metaApp');
+  if (!m || window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  var horas = document.getElementById('maHoras'), p1 = document.getElementById('maPct1'), p2 = document.getElementById('maPct2');
+  m.classList.add('en-cero'); horas.textContent = '0'; p1.textContent = p2.textContent = '0%';
+  new IntersectionObserver(function (e, ob) {
+    if (!e[0].isIntersecting) return;
+    ob.disconnect();
+    setTimeout(function () {
+      m.classList.remove('en-cero');
+      var t0 = performance.now(), dur = 1400;
+      (function paso(t) {
+        var k = Math.min(1, (t - t0) / dur), s = 1 - Math.pow(1 - k, 3);
+        horas.textContent = Math.round(8 * s);
+        p1.textContent = p2.textContent = Math.round(16 * s) + '%';
+        if (k < 1) requestAnimationFrame(paso);
+      })(t0);
+    }, 250);
+  }, { threshold: 0.6 }).observe(m);
+})();

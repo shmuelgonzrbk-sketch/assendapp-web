@@ -410,3 +410,124 @@ section{padding-block:clamp(56px,3rem + 3.5vw,104px)}
 
 .pantalla-video{min-height:0;aspect-ratio:9/20;background:var(--tinta)}
 .pantalla-video video{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ── Teléfono realista de la portada ── */
+.escena .papelito{display:none}
+.movil{position:relative;margin-left:auto;width:min(318px,78%);perspective:1800px;z-index:1}
+.movil-cuerpo{position:relative;padding:8px;border-radius:54px;
+  background:linear-gradient(140deg,#5b5f66 0%,#2a2c30 14%,#3a3d42 32%,#1d1e21 58%,#34373c 82%,#61656c 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.22),
+    inset 0 1px 2px rgba(255,255,255,.35),
+    inset 0 0 0 3px #0c0c0e,
+    7px 3px 0 -2px #1b1c1f,
+    8px 4px 0 -2px #4a4d53,
+    0 2px 4px rgba(10,10,12,.25),
+    0 22px 40px -18px rgba(10,10,12,.55),
+    0 60px 90px -40px rgba(49,92,245,.45);
+  transform:rotateY(-12deg) rotateX(3deg) rotateZ(1.2deg);transform-style:preserve-3d}
+.movil-pantalla{position:relative;aspect-ratio:9/20;border-radius:46px;overflow:hidden;background:#000;box-shadow:0 0 0 1.5px #000,inset 0 0 0 1px rgba(255,255,255,.06)}
+.movil-pantalla video,.movil-pantalla img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.movil .camara{position:absolute;top:1.7%;left:50%;width:12px;height:12px;transform:translateX(-50%);border-radius:50%;
+  background:radial-gradient(circle at 38% 36%,#4b5d85 0 14%,#141820 30%,#030304 62%);box-shadow:0 0 0 2px #000;z-index:2}
+.movil .brillo{position:absolute;inset:0;pointer-events:none;z-index:3;border-radius:inherit;
+  background:linear-gradient(112deg,rgba(255,255,255,.20) 0%,rgba(255,255,255,.06) 22%,rgba(255,255,255,0) 34%,rgba(255,255,255,0) 72%,rgba(255,255,255,.07) 100%)}
+.movil .boton{position:absolute;right:-3px;width:4px;border-radius:0 3px 3px 0;
+  background:linear-gradient(90deg,#16171a,#6a6e75 55%,#2b2d31);box-shadow:1px 0 1px rgba(0,0,0,.35)}
+.movil .b1{top:20%;height:12%}
+.movil .b2{top:36%;height:7%}
+.movil::after{content:"";position:absolute;left:10%;right:2%;bottom:-34px;height:46px;z-index:-1;
+  background:radial-gradient(ellipse at center,rgba(23,23,23,.38),rgba(23,23,23,0) 70%);filter:blur(8px)}
+@media (max-width:600px){.movil{width:80%}.movil-cuerpo{border-radius:46px;padding:7px}.movil-pantalla{border-radius:39px}}
+.escena .nubi-grande{z-index:0}
+
+/* ── Teléfono 3D interactivo ── */
+.movil-3d{position:absolute;inset:-9% -34% -15% -34%;z-index:2}
+.movil-3d canvas{display:block;width:100%;height:100%;touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;outline:none}
+.movil-3d canvas:focus-visible{outline:3px solid var(--azul);outline-offset:-6px;border-radius:24px}
+.movil-3d.agarrado canvas{cursor:grabbing}
+.movil.con-3d .movil-cuerpo{visibility:hidden}
+.movil.con-3d::after{display:none}
+.movil-pista,.movil-reiniciar{position:absolute;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:7px;
+  padding:6px 13px;border:2px solid var(--tinta);border-radius:999px;background:rgba(255,255,255,.88);
+  font:700 .8rem/1.2 var(--texto);color:var(--tinta);white-space:nowrap;box-shadow:2px 2px 0 var(--tinta)}
+.movil-pista{bottom:3%;pointer-events:none;transition:opacity .5s ease,transform .5s ease}
+.movil-pista.oculta{opacity:0;transform:translate(-50%,6px)}
+.movil-reiniciar{bottom:3%;cursor:pointer}
+.movil-reiniciar[hidden]{display:none}
+.movil-reiniciar:hover{background:var(--cielo)}
+.movil-pista svg,.movil-reiniciar svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:600px){.movil-3d{inset:-8% -10% -14% -10%}}
+.portada{overflow-x:clip}
+
+/* ── Tarjeta real de la app (Actividades de hoy) ── */
+.ficha-app{background:#fff;border:var(--linea);border-radius:24px;box-shadow:var(--sombra);overflow:hidden;font-family:"Roboto","Manrope",system-ui,sans-serif;color:#1d2433;transform:rotate(-1deg)}
+.fa-cab{display:grid;grid-template-columns:48px minmax(0,1fr) auto 24px;gap:12px;align-items:center;width:100%;padding:16px 16px 14px;background:none;border:0;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.fa-avatar{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#DDF3E6;color:#2E9E5B;font-weight:600;font-size:1.25rem}
+.fa-nombre b{display:block;font-size:1.05rem;font-weight:700;line-height:1.25}
+.fa-nombre small{display:block;font-size:.86rem;color:#6b7385;margin-top:2px}
+.fa-chip{padding:5px 10px;border-radius:9px;background:#E4E8F4;color:#475170;font-size:.78rem;font-weight:700}
+.fa-flecha{width:22px;height:22px;fill:none;stroke:#4a5370;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.fa-cab[aria-expanded="false"] .fa-flecha{transform:rotate(180deg)}
+.fa-cuerpo{display:grid;grid-template-rows:1fr;transition:grid-template-rows .6s cubic-bezier(.2,.8,.2,1)}
+.fa-cuerpo > div{overflow:hidden;min-height:0;padding:0 16px}
+.ficha-app.cerrada .fa-cuerpo{grid-template-rows:0fr}
+.fa-datos{display:grid;gap:12px;padding-top:4px}
+.fa-datos dt{display:flex;align-items:center;gap:10px;font-size:.8rem;color:#6b7385}
+.fa-datos dd{margin:2px 0 0 30px;font-size:.98rem;line-height:1.4}
+.fa-datos svg,.fa-aviso svg{width:20px;height:20px;fill:none;stroke:#7a8296;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.fa-aviso{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:.85rem;color:#7a8296}
+.fa-botones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:16px 0}
+.fa-b{display:grid;justify-items:center;gap:6px;padding:12px 4px;border-radius:14px;font-size:.84rem;font-weight:700}
+.fa-b svg{width:20px;height:20px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fa-b.verde{background:#E4F4EA;color:#1E8A4C}
+.fa-b.azulito{background:#E3EBFD;color:#2F66E8}
+.fa-b.lila{background:#E6E8F3;color:#3B4672}
+.ficha-app .fa-datos > div,.ficha-app .fa-aviso,.ficha-app .fa-botones{transition:opacity .45s ease,transform .45s ease}
+.ficha-app.cerrada .fa-datos > div,.ficha-app.cerrada .fa-aviso,.ficha-app.cerrada .fa-botones{opacity:0;transform:translateY(8px)}
+.fa-datos > div:nth-child(2){transition-delay:.06s}.fa-datos > div:nth-child(3){transition-delay:.12s}
+.fa-datos > div:nth-child(4){transition-delay:.18s}.fa-datos > div:nth-child(5){transition-delay:.24s}
+.ficha-app .fa-aviso{transition-delay:.3s}.ficha-app .fa-botones{transition-delay:.36s}
+.ficha-app.cerrada *{transition-delay:0s!important}
+@media (max-width:600px){.ficha-app{transform:none}.fa-cab{grid-template-columns:44px minmax(0,1fr) auto 22px;gap:10px;padding:14px 14px 12px}.fa-avatar{width:44px;height:44px}.fa-cuerpo > div{padding:0 14px}}
+
+/* ── Tarjeta real de la meta (Precursorado) ── */
+.meta-app{background:#fff;border:var(--linea);border-radius:24px;box-shadow:var(--sombra);padding:20px 20px 16px;font-family:"Roboto","Manrope",system-ui,sans-serif;color:#1d2433;transform:rotate(1deg)}
+.ma-cab{display:grid;grid-template-columns:44px minmax(0,1fr) 64px;gap:12px;align-items:center}
+.ma-ico{width:44px;height:44px;border-radius:50%;background:#E4EAFB;display:grid;place-items:center}
+.ma-ico svg{width:20px;height:20px;fill:#2F5BE0}
+.ma-tit b{display:block;font-size:1.05rem;font-weight:700}
+.ma-tit span{display:flex;align-items:center;gap:6px;margin-top:2px;font-size:.86rem;color:#6b7385;font-weight:600}
+.ma-tit span svg{width:16px;height:16px;fill:none;stroke:#2F5BE0;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.ma-aro{position:relative;width:64px;height:64px}
+.ma-aro svg{width:64px;height:64px;transform:rotate(-90deg)}
+.ma-aro circle{fill:none;stroke-width:6;stroke-linecap:round}
+.ma-aro .fondo{stroke:#E6EAF5}
+.ma-aro .lleno{stroke:#2F5BE0;stroke-dasharray:169.65;stroke-dashoffset:142.5;transition:stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1)}
+.ma-aro span{position:absolute;inset:0;display:grid;place-items:center;font-size:.85rem;font-weight:700;color:#2a3147}
+.ma-cifra{margin-top:18px;display:flex;align-items:baseline;gap:6px;line-height:1}
+.ma-cifra b{font-size:3.6rem;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.ma-cifra span{font-size:1.4rem;font-weight:700}
+.ma-de{margin-top:8px;font-size:.92rem;color:#6b7385}
+.ma-de b{color:#1d2433}
+.ma-barra{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;margin-top:16px}
+.ma-barra::before{content:"";grid-area:1/1;height:8px;border-radius:99px;background:#E6EAF5}
+.ma-barra i{grid-area:1/1;height:8px;width:16%;border-radius:99px;background:#2F5BE0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.ma-barra span{font-size:.8rem;color:#6b7385;font-variant-numeric:tabular-nums}
+.ma-medio{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;margin-top:16px;padding-block:14px;border-top:1px solid #EEF0F5;border-bottom:1px solid #EEF0F5}
+.ma-atraso{justify-self:start;display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:10px;background:#FDE8EA;color:#D23A4A;font-size:.84rem;font-weight:700}
+.ma-atraso svg{width:16px;height:16px;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0}
+.ma-hoy{text-align:right;padding-left:14px;border-left:1px solid #EEF0F5}
+.ma-hoy small{display:block;font-size:.78rem;color:#6b7385}
+.ma-hoy b{font-size:.98rem}
+.ma-pie{margin-top:12px;line-height:1.5;font-size:.84rem;color:#6b7385}
+.ma-pie b{color:#1d2433}
+.ma-pie svg{display:inline-block;vertical-align:-3px;margin-right:6px;width:16px;height:16px;fill:none;stroke-width:2.2;stroke-linecap:round}
+.meta-app.en-cero .ma-aro .lleno{stroke-dashoffset:169.65}
+.meta-app.en-cero .ma-barra i{width:0}
+@media (max-width:600px){.meta-app{transform:none;padding:16px 16px 14px}.ma-cifra b{font-size:3rem}.ma-medio{grid-template-columns:minmax(0,1fr)}.ma-hoy{text-align:left;padding-left:0;border-left:0;display:flex;gap:8px;align-items:baseline}}
+
+/* ── Segundo teléfono 3D: chat de Nubi IA ── */
+.ia .movil{margin-inline:auto}
+.ia .ilustrativo{margin-top:64px}
+.movil-chat{position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block}
