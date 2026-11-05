@@ -89,17 +89,18 @@
   <p class="lead">Activa el modo voz y habla con Nubi sin tocar la pantalla. Te responde en voz alta y sigue escuchando mientras conversan.</p>
   <ul class="puntos" style="grid-template-columns:minmax(0,1fr)"><li>El micrófono queda activo; usa el botón de silenciar cuando no quieras que te escuche</li><li>Toca a Nubi para interrumpirla</li><li>Puedes cambiar la velocidad de la voz</li></ul>
   <p class="aviso-ia">El reconocimiento de voz lo hace tu teléfono. En algunos modelos usa el servicio de Google, que puede procesar el audio en sus servidores según su propia política. Nubi solo recibe el texto.</p></div>
-  <div><div class="tarjeta chat-ia">
-  <div class="cab"><svg class="" viewBox="0 0 120 120" aria-hidden="true"><use href="#nubi"/></svg><b>Nubi</b><span class="pega blanca"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg>Modo voz</span></div>
-  <div class="charla">
-    <div class="globo yo">Cambia la visita de Rosa al sábado a las 5</div>
-    <div class="globo el">Listo, la pasé al sábado 15 a las 5:00 p. m. También moví su aviso.</div>
-    <div class="deshacer"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Visita movida <span>Deshacer</span></div>
-    <div class="globo yo">Pásame el contacto de Pedro</div>
-    <div class="globo el">Aquí tienes a Pedro Ramírez:</div>
-    <div class="botones-chat"><span><svg class="ic" aria-hidden="true"><use href="#i-llamar"/></svg>Llamar</span><span><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</span><span><svg class="ic" aria-hidden="true"><use href="#i-ruta"/></svg>Cómo llegar</span></div>
-  </div>
-</div><p class="ilustrativo" style="color:#E3E9FF">Ejemplo ilustrativo de una conversación.</p></div>
+  <div><div class="movil movil-ia" data-respaldo="voz">
+      <div class="movil-cuerpo">
+        <span class="boton b1"></span><span class="boton b2"></span>
+        <div class="movil-pantalla">
+          <video muted loop playsinline preload="none" aria-hidden="true">
+            <source src="/video/nubi-voz.mp4" type="video/mp4">
+          </video>
+          <span class="camara"></span>
+          <span class="brillo"></span>
+        </div>
+      </div>
+    </div><p class="ilustrativo" style="color:#E3E9FF">Ejemplo ilustrativo del modo voz.</p></div>
 </div></section>
 
 <section><div class="angosto">
@@ -152,5 +153,6 @@
   </div>
 </footer>
 <script src="/sitio.js" defer></script>
+<script type="module">addEventListener("load",function(){import("/telefono3d.js")})</script>
 </body>
 </html>

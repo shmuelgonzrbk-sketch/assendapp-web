@@ -217,12 +217,13 @@
   <div class="texto"><span class="pega cielo">Calendario</span><h2>Una visión más clara de tu semana.</h2>
   <p class="lead">Revisitas, salidas a predicar y asignaciones juntas en un calendario. Míralo por día, semana, mes o año, y arrastra una visita para moverla.</p>
   <ul class="puntos"><li>Planifica cuándo vas a salir cada semana</li><li>Nubi te avisa si dos cosas chocan a la misma hora</li><li>Modo oscuro para revisar de noche</li></ul></div>
-  <div class="dibujo"><div class="tarjeta agenda" role="img" aria-label="Ejemplo de la semana en el calendario de Nubi, con salidas a predicar, revisitas y una asignación">
-  <div class="mes">Noviembre <span>10 – 16</span></div>
-  <div class="semana"><div class="d"><b>Lun<strong>10</strong></b><i class="ev p"></i></div><div class="d"><b>Mar<strong>11</strong></b><i class="ev r"></i></div><div class="d"><b>Mié<strong>12</strong></b></div><div class="d hoy"><b>Jue<strong>13</strong></b><i class="ev r"></i><i class="ev a"></i></div><div class="d"><b>Vie<strong>14</strong></b><i class="ev r"></i></div><div class="d"><b>Sáb<strong>15</strong></b><i class="ev p l"></i><i class="ev r"></i></div><div class="d"><b>Dom<strong>16</strong></b><i class="ev p"></i></div></div>
-  <div class="leyenda"><span><i style="background:var(--azul)"></i>Predicación</span><span><i style="background:#fff"></i>Revisita</span><span><i style="background:var(--sol)"></i>Asignación</span></div>
-  <div class="hoy-lista"><div><span>4:00 p. m.</span>Visita a María</div><div><span>7:00 p. m.</span>Asignación: revisita con Pedro</div></div>
-</div></div>
+  <div class="dibujo"><div class="semana-app" id="semanaApp">
+  <div class="sa-cab"><b>Semana</b><span class="sa-ver">Ver todo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></div>
+  <div class="sa-rango"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg><span id="saRango">Esta semana</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg><span class="sa-hoy">Hoy</span></div>
+  <div class="sa-dias" id="saDias" role="tablist" aria-label="Días de esta semana"></div>
+  <div class="sa-tit"><b id="saTitulo">Actividades de hoy</b><span id="saCuenta">0</span></div>
+  <div class="sa-lista" id="saLista" role="tabpanel" aria-live="polite"></div>
+</div><p class="ilustrativo">Así se ve tu semana en la app. Las fechas son las de hoy; las personas, inventadas.</p></div>
 </div></section>
 
 <section class="bloque"><div class="ancho">

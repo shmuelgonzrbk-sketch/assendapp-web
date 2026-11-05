@@ -85,7 +85,7 @@
   <div class="texto"><span class="pega cielo">Mapa</span><h2>Agrega a alguien desde la calle.</h2>
   <p class="lead">Toca un punto del mapa y Nubi te muestra la dirección. Desde ahí abres el formulario con la ubicación ya puesta.</p>
   <ul class="puntos"><li>Arrastra el pin y la dirección se actualiza</li><li>Las personas cercanas se agrupan para que el mapa no se llene</li><li>Abre la ruta en tu app de mapas favorita</li></ul></div>
-  <div class="dibujo"><div class="tarjeta mapa-dibujo"><svg viewBox="0 0 520 400" role="img" aria-label="Ilustración del mapa de Nubi con los pines de varias personas, un grupo de tres y un pin para agregar a alguien nuevo">
+  <div class="dibujo"><div class="tarjeta mapa-dibujo" id="mapaDemo"><svg viewBox="0 0 520 400" role="img" aria-label="Ilustración del mapa de Nubi con los pines de varias personas, un grupo de tres y un pin para agregar a alguien nuevo">
 <rect width="520" height="400" fill="#E9E5DD"/>
 <path d="M330 250h190v150H300z" fill="#D9E3FF" stroke="#171717" stroke-width="3"/>
 <g fill="none" stroke="#171717" stroke-width="2" opacity=".55"><path d="M360 300q20-14 40 0t40 0 40 0"/><path d="M350 340q20-14 40 0t40 0 40 0"/></g>
@@ -103,7 +103,7 @@
 <g transform="translate(405,124)"><g transform="translate(0,0)"><ellipse cx="0" cy="2" rx="9" ry="3.5" fill="#171717" opacity=".25"/><path d="M0 0C-4-10-18-18-18-33a18 18 0 1 1 36 0C18-18 4-10 0 0z" fill="#F2C94C" stroke="#171717" stroke-width="3.5" stroke-linejoin="round"/><text x="0" y="-27" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="17" fill="#171717">+</text></g>
 <g transform="translate(-85,-112)"><rect width="170" height="40" rx="12" fill="#171717"/><text x="85" y="25" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="13.5" fill="#fff">Agregar persona aquí</text><path d="M77 39l8 9 8-9z" fill="#171717"/></g></g>
 <g transform="translate(270,290)"><circle r="16" fill="#315CF5" opacity=".2"/><circle r="8" fill="#315CF5" stroke="#fff" stroke-width="3.5"/></g>
-</svg></div><p class="ilustrativo">Ilustración. No muestra datos reales.</p></div>
+</svg></div><p class="ilustrativo">Mapa de demostración: las personas y direcciones son inventadas.</p></div>
 </div></section>
 <section class="final"><div class="ancho"><div class="panel">
   <div><h2>Una forma más sencilla de organizarte.</h2><p class="lead">Nubi está en prueba cerrada en Google Play. Únete a los probadores y ayúdanos a publicarla para todos.</p>
@@ -151,5 +151,6 @@
   </div>
 </footer>
 <script src="/sitio.js" defer></script>
+<script type="module" src="/mapa-demo.js"></script>
 </body>
 </html>

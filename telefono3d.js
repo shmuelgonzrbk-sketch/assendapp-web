@@ -3,9 +3,10 @@
 import * as THREE from './vendor/three.module.min.js';
 import { RoomEnvironment } from './vendor/RoomEnvironment.js';
 import { crearChat } from './chat-nubi.js';
+import { crearVoz } from './voz-nubi.js';
 
 // Cada .movil de la página se vuelve un teléfono 3D.
-// data-respaldo="chat": mientras no exista su video, la pantalla muestra el chat animado.
+// data-respaldo="chat" o "voz": mientras no exista su video, la pantalla muestra esa animación.
 document.querySelectorAll('.movil').forEach((caja) => iniciar(caja).catch((e) => console.warn('Teléfono 3D no disponible:', e)));
 
 // Sin WebGL: el chat animado va dentro del teléfono de CSS
@@ -65,7 +66,7 @@ function texturaSombra() {
 
 async function iniciar(caja) {
   const menosMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let chat = caja.dataset.respaldo === 'chat' ? crearChat() : null;
+  let chat = caja.dataset.respaldo === 'chat' ? crearChat() : caja.dataset.respaldo === 'voz' ? crearVoz() : null;
   if (!hayWebGL()) { if (chat) chatSinWebGL(caja, chat, menosMovimiento); return; }
 
   // ── Escenario ──
