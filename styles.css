@@ -813,3 +813,67 @@ html:has(.legal){scroll-padding-top:88px}
 .con-webgl .movil:not(.con-3d):not(.sin-3d) .movil-cuerpo{visibility:hidden}
 .con-webgl .movil:not(.con-3d):not(.sin-3d)::after{display:none}
 .movil-3d{animation:none}
+
+/* ── Pegatinas vivas (pegatinas.js) ── */
+.pegatinas li.vivo{--r:0deg;transform:translate(var(--dx,0px),var(--dy,0px)) rotate(calc(var(--r) + var(--extra,0deg))) scale(var(--s,1));
+  transition:transform .5s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease;position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none}
+.pegatinas li.vivo:nth-child(3n+1){--r:-2deg}
+.pegatinas li.vivo:nth-child(4n+2){--r:1.5deg}
+.pegatinas li.vivo:nth-child(5n){--r:-1deg}
+.pegatinas li.vivo.arriba{z-index:2;box-shadow:6px 7px 0 var(--tinta)}
+.pegatinas li.vivo svg{overflow:visible}
+.pegatinas li.vivo svg *{transform-box:view-box}
+/* Persona: saluda dando saltitos */
+@keyframes p-salto{0%,100%{transform:translateY(0)}20%{transform:translateY(-4px)}40%{transform:translateY(0)}60%{transform:translateY(-3px)}80%{transform:translateY(0)}}
+@keyframes p-squash{0%,100%{transform:scale(1,1)}20%,60%{transform:scale(1.08,.9)}}
+.anima[data-ic="persona"] .p-cabeza{animation:p-salto .9s ease}
+.anima[data-ic="persona"] .p-cuerpo{transform-origin:12px 21px;animation:p-squash .9s ease}
+/* Casa: el techo salta y la casa tiembla */
+@keyframes c-techo{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-4px) rotate(-8deg)}50%{transform:translateY(-2px) rotate(6deg)}75%{transform:translateY(-1px) rotate(-3deg)}}
+@keyframes c-base{0%,100%{transform:rotate(0)}20%{transform:rotate(-4deg)}40%{transform:rotate(4deg)}60%{transform:rotate(-2deg)}80%{transform:rotate(1deg)}}
+.anima[data-ic="casa"] .c-techo{transform-origin:12px 11px;animation:c-techo .9s ease}
+.anima[data-ic="casa"] .c-base{transform-origin:12px 21px;animation:c-base .9s ease}
+/* Libro: da una vuelta como si pasaran sus páginas */
+@keyframes l-vuelta{0%{transform:perspective(60px) rotateY(0)}70%{transform:perspective(60px) rotateY(380deg)}100%{transform:perspective(60px) rotateY(360deg)}}
+.anima[data-ic="libro"] svg{animation:l-vuelta 1s cubic-bezier(.3,.7,.3,1)}
+/* Reloj: se descontrola, las manecillas dan vueltas y todo tiembla */
+@keyframes r-min{to{transform:rotate(1800deg)}}
+@keyframes r-hora{to{transform:rotate(360deg)}}
+@keyframes r-tiembla{0%,100%{transform:rotate(0)}10%{transform:rotate(-12deg)}20%{transform:rotate(10deg)}30%{transform:rotate(-9deg)}40%{transform:rotate(8deg)}50%{transform:rotate(-6deg)}60%{transform:rotate(5deg)}70%{transform:rotate(-3deg)}80%{transform:rotate(2deg)}}
+.anima[data-ic="reloj"] .r-min{transform-origin:12px 12px;animation:r-min 1.3s cubic-bezier(.15,.6,.25,1)}
+.anima[data-ic="reloj"] .r-hora{transform-origin:12px 12px;animation:r-hora 1.3s cubic-bezier(.15,.6,.25,1)}
+.anima[data-ic="reloj"] svg{animation:r-tiembla 1.3s ease}
+/* Escáner: la línea sube y baja escaneando */
+@keyframes e-linea{0%,100%{transform:translateY(0)}25%{transform:translateY(-6px)}50%{transform:translateY(5px)}75%{transform:translateY(-3px)}}
+.anima[data-ic="escaner"] .e-linea{animation:e-linea 1s ease-in-out}
+/* Calendario: los aros saltan y aparece un check */
+@keyframes k-aros{0%,100%{transform:translateY(0)}30%{transform:translateY(-3px)}60%{transform:translateY(1px)}}
+@keyframes k-hoy{0%{stroke-dashoffset:1;opacity:1}45%,80%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+.pegatinas .k-hoy{stroke-dasharray:1;stroke-dashoffset:1;opacity:0}
+.anima[data-ic="calendario"] .k-aros{animation:k-aros .6s ease 2}
+.anima[data-ic="calendario"] .k-hoy{animation:k-hoy 1.3s ease}
+/* Mapa: el pin cae desde arriba y rebota */
+@keyframes m-cae{0%{transform:translateY(-16px) scale(1,1);opacity:0}35%{transform:translateY(0) scale(1.15,.8);opacity:1}55%{transform:translateY(-5px) scale(.95,1.05)}75%{transform:translateY(0) scale(1.05,.95)}100%{transform:translateY(0) scale(1,1)}}
+.anima[data-ic="pin"] svg{transform-origin:50% 100%;animation:m-cae .9s ease}
+/* Avisos: la campana suena */
+@keyframes b-suena{0%,100%{transform:rotate(0)}10%{transform:rotate(28deg)}20%{transform:rotate(-24deg)}30%{transform:rotate(20deg)}40%{transform:rotate(-16deg)}50%{transform:rotate(12deg)}60%{transform:rotate(-8deg)}70%{transform:rotate(4deg)}}
+@keyframes b-badajo{0%,100%{transform:translateX(0)}15%{transform:translateX(-3px)}30%{transform:translateX(3px)}45%{transform:translateX(-2px)}60%{transform:translateX(2px)}}
+@keyframes b-onda{0%,100%{opacity:0;transform:scale(.8)}20%,70%{opacity:1;transform:scale(1)}}
+.pegatinas .b-onda{opacity:0}
+.anima[data-ic="campana"] .b-campana{transform-origin:12px 3px;animation:b-suena 1.1s ease}
+.anima[data-ic="campana"] .b-badajo{animation:b-badajo 1.1s ease}
+.anima[data-ic="campana"] .b-onda{transform-origin:12px 10px;animation:b-onda 1.1s ease}
+/* Informe: se escriben las líneas una por una */
+@keyframes f-escribe{0%{stroke-dashoffset:1}100%{stroke-dashoffset:0}}
+.pegatinas .f-l{stroke-dasharray:1}
+.anima[data-ic="informe"] .f-l{animation:f-escribe .35s ease both}
+.anima[data-ic="informe"] .f-l:nth-of-type(2){animation-delay:.3s}
+.anima[data-ic="informe"] .f-l:nth-of-type(3){animation-delay:.6s}
+/* Mi Horario: la diana late como dando en el blanco */
+@keyframes o-1{0%,100%{transform:scale(1)}30%{transform:scale(1.2)}60%{transform:scale(.92)}}
+@keyframes o-2{0%,100%{transform:scale(1)}40%{transform:scale(.7)}70%{transform:scale(1.1)}}
+@keyframes o-3{0%,100%{transform:scale(1)}50%{transform:scale(3)}}
+.anima[data-ic="objetivo"] .o-1{transform-origin:12px 12px;animation:o-1 .9s ease}
+.anima[data-ic="objetivo"] .o-2{transform-origin:12px 12px;animation:o-2 .9s ease}
+.anima[data-ic="objetivo"] .o-3{transform-origin:12px 12px;animation:o-3 .9s ease;fill:currentColor}
+@media (prefers-reduced-motion:reduce){.pegatinas li.vivo{transition:none}}
