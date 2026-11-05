@@ -201,6 +201,7 @@ async function iniciar(caja) {
   let rotY = REPOSO_Y, rotX = REPOSO_X, velY = 0, velX = 0;
   let arrastrando = false, ultimoToque = -1e9, ultimoX = 0, ultimoY = 0, ultimoT = 0, volviendo = false;
   let tiempo = 0;
+  let intro = matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 0;   // vuelta de entrada
 
   const idaAlReposo = () => {
     // El reposo más cercano a la vuelta actual, para no dar media vuelta de regreso
@@ -308,6 +309,14 @@ async function iniciar(caja) {
         rotX += (REPOSO_X + (menosMovimiento ? 0 : Math.sin(tiempo * 0.4) * 0.03) - rotX) * suave;
         if (volviendo && Math.abs(meta - rotY) < 0.02) volviendo = false;
         if (pausa > 3500 && Math.abs(meta - rotY) < 0.25) reiniciar.hidden = true;
+      }
+    }
+    if (intro < 1) {
+      if (arrastrando) intro = 1;
+      else {
+        intro = Math.min(1, intro + dt / 1.5);
+        const e = 1 - Math.pow(1 - intro, 4);          // rápido al inicio, frena suave
+        rotY = REPOSO_Y - (1 - e) * Math.PI * 2; rotX = REPOSO_X; velY = velX = 0;
       }
     }
     telefono.rotation.set(rotX, rotY, 0, 'YXZ');
