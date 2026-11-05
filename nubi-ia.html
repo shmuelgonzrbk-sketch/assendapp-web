@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nubi IA</title>
+<meta name="description" content="Nubi es una asistente con inteligencia artificial que funciona dentro de tu teléfono: anota horas, agrega personas, programa revisitas y arma tu horario.">
+<link rel="canonical" href="https://ascendprogress.vercel.app/nubi-ia">
+<meta name="theme-color" content="#FAF9F6">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_PE">
+<meta property="og:site_name" content="Nubi">
+<meta property="og:title" content="Nubi IA">
+<meta property="og:description" content="Nubi es una asistente con inteligencia artificial que funciona dentro de tu teléfono: anota horas, agrega personas, programa revisitas y arma tu horario.">
+<meta property="og:url" content="https://ascendprogress.vercel.app/nubi-ia">
+<meta property="og:image" content="https://ascendprogress.vercel.app/nubi-512.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/nubi-192.png">
+<link rel="preload" href="/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-persona" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></symbol><symbol id="i-casa" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-libro" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></symbol><symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol><symbol id="i-campana" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></symbol><symbol id="i-escaner" viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M7 12h10"/></symbol><symbol id="i-candado" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol><symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol><symbol id="i-estrella" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol><symbol id="i-llamar" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol><symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c.3 2.2 2.3 4.2 4.5 4.5l1-1.2 1.6.8-.4 1.4"/></symbol><symbol id="i-ruta" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h6a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h6"/></symbol><symbol id="i-compartir" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></symbol><symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol><symbol id="i-descarga" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol><symbol id="i-correo" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 7.5l9 6 9-6"/></symbol><symbol id="i-basura" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v5M14 11v5"/></symbol><symbol id="i-informe" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 8h6M9 12h6M9 16h4"/></symbol><symbol id="i-sinred" viewBox="0 0 24 24"><path d="M2 8.5a15 15 0 0 1 20 0M5.5 12a10 10 0 0 1 13 0M9 15.5a5 5 0 0 1 6 0M12 19h.01M3 3l18 18"/></symbol><symbol id="i-luna" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol><symbol id="i-deshacer" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></symbol><symbol id="i-ojo" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-flecha" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol><symbol id="i-huella" viewBox="0 0 24 24"><path d="M12 11v3a8 8 0 0 1-2 5.3M8 11a4 4 0 0 1 8 0v2a12 12 0 0 1-1 4.8M5 13v-2a7 7 0 0 1 12.6-4.2M19.5 10.5c.3 1 .5 2 .5 3a16 16 0 0 1-.6 4"/></symbol><symbol id="i-objetivo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol><symbol id="nubi" viewBox="0 0 120 120">
+<rect x="12" y="22" width="96" height="88" rx="22" fill="#fff"/>
+<path d="M12 46v-2a22 22 0 0 1 22-22h52a22 22 0 0 1 22 22v2z" fill="#315CF5"/>
+<path d="M12 46h96" stroke="#171717" stroke-width="5"/>
+<rect x="12" y="22" width="96" height="88" rx="22" fill="none" stroke="#171717" stroke-width="5"/>
+<rect x="33" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
+<rect x="74" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
+<ellipse cx="44" cy="66" rx="6" ry="7.5" fill="#171717"/><ellipse cx="76" cy="66" rx="6" ry="7.5" fill="#171717"/>
+<circle cx="46" cy="63" r="2" fill="#fff"/><circle cx="78" cy="63" r="2" fill="#fff"/>
+<ellipse cx="33" cy="78" rx="6" ry="3.5" fill="#D9E3FF"/><ellipse cx="87" cy="78" rx="6" ry="3.5" fill="#D9E3FF"/>
+<path d="M51 77q9 9 18 0" fill="none" stroke="#171717" stroke-width="4.5" stroke-linecap="round"/>
+<g stroke="#171717" stroke-width="2.5"><rect x="27" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="43" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="59" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="75" y="90" width="11" height="8" rx="2.5" fill="#F2C94C"/></g>
+</symbol></defs></svg>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="barra">
+  <div class="ancho">
+    <a class="marca" href="/" aria-label="Nubi, ir al inicio"><svg class="" viewBox="0 0 120 120" aria-hidden="true"><use href="#nubi"/></svg><span>Nubi</span></a>
+    <nav class="menu-nav" id="menu" aria-label="Principal"><a href="/">Inicio</a><a href="/funciones">Funciones</a><a href="/nubi-ia" aria-current="page">Nubi IA</a><a href="/como-funciona">Cómo funciona</a><a href="/privacidad">Privacidad</a><a href="/preguntas">Preguntas</a><a class="btn azul" href="/como-funciona#probar">Quiero probarla</a></nav>
+    <a class="btn azul probar" href="/como-funciona#probar">Quiero probarla</a>
+    <button class="abrir-menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span></button>
+  </div>
+</header>
+<main id="contenido">
+<section class="cabecera"><div class="ancho"><div><span class="pega">En prueba</span><h1>Nubi, la asistente que entiende cómo hablas.</h1><p class="lead">Escríbele o háblale como a un compañero de predicación. Nubi convierte lo que le cuentas en acciones dentro de tu app: anota, agenda, corrige y te responde.</p><div class="acciones"><a class="btn azul" href="/como-funciona#probar">Quiero probarla</a><a class="btn" href="#frases">Ver ejemplos</a></div></div><svg class="adorno" viewBox="-14 -26 170 180" role="img" aria-label="Nubi, la mascota de la app, saludando">
+<path d="M14 84C2 86-6 96-4 106" fill="none" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+<circle cx="-4" cy="108" r="7" fill="#fff" stroke="#171717" stroke-width="4.5"/>
+<path d="M106 70C122 60 128 42 124 26" fill="none" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+<circle cx="124" cy="20" r="8" fill="#fff" stroke="#171717" stroke-width="4.5"/>
+<path d="M114 4l6-10M132 6l9-6M136 20h10" stroke="#171717" stroke-width="4" stroke-linecap="round"/>
+<path d="M44 110v16M76 110v16" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+<ellipse cx="40" cy="130" rx="11" ry="6" fill="#171717"/><ellipse cx="80" cy="130" rx="11" ry="6" fill="#171717"/>
+
+<rect x="12" y="22" width="96" height="88" rx="22" fill="#fff"/>
+<path d="M12 46v-2a22 22 0 0 1 22-22h52a22 22 0 0 1 22 22v2z" fill="#315CF5"/>
+<path d="M12 46h96" stroke="#171717" stroke-width="5"/>
+<rect x="12" y="22" width="96" height="88" rx="22" fill="none" stroke="#171717" stroke-width="5"/>
+<rect x="33" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
+<rect x="74" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
+<ellipse cx="44" cy="66" rx="6" ry="7.5" fill="#171717"/><ellipse cx="76" cy="66" rx="6" ry="7.5" fill="#171717"/>
+<circle cx="46" cy="63" r="2" fill="#fff"/><circle cx="78" cy="63" r="2" fill="#fff"/>
+<ellipse cx="33" cy="78" rx="6" ry="3.5" fill="#D9E3FF"/><ellipse cx="87" cy="78" rx="6" ry="3.5" fill="#D9E3FF"/>
+<path d="M51 77q9 9 18 0" fill="none" stroke="#171717" stroke-width="4.5" stroke-linecap="round"/>
+<g stroke="#171717" stroke-width="2.5"><rect x="27" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="43" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="59" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="75" y="90" width="11" height="8" rx="2.5" fill="#F2C94C"/></g>
+
+</svg></div></section>
+<section><div class="ancho">
+  <h2>Qué es y cómo funciona</h2>
+  <div class="mosaico" style="margin-top:36px">
+    <article class="tarjeta ancha azul"><span class="icono"><svg class="ic" aria-hidden="true"><use href="#i-candado"/></svg></span><h3>Piensa dentro de tu teléfono</h3><p>Nubi usa un modelo de IA (Gemma, de Google) que se descarga una vez y funciona sin internet. Lo que le cuentas no viaja a ningún servidor.</p></article>
+    <article class="tarjeta ancha"><span class="icono"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg></span><h3>Te pregunta lo que falta</h3><p>Si le dices «agrega a Pedro» y no sabe cuándo vuelves, te lo pregunta. Si hay dos personas con el mismo nombre, te pide elegir.</p></article>
+    <article class="tarjeta"><span class="icono"><svg class="ic" aria-hidden="true"><use href="#i-ojo"/></svg></span><h3>Te muestra lo que entendió</h3><p>Cada acción aparece en el chat para que la revises.</p></article>
+    <article class="tarjeta cielo"><span class="icono"><svg class="ic" aria-hidden="true"><use href="#i-deshacer"/></svg></span><h3>Deshacer en un toque</h3><p>Si hizo algo que no querías, lo revierte al instante.</p></article>
+    <article class="tarjeta"><span class="icono"><svg class="ic" aria-hidden="true"><use href="#i-basura"/></svg></span><h3>Pregunta antes de borrar</h3><p>Nunca elimina a una persona sin que lo confirmes.</p></article>
+  </div>
+</div></section>
+
+<section id="frases" style="padding-top:0"><div class="ancho">
+  <h2>Prueba a decirle</h2>
+  <p class="lead" style="margin-top:14px">Frases reales que Nubi entiende, aunque escribas con errores o sin tildes.</p>
+  <div class="frases" style="margin-top:36px"><div class="tarjeta frase"><q>Conocí a Rosa en el mercado, vuelvo el viernes a las 4</q><p>La guarda en tus revisitas con su próxima visita y un aviso antes.</p></div><div class="tarjeta frase"><q>Hoy hice 2 horas y media</q><p>Las anota y te dice cuánto llevas del mes y cuánto te falta.</p></div><div class="tarjeta frase"><q>Tengo lectura de la Biblia el jueves</q><p>La agrega a tus asignaciones. Si falta la sección o el ayudante, te pregunta.</p></div><div class="tarjeta frase"><q>¿A quién me toca visitar?</q><p>Te muestra las visitas que se te pasaron y las de esta semana.</p></div><div class="tarjeta frase"><q>Cambia la visita de Rosa al sábado a las 5</q><p>La mueve y ajusta su aviso. Si hay otra Rosa, te pregunta cuál.</p></div><div class="tarjeta frase"><q>Ayúdame con un horario, trabajo de lunes a viernes de 8 a 1</q><p>Te propone en qué días y horas salir para llegar a tu meta.</p></div><div class="tarjeta frase"><q>Pásame el contacto de Pedro</q><p>Te muestra botones para llamar, escribirle por WhatsApp, ir a su casa o compartirlo.</p></div><div class="tarjeta frase"><q>Fui donde María pero no estaba</q><p>Anota el intento en su historial de visitas.</p></div></div>
+</div></section>
+
+<section class="ia"><div class="ancho">
+  <div><span class="pega">Modo voz</span><h2>Conversa con Nubi en voz alta.</h2>
+  <p class="lead">Activa el modo voz y habla con Nubi sin tocar la pantalla. Te responde en voz alta y sigue escuchando mientras conversan.</p>
+  <ul class="puntos" style="grid-template-columns:minmax(0,1fr)"><li>El micrófono queda activo; usa el botón de silenciar cuando no quieras que te escuche</li><li>Toca a Nubi para interrumpirla</li><li>Puedes cambiar la velocidad de la voz</li></ul>
+  <p class="aviso-ia">El reconocimiento de voz lo hace tu teléfono. En algunos modelos usa el servicio de Google, que puede procesar el audio en sus servidores según su propia política. Nubi solo recibe el texto.</p></div>
+  <div><div class="tarjeta chat-ia">
+  <div class="cab"><svg class="" viewBox="0 0 120 120" aria-hidden="true"><use href="#nubi"/></svg><b>Nubi</b><span class="pega blanca"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg>Modo voz</span></div>
+  <div class="charla">
+    <div class="globo yo">Cambia la visita de Rosa al sábado a las 5</div>
+    <div class="globo el">Listo, la pasé al sábado 15 a las 5:00 p. m. También moví su aviso.</div>
+    <div class="deshacer"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Visita movida <span>Deshacer</span></div>
+    <div class="globo yo">Pásame el contacto de Pedro</div>
+    <div class="globo el">Aquí tienes a Pedro Castillo:</div>
+    <div class="botones-chat"><span><svg class="ic" aria-hidden="true"><use href="#i-llamar"/></svg>Llamar</span><span><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</span><span><svg class="ic" aria-hidden="true"><use href="#i-ruta"/></svg>Cómo llegar</span></div>
+  </div>
+</div><p class="ilustrativo" style="color:#E3E9FF">Ejemplo ilustrativo de una conversación.</p></div>
+</div></section>
+
+<section><div class="angosto">
+  <h2>Preguntas sobre Nubi IA</h2>
+  <div class="faq"><details><summary>¿Nubi necesita internet?</summary><div><p>No. El modelo de inteligencia artificial se descarga una vez desde Google Play y después funciona dentro de tu teléfono, sin conexión.</p></div></details><details><summary>¿Funciona en cualquier celular?</summary><div><p>Nubi entiende las frases más comunes en cualquier Android: agregar personas, anotar horas, mover visitas y consultar tu agenda. Si tu teléfono tiene unos 4 GB de memoria o más, puedes descargar la IA completa (entre 300 y 560 MB) para que converse con más libertad.</p></div></details><details><summary>¿Puede equivocarse?</summary><div><p>Sí. Nubi está en fase de prueba. Por eso te muestra lo que entendió, te pide confirmar antes de borrar y te deja deshacer cualquier cambio con un toque.</p></div></details><details><summary>¿Nubi explica textos de la Biblia?</summary><div><p>No. Nubi te ayuda a organizarte, no a enseñar. Para estudiar textos y temas bíblicos, consulta jw.org.</p></div></details><details><summary>¿Lo que le digo a Nubi se guarda?</summary><div><p>Tus conversaciones se guardan solo en tu teléfono, y puedes borrarlas cuando quieras. No se envían a nosotros ni a nadie.</p></div></details></div>
+</div></section>
+<section class="final"><div class="ancho"><div class="panel">
+  <div><h2>Pruébala y cuéntanos qué tal.</h2><p class="lead">Nubi IA está en prueba. Tus comentarios nos ayudan a que entienda mejor cómo hablamos en la predicación.</p>
+  <div class="acciones"><a class="btn azul" href="/como-funciona#probar">Quiero probarla</a><a class="btn" href="/contacto">Escríbenos</a></div></div>
+  <svg class="nubi-final" viewBox="-14 -26 170 180" role="img" aria-label="Nubi, la mascota de la app, saludando">
+<path d="M14 84C2 86-6 96-4 106" fill="none" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+<circle cx="-4" cy="108" r="7" fill="#fff" stroke="#171717" stroke-width="4.5"/>
+<path d="M106 70C122 60 128 42 124 26" fill="none" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+<circle cx="124" cy="20" r="8" fill="#fff" stroke="#171717" stroke-width="4.5"/>
+<path d="M114 4l6-10M132 6l9-6M136 20h10" stroke="#171717" stroke-width="4" stroke-linecap="round"/>
+<path d="M44 110v16M76 110v16" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+<ellipse cx="40" cy="130" rx="11" ry="6" fill="#171717"/><ellipse cx="80" cy="130" rx="11" ry="6" fill="#171717"/>
+
+<rect x="12" y="22" width="96" height="88" rx="22" fill="#fff"/>
+<path d="M12 46v-2a22 22 0 0 1 22-22h52a22 22 0 0 1 22 22v2z" fill="#315CF5"/>
+<path d="M12 46h96" stroke="#171717" stroke-width="5"/>
+<rect x="12" y="22" width="96" height="88" rx="22" fill="none" stroke="#171717" stroke-width="5"/>
+<rect x="33" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
+<rect x="74" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
+<ellipse cx="44" cy="66" rx="6" ry="7.5" fill="#171717"/><ellipse cx="76" cy="66" rx="6" ry="7.5" fill="#171717"/>
+<circle cx="46" cy="63" r="2" fill="#fff"/><circle cx="78" cy="63" r="2" fill="#fff"/>
+<ellipse cx="33" cy="78" rx="6" ry="3.5" fill="#D9E3FF"/><ellipse cx="87" cy="78" rx="6" ry="3.5" fill="#D9E3FF"/>
+<path d="M51 77q9 9 18 0" fill="none" stroke="#171717" stroke-width="4.5" stroke-linecap="round"/>
+<g stroke="#171717" stroke-width="2.5"><rect x="27" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="43" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="59" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="75" y="90" width="11" height="8" rx="2.5" fill="#F2C94C"/></g>
+
+</svg>
+</div></div></section>
+</main>
+<footer class="pie">
+  <div class="ancho">
+    <div class="cols">
+      <div>
+        <a class="marca" href="/"><svg class="" viewBox="0 0 120 120" aria-hidden="true"><use href="#nubi"/></svg><span>Nubi</span></a>
+        <p>Una agenda para el ministerio con una asistente que te ayuda a organizarte. Hecha en Perú por un publicador.</p>
+      </div>
+      <nav aria-labelledby="pie-producto"><h2 id="pie-producto">Producto</h2><ul>
+        <li><a href="/">Inicio</a></li><li><a href="/funciones">Funciones</a></li><li><a href="/nubi-ia">Nubi IA</a></li><li><a href="/como-funciona">Cómo funciona</a></li><li><a href="/como-funciona#probar">Quiero probarla</a></li></ul></nav>
+      <nav aria-labelledby="pie-ayuda"><h2 id="pie-ayuda">Ayuda</h2><ul>
+        <li><a href="/preguntas">Preguntas frecuentes</a></li><li><a href="/contacto">Contacto y soporte</a></li><li><a href="/seguridad">Seguridad</a></li><li><a href="/borrar-datos">Borrar mis datos</a></li></ul></nav>
+      <nav aria-labelledby="pie-legal"><h2 id="pie-legal">Legal</h2><ul>
+        <li><a href="/privacidad">Privacidad</a></li><li><a href="/terminos">Términos de uso</a></li><li><a href="/cookies">Cookies</a></li></ul></nav>
+    </div>
+    <p class="independencia">Nubi es una herramienta independiente. No está afiliada, patrocinada ni aprobada por la Watch Tower Bible and Tract Society of Pennsylvania ni por los testigos de Jehová. jw.org es una marca de sus respectivos propietarios.</p>
+    <div class="base"><span>© <span id="anio">2026</span> Nubi</span><span>Hecha en Perú</span></div>
+  </div>
+</footer>
+<script src="/sitio.js" defer></script>
+</body>
+</html>

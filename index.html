@@ -3,179 +3,284 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AscendProgress · Organiza tu ministerio</title>
-<meta name="description" content="Organiza revisitas, cursos bíblicos, horas y asignaciones. Sin cuentas, sin servidores y sin anuncios: tus datos se quedan en tu teléfono.">
-<meta name="theme-color" content="#6366F1">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='26' fill='%236366F1'/%3E%3Ctext x='50' y='68' font-size='56' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EA%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Nubi · Tu asistente de campo</title>
+<meta name="description" content="Nubi es una agenda gratis para Android que organiza tus revisitas, cursos, horas y asignaciones. Funciona sin internet y tus datos se quedan en tu teléfono.">
+<link rel="canonical" href="https://ascendprogress.vercel.app">
+<meta name="theme-color" content="#FAF9F6">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_PE">
+<meta property="og:site_name" content="Nubi">
+<meta property="og:title" content="Nubi · Tu asistente de campo">
+<meta property="og:description" content="Nubi es una agenda gratis para Android que organiza tus revisitas, cursos, horas y asignaciones. Funciona sin internet y tus datos se quedan en tu teléfono.">
+<meta property="og:url" content="https://ascendprogress.vercel.app">
+<meta property="og:image" content="https://ascendprogress.vercel.app/nubi-512.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/nubi-192.png">
+<link rel="preload" href="/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-
-<!-- Íconos -->
-<svg width="0" height="0" style="position:absolute">
-  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
-  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 3-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20c0-2.6-1.6-4.6-4-5.5"/></symbol>
-  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
-  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></symbol>
-  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></symbol>
-  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21a2 2 0 0 0 4 0"/></symbol>
-  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
-  <symbol id="i-save" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
-  <symbol id="i-finger" viewBox="0 0 24 24"><path d="M7 11a5 5 0 0 1 10 0v2a9 9 0 0 1-1.5 5"/><path d="M12 11v3a10 10 0 0 1-2 6"/><path d="M4 13a8 8 0 0 1 1-4M19.6 9A8 8 0 0 1 20 13"/></symbol>
-  <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 2-.8 2-1.8 0-1.2-1-1.5-1-2.6 0-1 .8-1.6 1.8-1.6H17a4 4 0 0 0 4-4c0-4.4-4-8-9-8z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/></symbol>
-  <symbol id="i-cloud-off" viewBox="0 0 24 24"><path d="m3 3 18 18"/><path d="M8.5 6.2A6 6 0 0 1 18 11a4 4 0 0 1 2.6 6.9M17 19H7a5 5 0 0 1-1.5-9.8"/></symbol>
-  <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="m3 3 18 18"/><path d="M10.6 5.1A10 10 0 0 1 22 12a14 14 0 0 1-2.9 3.9M6.6 6.6A14 14 0 0 0 2 12s3.5 7 10 7a9.7 9.7 0 0 0 5.4-1.6"/></symbol>
-  <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.7 5.7 12.6 12.6"/></symbol>
-  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></symbol>
-  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9-8.5C1.6 8.6 3.4 5 7 5c2 0 3.3 1.2 5 3 1.7-1.8 3-3 5-3 3.6 0 5.4 3.6 4 6.5-2 4.1-9 8.5-9 8.5z"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.7 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
-</svg>
-
-<nav>
-  <div class="container">
-    <a class="logo" href="/"><span class="mark grad">A</span>AscendProgress</a>
-    <div class="nav-links" id="menu">
-      <a href="#funciones">Funciones</a>
-      <a href="#como-usarla">Cómo usarla</a>
-      <a href="#privacidad">Privacidad</a>
-      <a href="#preguntas">Preguntas</a>
-      <a class="btn btn-main grad" href="#descargar">Descargar</a>
-    </div>
-    <button class="menu-btn" aria-label="Abrir menú" onclick="document.getElementById('menu').classList.toggle('open')"><svg class="i"><use href="#i-menu"/></svg></button>
-  </div>
-</nav>
-
-<header class="hero" id="descargar">
-  <div class="container">
-    <div>
-      <span class="badge"><svg class="i" style="width:16px;height:16px"><use href="#i-lock"/></svg> 100% privada · sin cuentas</span>
-      <h1>Tu ministerio, organizado.<br><span class="grad-text">Tus datos, solo tuyos.</span></h1>
-      <p class="lead">AscendProgress te ayuda a llevar tus revisitas, cursos bíblicos, horas y asignaciones en un solo lugar. Todo se guarda en tu teléfono: no hay servidores, no hay cuentas y nadie más puede ver lo que anotas.</p>
-      <div class="actions">
-        <a class="btn btn-main grad" href="#descargar"><svg class="i"><use href="#i-phone"/></svg> Muy pronto en Google Play</a>
-        <a class="btn btn-ghost" href="/privacidad"><svg class="i"><use href="#i-lock"/></svg> Leer la privacidad</a>
-      </div>
-      <small>Gratis · sin anuncios · funciona sin internet</small>
-    </div>
-    <div class="phone-wrap" aria-hidden="true">
-      <div class="phone">
-        <div><div class="ph-hello">Buenos días,</div><div class="ph-name">Sam</div></div>
-        <div class="ph-card grad"><span style="font-size:.75rem;opacity:.85">Meta mensual</span><b>31 h de 50 h</b><span style="font-size:.72rem;opacity:.85">Vas 2 h adelantado</span><div class="ph-bar"><i></i></div></div>
-        <div class="ph-week"><div>Lun<b>28</b></div><div class="on">Mar<b>29</b></div><div>Mié<b>30</b></div><div>Jue<b>1</b></div><div>Vie<b>2</b></div><div>Sáb<b>3</b></div><div>Dom<b>4</b></div></div>
-        <div class="ph-item"><div class="ph-av" style="background:#F3E8FF;color:#8E24AA">B</div><p>Brayan<br><span>Curso bíblico · 18:45</span></p></div>
-        <div class="ph-item"><div class="ph-av" style="background:#FFEDD5;color:#F4511E">L</div><p>Lucía<br><span>Revisita · 20:00</span></p></div>
-        <div class="ph-item"><div class="ph-av" style="background:#CCFBF1;color:#0F766E">T</div><p>Lectura de la Biblia<br><span>Asignación · jueves 19:30</span></p></div>
-      </div>
-    </div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-persona" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></symbol><symbol id="i-casa" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-libro" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></symbol><symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol><symbol id="i-campana" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></symbol><symbol id="i-escaner" viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M7 12h10"/></symbol><symbol id="i-candado" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol><symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol><symbol id="i-estrella" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol><symbol id="i-llamar" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol><symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c.3 2.2 2.3 4.2 4.5 4.5l1-1.2 1.6.8-.4 1.4"/></symbol><symbol id="i-ruta" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h6a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h6"/></symbol><symbol id="i-compartir" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></symbol><symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol><symbol id="i-descarga" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol><symbol id="i-correo" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 7.5l9 6 9-6"/></symbol><symbol id="i-basura" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v5M14 11v5"/></symbol><symbol id="i-informe" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 8h6M9 12h6M9 16h4"/></symbol><symbol id="i-sinred" viewBox="0 0 24 24"><path d="M2 8.5a15 15 0 0 1 20 0M5.5 12a10 10 0 0 1 13 0M9 15.5a5 5 0 0 1 6 0M12 19h.01M3 3l18 18"/></symbol><symbol id="i-luna" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol><symbol id="i-deshacer" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></symbol><symbol id="i-ojo" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-flecha" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol><symbol id="i-huella" viewBox="0 0 24 24"><path d="M12 11v3a8 8 0 0 1-2 5.3M8 11a4 4 0 0 1 8 0v2a12 12 0 0 1-1 4.8M5 13v-2a7 7 0 0 1 12.6-4.2M19.5 10.5c.3 1 .5 2 .5 3a16 16 0 0 1-.6 4"/></symbol><symbol id="i-objetivo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol><symbol id="nubi" viewBox="0 0 120 120">
+<rect x="12" y="22" width="96" height="88" rx="22" fill="#fff"/>
+<path d="M12 46v-2a22 22 0 0 1 22-22h52a22 22 0 0 1 22 22v2z" fill="#315CF5"/>
+<path d="M12 46h96" stroke="#171717" stroke-width="5"/>
+<rect x="12" y="22" width="96" height="88" rx="22" fill="none" stroke="#171717" stroke-width="5"/>
+<rect x="33" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
+<rect x="74" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
+<ellipse cx="44" cy="66" rx="6" ry="7.5" fill="#171717"/><ellipse cx="76" cy="66" rx="6" ry="7.5" fill="#171717"/>
+<circle cx="46" cy="63" r="2" fill="#fff"/><circle cx="78" cy="63" r="2" fill="#fff"/>
+<ellipse cx="33" cy="78" rx="6" ry="3.5" fill="#D9E3FF"/><ellipse cx="87" cy="78" rx="6" ry="3.5" fill="#D9E3FF"/>
+<path d="M51 77q9 9 18 0" fill="none" stroke="#171717" stroke-width="4.5" stroke-linecap="round"/>
+<g stroke="#171717" stroke-width="2.5"><rect x="27" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="43" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="59" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="75" y="90" width="11" height="8" rx="2.5" fill="#F2C94C"/></g>
+</symbol></defs></svg>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="barra">
+  <div class="ancho">
+    <a class="marca" href="/" aria-label="Nubi, ir al inicio"><svg class="" viewBox="0 0 120 120" aria-hidden="true"><use href="#nubi"/></svg><span>Nubi</span></a>
+    <nav class="menu-nav" id="menu" aria-label="Principal"><a href="/" aria-current="page">Inicio</a><a href="/funciones">Funciones</a><a href="/nubi-ia">Nubi IA</a><a href="/como-funciona">Cómo funciona</a><a href="/privacidad">Privacidad</a><a href="/preguntas">Preguntas</a><a class="btn azul" href="/como-funciona#probar">Quiero probarla</a></nav>
+    <a class="btn azul probar" href="/como-funciona#probar">Quiero probarla</a>
+    <button class="abrir-menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span></button>
   </div>
 </header>
+<main id="contenido">
 
-<div class="trust">
-  <div class="container">
-    <div><svg class="i"><use href="#i-users"/></svg>Sin cuentas</div>
-    <div><svg class="i"><use href="#i-cloud-off"/></svg>Sin servidores</div>
-    <div><svg class="i"><use href="#i-ban"/></svg>Sin anuncios</div>
-    <div><svg class="i"><use href="#i-eye-off"/></svg>Sin rastreo</div>
+<section class="portada"><div class="ancho">
+  <div>
+    <span class="pega">Gratis para Android</span>
+    <h1>Organiza tu ministerio. Simplifica cada día.</h1>
+    <p class="lead">Nubi reúne tus revisitas, cursos, horas, asignaciones y tu horario en un solo lugar. Y si prefieres, se lo cuentas a Nubi y ella lo anota por ti.</p>
+    <div class="acciones"><a class="btn azul" href="/como-funciona#probar">Quiero probarla</a><a class="btn" href="/funciones">Ver qué hace</a></div>
+    <p class="nota"><span><svg class="ic" aria-hidden="true"><use href="#i-persona"/></svg>Sin cuentas</span><span><svg class="ic" aria-hidden="true"><use href="#i-sinred"/></svg>Funciona sin internet</span><span><svg class="ic" aria-hidden="true"><use href="#i-candado"/></svg>Tus datos no salen del teléfono</span></p>
   </div>
-</div>
+  <div class="escena">
+    <div class="fondo"></div>
+    <svg class="chispa c1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5C13 8 16 11 22.5 12 16 13 13 16 12 22.5 11 16 8 13 1.5 12 8 11 11 8 12 1.5z" fill="#F2C94C" stroke="#171717" stroke-width="2" stroke-linejoin="round"/></svg><svg class="chispa c2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5C13 8 16 11 22.5 12 16 13 13 16 12 22.5 11 16 8 13 1.5 12 8 11 11 8 12 1.5z" fill="#F2C94C" stroke="#171717" stroke-width="2" stroke-linejoin="round"/></svg>
+    <div class="telefono"><div class="pantalla">
+      <div class="cab"><svg class="" viewBox="0 0 120 120" aria-hidden="true"><use href="#nubi"/></svg><div><b>Nubi</b><small><i></i>Funciona en tu teléfono</small></div></div>
+      <div class="charla" id="chat">
+        <div class="globo yo" data-paso>Conocí a Rosa en el mercado, vuelvo el viernes a las 4</div>
+        <div class="globo el" data-paso>Listo, guardé a Rosa en tus revisitas.
+          <div class="mini-ficha"><b>Rosa</b><span>Vie 14 nov, 4:00 p. m.</span><span>Aviso 30 min antes</span></div></div>
+        <div class="botones-chat" data-paso><span>Ver ficha</span><span>Cómo llegar</span></div>
+        <div class="globo yo" data-paso>Hoy hice 2 horas y media</div>
+        <div class="globo el" data-paso>Anotado. Llevas 32,5 h este mes y te faltan 17,5 para tu meta.</div>
+      </div>
+    </div></div>
+    <div class="papelito">Visita a Rosa<small>vie 4:00 p. m.</small></div>
+    <svg class="nubi-grande" viewBox="-14 -26 170 180" role="img" aria-label="Nubi, la mascota de la app, saludando">
+<path d="M14 84C2 86-6 96-4 106" fill="none" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+<circle cx="-4" cy="108" r="7" fill="#fff" stroke="#171717" stroke-width="4.5"/>
+<path d="M106 70C122 60 128 42 124 26" fill="none" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+<circle cx="124" cy="20" r="8" fill="#fff" stroke="#171717" stroke-width="4.5"/>
+<path d="M114 4l6-10M132 6l9-6M136 20h10" stroke="#171717" stroke-width="4" stroke-linecap="round"/>
+<path d="M44 110v16M76 110v16" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+<ellipse cx="40" cy="130" rx="11" ry="6" fill="#171717"/><ellipse cx="80" cy="130" rx="11" ry="6" fill="#171717"/>
 
-<section id="funciones">
-  <div class="container">
-    <div class="sec-head">
-      <span class="eyebrow">Funciones</span>
-      <h2>Todo lo que necesitas, nada que sobre</h2>
-      <p>Pensada para usarse con una mano, en la calle, entre una puerta y otra.</p>
-    </div>
-    <div class="grid">
-      <div class="card"><div class="ic"><svg class="i"><use href="#i-users"/></svg></div><h3>Revisitas y cursos</h3><p>Cada persona con su dirección, tema, pregunta pendiente, progreso y una libreta de notas por visita.</p></div>
-      <div class="card"><div class="ic"><svg class="i"><use href="#i-cal"/></svg></div><h3>Calendario completo</h3><p>Vistas de día, semana, mes, año y planificación. Arrastra una visita para cambiarla de hora.</p></div>
-      <div class="card"><div class="ic"><svg class="i"><use href="#i-clock"/></svg></div><h3>Horas y precursorado</h3><p>Registra horas en un toque y mira si vas adelantado o atrasado para llegar a tu meta del mes.</p></div>
-      <div class="card"><div class="ic"><svg class="i"><use href="#i-grid"/></svg></div><h3>Mi Horario</h3><p>Planifica tu semana arrastrando bloques de media hora y compáralo con lo que ya hiciste.</p></div>
-      <div class="card"><div class="ic"><svg class="i"><use href="#i-book"/></svg></div><h3>Asignaciones</h3><p>Partes de la reunión con un formulario para cada una, además de eventos y recordatorios personales.</p></div>
-      <div class="card"><div class="ic"><svg class="i"><use href="#i-bell"/></svg></div><h3>Avisos a tiempo</h3><p>Recordatorios antes de cada visita o asignación, aunque la app esté cerrada o reinicies el teléfono.</p></div>
-      <div class="card"><div class="ic"><svg class="i"><use href="#i-chart"/></svg></div><h3>Historial e informes</h3><p>Al empezar el mes, tu informe del mes anterior se guarda solo, listo para compartirlo.</p></div>
-      <div class="card"><div class="ic"><svg class="i"><use href="#i-save"/></svg></div><h3>Copia de seguridad</h3><p>Guarda todos tus datos en un archivo y restáuralos en otro teléfono cuando quieras.</p></div>
-      <div class="card"><div class="ic"><svg class="i"><use href="#i-finger"/></svg></div><h3>PIN o huella</h3><p>Protege la app al abrirla. Tu PIN se guarda cifrado y la huella la verifica Android, no la app.</p></div>
-    </div>
+<rect x="12" y="22" width="96" height="88" rx="22" fill="#fff"/>
+<path d="M12 46v-2a22 22 0 0 1 22-22h52a22 22 0 0 1 22 22v2z" fill="#315CF5"/>
+<path d="M12 46h96" stroke="#171717" stroke-width="5"/>
+<rect x="12" y="22" width="96" height="88" rx="22" fill="none" stroke="#171717" stroke-width="5"/>
+<rect x="33" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
+<rect x="74" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
+<ellipse cx="44" cy="66" rx="6" ry="7.5" fill="#171717"/><ellipse cx="76" cy="66" rx="6" ry="7.5" fill="#171717"/>
+<circle cx="46" cy="63" r="2" fill="#fff"/><circle cx="78" cy="63" r="2" fill="#fff"/>
+<ellipse cx="33" cy="78" rx="6" ry="3.5" fill="#D9E3FF"/><ellipse cx="87" cy="78" rx="6" ry="3.5" fill="#D9E3FF"/>
+<path d="M51 77q9 9 18 0" fill="none" stroke="#171717" stroke-width="4.5" stroke-linecap="round"/>
+<g stroke="#171717" stroke-width="2.5"><rect x="27" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="43" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="59" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="75" y="90" width="11" height="8" rx="2.5" fill="#F2C94C"/></g>
+
+</svg>
+  </div>
+</div></section>
+
+<section class="intro-mod"><div class="ancho">
+  <div><h2>Todo lo que necesitas. En un solo lugar.</h2>
+  <p class="lead">Nubi es una agenda hecha para el ministerio. Anotas a quién visitaste, de qué hablaron y cuándo vuelves. La app te avisa, suma tus horas y arma tu informe del mes.</p></div>
+  <ul class="pegatinas" aria-label="Lo que puedes organizar">
+    <li><svg class="ic" aria-hidden="true"><use href="#i-persona"/></svg>Personas</li><li><svg class="ic" aria-hidden="true"><use href="#i-casa"/></svg>Revisitas</li><li><svg class="ic" aria-hidden="true"><use href="#i-libro"/></svg>Cursos bíblicos</li><li><svg class="ic" aria-hidden="true"><use href="#i-reloj"/></svg>Horas</li><li><svg class="ic" aria-hidden="true"><use href="#i-escaner"/></svg>Asignaciones</li>
+    <li><svg class="ic" aria-hidden="true"><use href="#i-calendario"/></svg>Calendario</li><li><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Mapa</li><li><svg class="ic" aria-hidden="true"><use href="#i-campana"/></svg>Avisos</li><li><svg class="ic" aria-hidden="true"><use href="#i-informe"/></svg>Informe</li><li><svg class="ic" aria-hidden="true"><use href="#i-objetivo"/></svg>Mi Horario</li>
+  </ul>
+</div></section>
+
+<section class="bloque"><div class="ancho">
+  <div class="texto"><span class="pega cielo">Personas y revisitas</span><h2>Cada persona, con su historia.</h2>
+  <p class="lead">Guarda su dirección, el tema que conversaron, la pregunta que quedó pendiente y una libreta por visita. Antes de tocar la puerta ya sabes por dónde seguir.</p>
+  <ul class="puntos"><li>Llama, escribe por WhatsApp o abre la ruta desde su ficha</li><li>Marca cuándo vuelves y recibe un aviso antes</li><li>Los cursos llevan la lección en la que van</li><li>Pasa un contacto a otro publicador con un enlace</li></ul></div>
+  <div class="dibujo"><div class="tarjeta ficha" role="img" aria-label="Ejemplo de la ficha de una persona en Nubi">
+  <div class="arriba"><span class="avatar">R</span><div><h3>Rosa Pérez</h3><span class="sub">Revisita en el territorio 12</span></div></div>
+  <div class="dato"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg><div><b>Tema que conversaron</b>¿Por qué existe el sufrimiento?</div></div>
+  <div class="dato"><svg class="ic" aria-hidden="true"><use href="#i-libro"/></svg><div><b>Pregunta pendiente</b>¿Qué pasa cuando morimos?</div></div>
+  <div class="dato"><svg class="ic" aria-hidden="true"><use href="#i-calendario"/></svg><div><b>Próxima visita</b>Viernes 14 de noviembre, 4:00 p. m.</div></div>
+  <div class="contactar"><span><svg class="ic" aria-hidden="true"><use href="#i-llamar"/></svg>Llamar</span><span><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</span><span><svg class="ic" aria-hidden="true"><use href="#i-ruta"/></svg>Cómo llegar</span><span><svg class="ic" aria-hidden="true"><use href="#i-compartir"/></svg>Compartir</span></div>
+</div><span class="pega etiqueta-flotante">Aviso 30 min antes</span></div>
+</div></section>
+
+<section class="bloque invertido"><div class="ancho">
+  <div class="texto"><span class="pega cielo">Horas</span><h2>Tus horas, sin sacar cuentas.</h2>
+  <p class="lead">Suma tiempo en un toque o díctalo. Nubi te dice cuánto llevas, cuánto te falta para tu meta y si vas adelantado.</p>
+  <ul class="puntos"><li>Meta mensual o semanal según tu tipo de publicador</li><li>Tu informe se arma solo y lo envías por WhatsApp</li><li>Mi Horario compara lo que planeaste con lo que hiciste</li></ul></div>
+  <div class="dibujo"><div class="tarjeta medidor" role="img" aria-label="Ejemplo del contador de horas: 32,5 de 50 horas en el mes">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><b style="font-family:var(--titulo);font-size:1.1rem">Noviembre</b><span class="pega cielo">Precursor regular</span></div>
+  <div class="cifra">32,5<small>de 50 h</small></div>
+  <div class="barra-horas"><i></i></div>
+  <div class="semanas"><div><b>8,5</b><small>Sem 1</small></div><div><b>10</b><small>Sem 2</small></div><div><b>9</b><small>Sem 3</small></div><div class="hoy"><b>5</b><small>Esta</small></div></div>
+</div></div>
+</div></section>
+
+<section class="bloque"><div class="ancho">
+  <div class="texto"><span class="pega cielo">Asignaciones</span><h2>Tu hoja de asignación, en una foto.</h2>
+  <p class="lead">Escanea la hoja que te dieron y el formulario se llena solo: nombre, ayudante, fecha y tipo de parte. Lo revisas, guardas y Nubi te avisa antes.</p>
+  <ul class="puntos"><li>El texto de la hoja se lee dentro de tu teléfono</li><li>La hora queda a las 7:00 p. m. y la cambias si tu reunión es a otra hora</li><li>También puedes agregar partes, eventos y recordatorios a mano</li></ul></div>
+  <div class="dibujo"><div class="hojas" role="img" aria-label="Una hoja de asignación fotografiada se convierte en un formulario lleno">
+  <div class="hoja"><div class="t">Hoja de asignación</div><div class="r">Nombre: Sam</div><div class="r">Ayudante: Pedro</div><div class="r">Fecha: 13 nov</div>
+  <div class="caja"><i></i>Lectura</div><div class="caja"><i class="x"></i>Revisita</div><div class="caja"><i></i>Discurso</div></div>
+  <svg class="flecha" viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="20" fill="#F2C94C" stroke="#171717" stroke-width="2.5"/><path d="M13 23h18M25 16l7 7-7 7" fill="none" stroke="#171717" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="tarjeta form-lleno"><div class="ok"><small>Tipo</small>Revisita</div><div><small>Fecha y hora</small>Jue 13 nov, 7:00 p. m.</div><div><small>Ayudante</small>Pedro</div></div>
+</div></div>
+</div></section>
+
+<section class="ia" aria-labelledby="ia-titulo">
+  <div class="ancho">
+    <div><span class="pega">En prueba</span><h2 id="ia-titulo">Tu organización, ahora más inteligente.</h2>
+    <p class="lead">Háblale o escríbele como a un compañero de predicación. Nubi entiende lo que le pides y lo convierte en acciones dentro de tu app.</p>
+    <ul class="puntos"><li>Anotar horas</li><li>Agregar personas</li><li>Programar revisitas</li><li>Corregir datos</li><li>Contarte tu semana</li><li>Armar tu horario</li><li>Crear asignaciones</li><li>Pasarte un contacto</li></ul>
+    <p class="aviso-ia">Nubi funciona dentro de tu teléfono. Si hace algo que no querías, toca Deshacer. Está en fase de prueba y puede equivocarse.</p>
+    <div class="acciones"><a class="btn sol" href="/nubi-ia">Descubre Nubi IA</a></div></div>
+    <div><div class="tarjeta chat-ia">
+  <div class="cab"><svg class="" viewBox="0 0 120 120" aria-hidden="true"><use href="#nubi"/></svg><b>Nubi</b><span class="pega blanca"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg>Modo voz</span></div>
+  <div class="charla">
+    <div class="globo yo">Cambia la visita de Rosa al sábado a las 5</div>
+    <div class="globo el">Listo, la pasé al sábado 15 a las 5:00 p. m. También moví su aviso.</div>
+    <div class="deshacer"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Visita movida <span>Deshacer</span></div>
+    <div class="globo yo">Pásame el contacto de Pedro</div>
+    <div class="globo el">Aquí tienes a Pedro Castillo:</div>
+    <div class="botones-chat"><span><svg class="ic" aria-hidden="true"><use href="#i-llamar"/></svg>Llamar</span><span><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</span><span><svg class="ic" aria-hidden="true"><use href="#i-ruta"/></svg>Cómo llegar</span></div>
+  </div>
+</div><p class="ilustrativo" style="color:#E3E9FF">Ejemplo ilustrativo de una conversación.</p></div>
   </div>
 </section>
 
-<section id="como-usarla" style="background:var(--card);border-block:1px solid var(--border)">
-  <div class="container">
-    <div class="sec-head">
-      <span class="eyebrow">Cómo usarla</span>
-      <h2>Empieza en menos de un minuto</h2>
-      <p>No hay registro ni contraseñas. Abres la app y listo.</p>
-    </div>
-    <div class="steps">
-      <div class="card step"><h3>Cuéntale quién eres</h3><p>Escribe tu nombre, elige si eres precursor (auxiliar, regular o especial) y el color que más te guste.</p><div class="tip">Tu meta del mes se configura sola según tu tipo de precursorado.</div></div>
-      <div class="card step"><h3>Agrega a una persona</h3><p>En <b>Personas</b>, toca <b>+</b>. Pon su nombre, dirección, tema de conversación y la pregunta que dejaste pendiente.</p><div class="tip">Usa la libreta para anotar lo que hablaron en cada visita.</div></div>
-      <div class="card step"><h3>Programa la próxima visita</h3><p>Elige fecha, hora y cuándo quieres que te avise: 1 día antes, 1 hora antes o lo que prefieras.</p><div class="tip">Si la visitas cada semana, activa "Repetir" y el calendario la proyecta sola.</div></div>
-      <div class="card step"><h3>Registra tus horas</h3><p>En <b>Precursorado</b>, toca <b>+1 hora</b>, <b>+2 horas</b> o <b>Manual</b>. La tarjeta te dice cuánto necesitas por día.</p><div class="tip">Si te equivocas, el botón −1 hora lo corrige.</div></div>
-      <div class="card step"><h3>Planifica tu semana</h3><p>En <b>Mi Horario</b>, mantén presionado y arrastra hacia abajo para marcar cuándo piensas salir.</p><div class="tip">La suma de tus bloques es tu meta semanal.</div></div>
-      <div class="card step"><h3>Guarda una copia</h3><p>En <b>Configuración → Copia de seguridad</b>, guarda un archivo con todo. Llévalo a Drive o a tu computadora.</p><div class="tip">Hazlo una vez al mes: si pierdes el teléfono, no pierdes tus datos.</div></div>
-    </div>
-  </div>
-</section>
+<section class="bloque"><div class="ancho">
+  <div class="texto"><span class="pega cielo">Mapa</span><h2>Tus revisitas, mejor organizadas.</h2>
+  <p class="lead">Mira en el mapa dónde vive cada persona y planea tu recorrido por zona. Toca una calle para agregar a alguien justo ahí.</p>
+  <ul class="puntos"><li>Descarga tu zona y úsalo sin señal</li><li>Los cursos bíblicos llevan una estrella</li><li>Arrastra el pin para elegir la dirección exacta</li><li>Los pines se dibujan en tu teléfono: las ubicaciones no se envían a nadie</li></ul></div>
+  <div class="dibujo"><div class="tarjeta mapa-dibujo"><svg viewBox="0 0 520 400" role="img" aria-label="Ilustración del mapa de Nubi con los pines de varias personas, un grupo de tres y un pin para agregar a alguien nuevo">
+<rect width="520" height="400" fill="#E9E5DD"/>
+<path d="M330 250h190v150H300z" fill="#D9E3FF" stroke="#171717" stroke-width="3"/>
+<g fill="none" stroke="#171717" stroke-width="2" opacity=".55"><path d="M360 300q20-14 40 0t40 0 40 0"/><path d="M350 340q20-14 40 0t40 0 40 0"/></g>
+<rect x="40" y="40" width="120" height="90" rx="12" fill="#fff" stroke="#171717" stroke-width="3"/>
+<g stroke="#171717" stroke-width="3" fill="#cfe7d6"><circle cx="72" cy="78" r="14"/><circle cx="102" cy="96" r="12"/><circle cx="128" cy="70" r="10"/></g>
+<path d="M-20 175H540" fill="none" stroke="#171717" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20 175H540" fill="none" stroke="#fff" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M215 -20V420" fill="none" stroke="#171717" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/><path d="M215 -20V420" fill="none" stroke="#fff" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M-20 320C120 300 180 260 215 240S330 200 540 210" fill="none" stroke="#171717" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20 320C120 300 180 260 215 240S330 200 540 210" fill="none" stroke="#fff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M380 -20L320 175" fill="none" stroke="#171717" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><path d="M380 -20L320 175" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M90 175 C150 175 170 120 215 110 S300 120 320 175" fill="none" stroke="#315CF5" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>
+<g transform="translate(90,172)"><ellipse cx="0" cy="2" rx="9" ry="3.5" fill="#171717" opacity=".25"/><path d="M0 0C-4-10-18-18-18-33a18 18 0 1 1 36 0C18-18 4-10 0 0z" fill="#315CF5" stroke="#171717" stroke-width="3.5" stroke-linejoin="round"/><text x="0" y="-27" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="17" fill="#fff">R</text></g>
+<g transform="translate(320,172)"><ellipse cx="0" cy="2" rx="9" ry="3.5" fill="#171717" opacity=".25"/><path d="M0 0C-4-10-18-18-18-33a18 18 0 1 1 36 0C18-18 4-10 0 0z" fill="#315CF5" stroke="#171717" stroke-width="3.5" stroke-linejoin="round"/><text x="0" y="-27" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="17" fill="#fff">P</text><g transform="translate(13,-50)"><circle r="10" fill="#F2C94C" stroke="#171717" stroke-width="3"/><path d="M0-5.5l1.7 3.4 3.8.6-2.7 2.6.6 3.7L0 3 -3.4 4.8l.6-3.7-2.7-2.6 3.8-.6z" fill="#171717"/></g></g>
+<g transform="translate(215,108)"><ellipse cx="0" cy="2" rx="9" ry="3.5" fill="#171717" opacity=".25"/><path d="M0 0C-4-10-18-18-18-33a18 18 0 1 1 36 0C18-18 4-10 0 0z" fill="#fff" stroke="#171717" stroke-width="3.5" stroke-linejoin="round"/><text x="0" y="-27" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="17" fill="#171717">M</text></g>
+<g transform="translate(110,300)"><circle r="28" fill="#315CF5" stroke="#171717" stroke-width="3.5"/><circle r="20" fill="#fff" stroke="#171717" stroke-width="3"/><text y="7" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="20" fill="#171717">3</text></g>
+<g transform="translate(405,124)"><g transform="translate(0,0)"><ellipse cx="0" cy="2" rx="9" ry="3.5" fill="#171717" opacity=".25"/><path d="M0 0C-4-10-18-18-18-33a18 18 0 1 1 36 0C18-18 4-10 0 0z" fill="#F2C94C" stroke="#171717" stroke-width="3.5" stroke-linejoin="round"/><text x="0" y="-27" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="17" fill="#171717">+</text></g>
+<g transform="translate(-85,-112)"><rect width="170" height="40" rx="12" fill="#171717"/><text x="85" y="25" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="13.5" fill="#fff">Agregar persona aquí</text><path d="M77 39l8 9 8-9z" fill="#171717"/></g></g>
+<g transform="translate(270,290)"><circle r="16" fill="#315CF5" opacity=".2"/><circle r="8" fill="#315CF5" stroke="#fff" stroke-width="3.5"/></g>
+</svg></div><p class="ilustrativo">Ilustración. No muestra datos reales.</p></div>
+</div></section>
 
-<section id="privacidad">
-  <div class="container">
-    <div class="privacy-box grad">
+<section class="bloque invertido"><div class="ancho">
+  <div class="texto"><span class="pega cielo">Calendario</span><h2>Una visión más clara de tu semana.</h2>
+  <p class="lead">Revisitas, salidas a predicar y asignaciones juntas en un calendario. Míralo por día, semana, mes o año, y arrastra una visita para moverla.</p>
+  <ul class="puntos"><li>Planifica cuándo vas a salir cada semana</li><li>Nubi te avisa si dos cosas chocan a la misma hora</li><li>Modo oscuro para revisar de noche</li></ul></div>
+  <div class="dibujo"><div class="tarjeta agenda" role="img" aria-label="Ejemplo de la semana en el calendario de Nubi, con salidas a predicar, revisitas y una asignación">
+  <div class="mes">Noviembre <span>10 – 16</span></div>
+  <div class="semana"><div class="d"><b>Lun<strong>10</strong></b><i class="ev p"></i></div><div class="d"><b>Mar<strong>11</strong></b><i class="ev r"></i></div><div class="d"><b>Mié<strong>12</strong></b></div><div class="d hoy"><b>Jue<strong>13</strong></b><i class="ev r"></i><i class="ev a"></i></div><div class="d"><b>Vie<strong>14</strong></b><i class="ev r"></i></div><div class="d"><b>Sáb<strong>15</strong></b><i class="ev p l"></i><i class="ev r"></i></div><div class="d"><b>Dom<strong>16</strong></b><i class="ev p"></i></div></div>
+  <div class="leyenda"><span><i style="background:var(--azul)"></i>Predicación</span><span><i style="background:#fff"></i>Revisita</span><span><i style="background:var(--sol)"></i>Asignación</span></div>
+  <div class="hoy-lista"><div><span>4:00 p. m.</span>Visita a María</div><div><span>7:00 p. m.</span>Asignación: revisita con Pedro</div></div>
+</div></div>
+</div></section>
+
+<section class="bloque"><div class="ancho">
+  <div class="texto"><span class="pega cielo">Avisos</span><h2>Recordatorios que llegan a tiempo.</h2>
+  <p class="lead">Nubi te recuerda tus visitas y asignaciones antes de la hora, aunque apagues o reinicies el teléfono. Tú eliges cuánto antes.</p>
+  <ul class="puntos"><li>Funcionan sin internet</li><li>Los desactivas cuando quieras</li></ul></div>
+  <div class="dibujo"><div class="avisos" role="img" aria-label="Ejemplos de avisos de Nubi">
+  <div class="aviso"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-campana"/></svg></span><div><b>Visita a Rosa en 30 min</b><p>Quedó pendiente: ¿qué pasa cuando morimos?</p><small>3:30 p. m.</small></div></div>
+  <div class="aviso"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-calendario"/></svg></span><div><b>Mañana tienes asignación</b><p>Revisita con Pedro, sala principal</p><small>Ayer, 8:00 p. m.</small></div></div>
+  <div class="aviso"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-objetivo"/></svg></span><div><b>Te faltan 4 h para tu meta</b><p>Quedan 6 días del mes</p><small>Lunes</small></div></div>
+</div></div>
+</div></section>
+
+<section class="privada"><div class="ancho"><div class="panel">
+  <div><h2>Tu información merece respeto.</h2>
+  <p class="lead">Cuando alguien te abre la puerta, confía en ti. Por eso lo que anotas en Nubi se queda en tu teléfono. No tenemos servidores ni cuentas.</p>
+  <ul class="hechos">
+    <li><b><svg class="ic" aria-hidden="true"><use href="#i-persona"/></svg>Sin cuentas</b><span>No pedimos correo, contraseña ni número.</span></li>
+    <li><b><svg class="ic" aria-hidden="true"><use href="#i-candado"/></svg>Todo en tu teléfono</b><span>Personas, notas, horas e informes viven solo ahí.</span></li>
+    <li><b><svg class="ic" aria-hidden="true"><use href="#i-ojo"/></svg>Sin anuncios ni rastreo</b><span>No hay publicidad ni estadísticas de uso.</span></li>
+    <li><b><svg class="ic" aria-hidden="true"><use href="#i-basura"/></svg>Tú decides</b><span>Exporta una copia o borra todo cuando quieras.</span></li>
+  </ul>
+  <div class="acciones"><a class="btn azul" href="/privacidad">Leer la política de privacidad</a><a class="btn" href="/seguridad">Cómo protegemos la app</a></div></div>
+  <div class="dibujo" style="max-width:320px"><svg viewBox="0 0 300 320" role="img" aria-label="Ilustración de un teléfono con un escudo: tus datos se quedan en tu teléfono">
+<rect x="60" y="16" width="180" height="290" rx="30" fill="#171717"/>
+<rect x="72" y="28" width="156" height="266" rx="22" fill="#FAF9F6"/>
+<rect x="125" y="38" width="50" height="8" rx="4" fill="#171717"/>
+<g stroke="#171717" stroke-width="3"><rect x="90" y="62" width="120" height="22" rx="8" fill="#fff"/><rect x="90" y="92" width="86" height="22" rx="8" fill="#D9E3FF"/><rect x="90" y="236" width="120" height="22" rx="8" fill="#fff"/></g>
+<path d="M150 118l52 20v38c0 34-23 54-52 62-29-8-52-28-52-62v-38z" fill="#315CF5" stroke="#171717" stroke-width="5" stroke-linejoin="round"/>
+<path d="M128 178l15 15 30-33" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30 70C12 90 12 120 26 140M270 196c16 18 18 46 6 66" fill="none" stroke="#171717" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 12"/>
+<path d="M262 46C263 56 268 61 278 62 268 63 263 68 262 78 261 68 256 63 246 62 256 61 261 56 262 46z" fill="#F2C94C" stroke="#171717" stroke-width="3" stroke-linejoin="round"/>
+<path d="M34 216C35 224 39 228 47 229 39 230 35 234 34 242 33 234 29 230 21 229 29 228 33 224 34 216z" fill="#F2C94C" stroke="#171717" stroke-width="3" stroke-linejoin="round"/>
+</svg></div>
+</div></div></section>
+
+<section class="preguntas"><div class="angosto">
+  <div class="faq-cab"><h2>Preguntas frecuentes</h2><a class="btn" href="/preguntas">Ver todas</a></div>
+  <div class="faq"><details><summary>¿Necesito internet para usar Nubi?</summary><div><p>No. Todo funciona sin conexión, incluida la asistente Nubi. Solo el mapa necesita internet para cargar las calles, y puedes descargar tu zona para usarlo sin señal.</p></div></details><details><summary>¿Tengo que crear una cuenta?</summary><div><p>No. Nubi no tiene cuentas: no te pedimos correo ni contraseña. Solo te pregunta cómo quieres que te salude.</p></div></details><details><summary>¿Qué pasa si cambio de teléfono?</summary><div><p>Como no hay servidores, tus datos no se copian solos. En Ajustes puedes guardar una copia de seguridad en un archivo y restaurarla en tu teléfono nuevo. Te recomendamos hacerlo una vez al mes.</p></div></details><details><summary>¿Cuánto cuesta?</summary><div><p>Nada. Es gratis, sin anuncios y sin compras dentro de la app.</p></div></details><details><summary>¿Es una app oficial de jw.org?</summary><div><p>No. Nubi es una herramienta independiente, creada por un publicador para ayudar a otros. No está afiliada a la Watch Tower Bible and Tract Society ni a jw.org, y no explica textos ni doctrina: para eso, consulta jw.org.</p></div></details></div>
+</div></section>
+<section class="final"><div class="ancho"><div class="panel">
+  <div><h2>Una forma más sencilla de organizarte.</h2><p class="lead">Nubi está en prueba cerrada en Google Play. Únete a los probadores y ayúdanos a publicarla para todos.</p>
+  <div class="acciones"><a class="btn azul" href="/como-funciona#probar">Quiero probarla</a><a class="btn" href="/contacto">Escríbenos</a></div></div>
+  <svg class="nubi-final" viewBox="-14 -26 170 180" role="img" aria-label="Nubi, la mascota de la app, saludando">
+<path d="M14 84C2 86-6 96-4 106" fill="none" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+<circle cx="-4" cy="108" r="7" fill="#fff" stroke="#171717" stroke-width="4.5"/>
+<path d="M106 70C122 60 128 42 124 26" fill="none" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+<circle cx="124" cy="20" r="8" fill="#fff" stroke="#171717" stroke-width="4.5"/>
+<path d="M114 4l6-10M132 6l9-6M136 20h10" stroke="#171717" stroke-width="4" stroke-linecap="round"/>
+<path d="M44 110v16M76 110v16" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+<ellipse cx="40" cy="130" rx="11" ry="6" fill="#171717"/><ellipse cx="80" cy="130" rx="11" ry="6" fill="#171717"/>
+
+<rect x="12" y="22" width="96" height="88" rx="22" fill="#fff"/>
+<path d="M12 46v-2a22 22 0 0 1 22-22h52a22 22 0 0 1 22 22v2z" fill="#315CF5"/>
+<path d="M12 46h96" stroke="#171717" stroke-width="5"/>
+<rect x="12" y="22" width="96" height="88" rx="22" fill="none" stroke="#171717" stroke-width="5"/>
+<rect x="33" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
+<rect x="74" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
+<ellipse cx="44" cy="66" rx="6" ry="7.5" fill="#171717"/><ellipse cx="76" cy="66" rx="6" ry="7.5" fill="#171717"/>
+<circle cx="46" cy="63" r="2" fill="#fff"/><circle cx="78" cy="63" r="2" fill="#fff"/>
+<ellipse cx="33" cy="78" rx="6" ry="3.5" fill="#D9E3FF"/><ellipse cx="87" cy="78" rx="6" ry="3.5" fill="#D9E3FF"/>
+<path d="M51 77q9 9 18 0" fill="none" stroke="#171717" stroke-width="4.5" stroke-linecap="round"/>
+<g stroke="#171717" stroke-width="2.5"><rect x="27" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="43" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="59" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="75" y="90" width="11" height="8" rx="2.5" fill="#F2C94C"/></g>
+
+</svg>
+</div></div></section>
+</main>
+<footer class="pie">
+  <div class="ancho">
+    <div class="cols">
       <div>
-        <span class="eyebrow" style="color:#fff;opacity:.85">Privacidad</span>
-        <h2>Lo que anotas de otras personas es delicado. Por eso no sale de tu teléfono.</h2>
-        <p>Cuando visitas a alguien, esa persona confía en ti. AscendProgress está hecha para respetar esa confianza: no tenemos servidores, no guardamos copias y no podemos ver tus datos aunque quisiéramos.</p>
-        <a class="btn" href="/privacidad"><svg class="i"><use href="#i-lock"/></svg> Leer la política completa</a>
+        <a class="marca" href="/"><svg class="" viewBox="0 0 120 120" aria-hidden="true"><use href="#nubi"/></svg><span>Nubi</span></a>
+        <p>Una agenda para el ministerio con una asistente que te ayuda a organizarte. Hecha en Perú por un publicador.</p>
       </div>
-      <div class="privacy-list">
-        <div><svg class="i"><use href="#i-phone"/></svg><p><b>Todo vive en tu teléfono</b>Personas, visitas, notas, horas e informes se guardan solo en tu dispositivo.</p></div>
-        <div><svg class="i"><use href="#i-cloud-off"/></svg><p><b>La app no usa internet</b>No envía nada a ningún lado. Funciona igual en modo avión.</p></div>
-        <div><svg class="i"><use href="#i-eye-off"/></svg><p><b>Cero rastreo</b>Sin cuentas, sin anuncios, sin estadísticas de uso y sin herramientas de terceros.</p></div>
-        <div><svg class="i"><use href="#i-save"/></svg><p><b>Tú decides tus copias</b>La copia de seguridad es un archivo que guardas donde tú elijas.</p></div>
-      </div>
+      <nav aria-labelledby="pie-producto"><h2 id="pie-producto">Producto</h2><ul>
+        <li><a href="/">Inicio</a></li><li><a href="/funciones">Funciones</a></li><li><a href="/nubi-ia">Nubi IA</a></li><li><a href="/como-funciona">Cómo funciona</a></li><li><a href="/como-funciona#probar">Quiero probarla</a></li></ul></nav>
+      <nav aria-labelledby="pie-ayuda"><h2 id="pie-ayuda">Ayuda</h2><ul>
+        <li><a href="/preguntas">Preguntas frecuentes</a></li><li><a href="/contacto">Contacto y soporte</a></li><li><a href="/seguridad">Seguridad</a></li><li><a href="/borrar-datos">Borrar mis datos</a></li></ul></nav>
+      <nav aria-labelledby="pie-legal"><h2 id="pie-legal">Legal</h2><ul>
+        <li><a href="/privacidad">Privacidad</a></li><li><a href="/terminos">Términos de uso</a></li><li><a href="/cookies">Cookies</a></li></ul></nav>
     </div>
-  </div>
-</section>
-
-<section id="preguntas" style="padding-top:20px">
-  <div class="container">
-    <div class="sec-head">
-      <span class="eyebrow">Preguntas frecuentes</span>
-      <h2>Lo que todos preguntan</h2>
-    </div>
-    <div class="faq">
-      <details><summary>¿Necesito internet para usarla?</summary><p>No. AscendProgress funciona completa sin conexión. Solo se usa internet si tú decides abrir un enlace externo (por ejemplo, jw.org o un mapa), y eso lo hace tu navegador o la app de mapas, no AscendProgress.</p></details>
-      <details><summary>¿Qué pasa si cambio de teléfono o lo pierdo?</summary><p>Como no hay servidores, tus datos no se sincronizan solos. Por eso existe la copia de seguridad: en Configuración → Copia de seguridad guardas un archivo y luego lo restauras en el teléfono nuevo. Te recomendamos hacer una copia al mes.</p></details>
-      <details><summary>Olvidé mi PIN, ¿cómo recupero el acceso?</summary><p>En la pantalla de bloqueo toca "¿Olvidaste tu PIN?". Puedes confirmar con el bloqueo de tu teléfono (su PIN, patrón o huella) o con el código de recuperación que se te mostró al crear el PIN.</p></details>
-      <details><summary>No me llegan los avisos, ¿qué hago?</summary><p>Revisa que las notificaciones estén activadas en Configuración → Notificaciones. En algunos teléfonos (Xiaomi, Redmi, Huawei, Oppo, Realme, Vivo) el sistema cierra las apps para ahorrar batería: la app te muestra una guía en Configuración → Batería para evitarlo.</p></details>
-      <details><summary>¿Es una app oficial de jw.org?</summary><p>No. AscendProgress es una herramienta independiente, creada por un publicador para ayudar a otros. No está afiliada, patrocinada ni aprobada por la Watch Tower Bible and Tract Society ni por jw.org.</p></details>
-      <details><summary>¿Cuánto cuesta?</summary><p>Nada. Es gratis, sin anuncios y sin compras dentro de la app. Si quieres, puedes apoyar el proyecto de forma voluntaria.</p></details>
-    </div>
-  </div>
-</section>
-
-
-
-<footer>
-  <div class="container">
-    <div class="legal">
-      <a class="logo" href="/" style="margin-bottom:10px"><span class="mark grad">A</span>AscendProgress</a>
-      <p>AscendProgress es una herramienta independiente y no está afiliada, patrocinada ni aprobada por la Watch Tower Bible and Tract Society of Pennsylvania ni por los testigos de Jehová. jw.org es una marca de sus respectivos propietarios.</p>
-      <p style="margin-top:10px">© <span id="anio">2026</span> AscendProgress · Hecha en Perú</p>
-    </div>
-    <nav>
-      <a href="/privacidad">Privacidad</a>
-      <a href="#como-usarla">Cómo usarla</a>
-      <a href="mailto:soporte.assend@gmail.com">Soporte</a>
-    </nav>
+    <p class="independencia">Nubi es una herramienta independiente. No está afiliada, patrocinada ni aprobada por la Watch Tower Bible and Tract Society of Pennsylvania ni por los testigos de Jehová. jw.org es una marca de sus respectivos propietarios.</p>
+    <div class="base"><span>© <span id="anio">2026</span> Nubi</span><span>Hecha en Perú</span></div>
   </div>
 </footer>
-<script>document.getElementById('anio').textContent=new Date().getFullYear();document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));</script>
+<script src="/sitio.js" defer></script>
 </body>
 </html>
