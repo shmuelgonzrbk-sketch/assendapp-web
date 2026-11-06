@@ -204,8 +204,28 @@ async function iniciar(caja) {
   let intro = matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 0;   // vuelta de entrada
   // Solo en celular: la entrada empieza cuando el teléfono ya se ve bien en la pantalla
   let introListo = !matchMedia('(max-width: 900px), (pointer: coarse)').matches;
+  // Mientras el teléfono entra, la página no se mueve (para que la animación no se corte)
+  let bloqueado = false;
+  const frenar = (e) => { if (bloqueado) e.preventDefault(); };
+  const teclas = (e) => { if (bloqueado && [' ', 'ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End'].includes(e.key)) e.preventDefault(); };
+  const desbloquear = () => {
+    if (!bloqueado) return;
+    bloqueado = false;
+    removeEventListener('touchmove', frenar); removeEventListener('wheel', frenar); removeEventListener('keydown', teclas);
+    document.documentElement.style.overscrollBehavior = '';
+  };
+  const bloquearScroll = () => {
+    if (intro >= 1) return;
+    bloqueado = true;
+    addEventListener('touchmove', frenar, { passive: false });
+    addEventListener('wheel', frenar, { passive: false });
+    addEventListener('keydown', teclas);
+    document.documentElement.style.overscrollBehavior = 'none';
+    caja.scrollIntoView({ behavior: 'smooth', block: 'center' });   // lo deja centrado para verlo entrar
+    setTimeout(desbloquear, 4500);                                  // por si acaso, nunca queda trabado
+  };
   if (!introListo) new IntersectionObserver(([en], ob) => {
-    if (en.intersectionRatio >= 0.45) { introListo = true; ob.disconnect(); }
+    if (en.intersectionRatio >= 0.45) { introListo = true; ob.disconnect(); bloquearScroll(); }
   }, { threshold: [0.45] }).observe(caja);
 
   const idaAlReposo = () => {
@@ -215,6 +235,7 @@ async function iniciar(caja) {
   };
 
   canvas.addEventListener('pointerdown', (e) => {
+    if (bloqueado) return;                // mientras entra no se puede agarrar
     arrastrando = true; volviendo = false; velY = velX = 0;
     ultimoX = e.clientX; ultimoY = e.clientY; ultimoT = performance.now();
     canvas.setPointerCapture?.(e.pointerId);
@@ -323,6 +344,7 @@ async function iniciar(caja) {
       if (arrastrando) intro = 1;
       else {
         intro = Math.min(1, intro + dt / 2.8);
+        if (intro >= 1) desbloquear();
         const e = 1 - Math.pow(1 - intro, 5);                       // gira rápido y frena suave
         rotY = REPOSO_Y - (1 - e) * Math.PI * 6; rotX = REPOSO_X + (1 - e) * 0.35; velY = velX = 0;
         const c = Math.min(1, intro / 0.85);                        // crece poco a poco, como acercándose
