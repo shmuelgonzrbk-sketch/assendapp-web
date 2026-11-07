@@ -70,7 +70,7 @@
 <main id="contenido">
 <section class="cabecera"><div class="ancho"><div><span class="pega">Novedades</span><h1>Todo lo que ha cambiado en Orby.</h1><p class="lead">De lo primero a lo más nuevo. Cada cambio salió de usarla en el campo y de lo que nos pidieron los probadores.</p></div></div></section>
 <section style="padding-top:0"><div class="angosto"><ol class="linea-tiempo">
-<li><p class="cuando">Septiembre de 2026</p><h2>Todo en tu teléfono</h2><p class="lead chico">La app deja de depender de internet y de cuentas.</p><ul>
+<li><p class="cuando">Septiembre de 2026</p><h2 id="todo-en-tu-telefono">Todo en tu teléfono</h2><p class="lead chico">La app deja de depender de internet y de cuentas.</p><ul>
 <li><h3>Tus datos viven solo en tu teléfono</h3><p>Sin cuentas, sin contraseñas y sin servidores. Nadie más ve tus revisitas, cursos ni horas.</p></li>
 <li><h3>Copia de seguridad</h3><p>Guarda todos tus datos en un archivo y recupéralos cuando quieras.</p></li>
 <li><h3>Avisos sin internet</h3><p>Tu teléfono te recuerda tus visitas y asignaciones antes de la hora.</p></li>
@@ -78,13 +78,13 @@
 <li><h3>Calendario</h3><p>Tus visitas, asignaciones y horas en vista de mes, semana y día.</p></li>
 <li><h3>Territorio</h3><p>Anota el territorio de cada persona.</p></li>
 </ul></li>
-<li><p class="cuando">Octubre de 2026</p><h2>Menos escribir</h2><p class="lead chico">Orby empieza a llenar las cosas por ti.</p><ul>
+<li><p class="cuando">Octubre de 2026</p><h2 id="menos-escribir">Menos escribir</h2><p class="lead chico">Orby empieza a llenar las cosas por ti.</p><ul>
 <li><h3>Dictar visita</h3><p>Cuéntala en voz alta y se llena la ficha de la revisita.</p></li>
 <li><h3>Escanea tu hoja de asignaciones</h3><p>Tómale foto al papel de la reunión y el formulario se llena solo.</p></li>
 <li><h3>Mapa de tu ciudad</h3><p>Cada persona aparece como un punto. Tócala para ver sus datos y el botón para ir.</p></li>
 <li><h3>Tu progreso sin abrir la app</h3><p>Un widget en la pantalla principal del teléfono con tus horas del mes.</p></li>
 </ul></li>
-<li><p class="cuando">Noviembre de 2026</p><h2>Ahora se llama Orby</h2><p class="lead chico">Nuevo nombre, nuevo ícono y muchas mejoras pedidas por los probadores.</p><ul>
+<li><p class="cuando">Noviembre de 2026</p><h2 id="ahora-se-llama-orby">Ahora se llama Orby</h2><p class="lead chico">Nuevo nombre, nuevo ícono y muchas mejoras pedidas por los probadores.</p><ul>
 <li><h3>Orby, el calendario sonriente</h3><p>La app cambia de nombre y estrena ícono.</p></li>
 <li><h3>Pasa todo a un teléfono nuevo con un QR</h3><p>El teléfono nuevo muestra un QR y el de antes lo escanea. Todo pasa directo, sin internet.</p></li>
 <li><h3>Comparte una persona con un QR</h3><p>Muestra el QR de una revisita o un curso y la otra persona la agrega en un toque.</p></li>
@@ -100,7 +100,7 @@
 <li><h3>Tus colores en toda la app</h3><p>La pantalla de horas usa el color que elijas y cada menú tiene su propio color.</p></li>
 <li><h3>Novedades en Ajustes</h3><p>Desde la app llegas a esta página para ver lo nuevo.</p></li>
 </ul></li>
-<li class="ahora"><p class="cuando">Ahora</p><h2>En prueba: Orby IA</h2><p class="lead chico">Una versión aparte, para quien quiera probarla.</p><ul>
+<li class="ahora"><p class="cuando">Ahora</p><h2 id="en-prueba-orby-ia">En prueba: Orby IA</h2><p class="lead chico">Una versión aparte, para quien quiera probarla.</p><ul>
 <li><h3>Un asistente que hace las cosas</h3><p>Le dices «anota dos horas y dime cómo voy» y lo hace, con tus datos reales y pidiéndote confirmación.</p></li>
 <li><h3>Funciona sin internet</h3><p>La IA corre dentro de tu teléfono. Tus datos nunca salen de él.</p></li>
 </ul></li>
@@ -126,5 +126,6 @@
 </footer>
 <script src="/sitio.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
+<script id="abrir-ancla">(function(){function ir(){var h=decodeURIComponent(location.hash.slice(1));if(!h)return;var e=document.getElementById(h);if(!e)return;var d=e.closest("details")||(e.tagName=="DETAILS"?e:null);if(d)d.open=true;setTimeout(function(){e.scrollIntoView({block:"start"})},60);}addEventListener("hashchange",ir);ir();})();</script>
 </body>
 </html>

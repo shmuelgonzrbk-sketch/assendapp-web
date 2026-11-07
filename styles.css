@@ -1084,3 +1084,6 @@ html:has(.legal){scroll-padding-top:88px}
 .avisos[data-empujar] > .aviso:nth-child(3) .ico{background:#E3F5EA}
 .paso-panel button.version{font:inherit;text-align:left;color:inherit;width:100%;border:1.5px solid rgba(23,23,23,.16)}
 .paso-panel button.version.con-ia{border-color:rgba(49,92,245,.35)}
+
+/* web35: anclas sin quedar debajo de la barra */
+[id]{scroll-margin-top:96px}

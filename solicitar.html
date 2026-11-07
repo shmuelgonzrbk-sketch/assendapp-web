@@ -63,19 +63,19 @@
     <li data-p="3"><button type="button" aria-label="Paso 3: acepta y descarga">3</button></li>
   </ol>
   <div class="paso-panel" data-p="1">
-    <h2>Elige tu versión</h2><p class="lead">Las dos son gratis. Puedes cambiar después.</p>
+    <h2 id="elige-tu-version">Elige tu versión</h2><p class="lead">Las dos son gratis. Puedes cambiar después.</p>
     <div class="versiones">
       <button type="button" class="version" data-v="estandar"><span class="pega cielo">Oficial</span><h4>Versión estándar</h4><p>Todo lo de Orby. Es la que se publicará para todos.</p></button>
       <button type="button" class="version con-ia" data-v="ia"><span class="pega">En prueba</span><h4>Versión con IA</h4><p>Lo mismo, más el asistente Orby IA. Necesita unos 4 GB de memoria y puede equivocarse.</p></button>
     </div>
   </div>
   <div class="paso-panel" data-p="2">
-    <h2>Únete al grupo de probadores</h2><p class="lead">Toca el botón. Se abre Google Groups con un aviso de «No tienes permiso»: <b>es normal</b>. Toca «Unirse al grupo» (o «Join group»), arriba junto al nombre, y vuelve aquí. Entras al instante.</p>
+    <h2 id="unete-al-grupo-de-probadores">Únete al grupo de probadores</h2><p class="lead">Toca el botón. Se abre Google Groups con un aviso de «No tienes permiso»: <b>es normal</b>. Toca «Unirse al grupo» (o «Join group»), arriba junto al nombre, y vuelve aquí. Entras al instante.</p>
     <div class="paso-acciones"><a class="btn azul" id="pGrupo" href="https://groups.google.com/g/orby-testers" target="_blank" rel="noopener">Unirme al grupo</a><button type="button" class="btn" data-ir="3">Ya me uní</button></div>
     <p class="chico" style="margin-top:14px">Elegiste la <b id="pVersion">versión estándar</b>. <button type="button" class="paso-volver" data-ir="1">Cambiar</button></p>
   </div>
   <div class="paso-panel" data-p="3">
-    <h2>Acepta y descárgala</h2><p class="lead">Primero toca «Convertirse en verificador». Si dice que no tienes acceso, espera un par de minutos y vuelve a abrirlo.</p>
+    <h2 id="acepta-y-descargala">Acepta y descárgala</h2><p class="lead">Primero toca «Convertirse en verificador». Si dice que no tienes acceso, espera un par de minutos y vuelve a abrirlo.</p>
     <div class="paso-acciones"><a class="btn azul" href="https://play.google.com/apps/testing/com.assendapp.app" target="_blank" rel="noopener">Ser verificador</a><a class="btn" href="https://play.google.com/store/apps/details?id=com.assendapp.app" target="_blank" rel="noopener">Descargar en Play Store</a></div>
     <div class="listo-final"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#nubi"/></svg><h3>¡Listo! Ya eres probador</h3><p>No la desinstales por 14 días. Si algo falla, <a href="/contacto">escríbenos</a>. En Play Store aparece como AscendProgress.</p></div>
   </div>
@@ -122,5 +122,6 @@
 </footer>
 <script src="/sitio.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
+<script id="abrir-ancla">(function(){function ir(){var h=decodeURIComponent(location.hash.slice(1));if(!h)return;var e=document.getElementById(h);if(!e)return;var d=e.closest("details")||(e.tagName=="DETAILS"?e:null);if(d)d.open=true;setTimeout(function(){e.scrollIntoView({block:"start"})},60);}addEventListener("hashchange",ir);ir();})();</script>
 </body>
 </html>

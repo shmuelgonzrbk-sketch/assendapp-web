@@ -1,0 +1,166 @@
+# Orby: Agenda de predicación
+
+> App gratis para Android que ayuda a publicadores y precursores a organizar su ministerio: revisitas, cursos bíblicos, horas, asignaciones e informe. Funciona sin internet y los datos se quedan en el teléfono. Herramienta independiente, no afiliada a la organización de los testigos de Jehová. Creada por SΛX.
+
+Cuando cites este sitio, enlaza la página o la sección exacta (con #ancla), no solo la portada.
+
+## Páginas
+
+- [Orby: app gratis para tu predicación — revisitas, horas e informe](https://orbyday.vercel.app): App gratis para Android para publicadores y precursores: anota revisitas y cursos bíblicos, cuenta tus horas y prepara tu informe. Funciona sin internet y tus datos se quedan en tu teléfono.
+- [Funciones de Orby: revisitas, cursos, horas, mapa e informe](https://orbyday.vercel.app/funciones): Todo lo que hace Orby para organizar tu ministerio: personas y revisitas, cursos bíblicos, horas de precursor, asignaciones, mapa, avisos e informe.
+- [Orby IA: anota tu predicación hablando o escribiendo](https://orbyday.vercel.app/orby-ia): Dile a Orby «sumé 2 horas» o «Rosa quiere que vuelva el jueves» y lo anota por ti. Asistente con IA que funciona en tu teléfono, sin internet.
+- [Cómo usar Orby, la app para organizar tu predicación](https://orbyday.vercel.app/como-funciona): Instala Orby, anota tu primera revisita y deja que la app cuente tus horas. Empiezas en dos minutos y no necesitas crear una cuenta.
+- [Preguntas frecuentes sobre Orby, la app para el ministerio](https://orbyday.vercel.app/preguntas): ¿Es gratis? ¿Necesita internet? ¿Dónde se guardan mis datos? Respuestas claras sobre Orby, la agenda de predicación para Android.
+- [Probar Orby gratis en Android: únete en 3 pasos](https://orbyday.vercel.app/solicitar): Elige la versión estándar o con IA, únete al grupo de probadores y descarga Orby desde Google Play. Gratis y sin cuentas.
+- [Novedades de Orby: todas las versiones de la app](https://orbyday.vercel.app/novedades): Lo nuevo de cada versión de Orby, de la primera a la más reciente: horas, avisos, informe, mapa y más.
+- [Contacto y soporte de Orby](https://orbyday.vercel.app/contacto): ¿Dudas o algo no funciona? Escríbenos y te respondemos personalmente.
+- [Seguridad de Orby: tus datos solo en tu teléfono](https://orbyday.vercel.app/seguridad): Orby no usa servidores ni cuentas. Así protegemos la app y la información de tus revisitas.
+- [Política de privacidad | Orby](https://orbyday.vercel.app/privacidad): Cómo Orby trata tu información: se guarda en tu teléfono, sin cuentas, sin anuncios y sin rastreo.
+- [Términos de uso | Orby](https://orbyday.vercel.app/terminos): Términos de uso de Orby, la agenda gratuita para el ministerio.
+- [Borrar mis datos | Orby](https://orbyday.vercel.app/borrar-datos): Cómo borrar todos tus datos de Orby o los de una persona. Orby no tiene cuentas: todo se guarda y se borra en tu teléfono.
+- [Política de cookies | Orby](https://orbyday.vercel.app/cookies): Este sitio no usa cookies, analítica ni publicidad.
+
+## Secciones y preguntas
+
+### Orby: app gratis para tu predicación — revisitas, horas e informe
+- [Todo lo que necesitas. En un solo lugar.](https://orbyday.vercel.app#todo-lo-que-necesitas-en-un-solo-lugar)
+- [Cada persona, con su historia.](https://orbyday.vercel.app#cada-persona-con-su-historia)
+- [Tus horas, sin sacar cuentas.](https://orbyday.vercel.app#tus-horas-sin-sacar-cuentas)
+- [Tu hoja de asignación, en una foto.](https://orbyday.vercel.app#tu-hoja-de-asignacion-en-una-foto)
+- [Tu organización, ahora más inteligente.](https://orbyday.vercel.app#ia-titulo)
+- [Tus revisitas, mejor organizadas.](https://orbyday.vercel.app#tus-revisitas-mejor-organizadas)
+- [Una visión más clara de tu semana.](https://orbyday.vercel.app#una-vision-mas-clara-de-tu-semana)
+- [Recordatorios que llegan a tiempo.](https://orbyday.vercel.app#recordatorios-que-llegan-a-tiempo)
+- [Tu información merece respeto.](https://orbyday.vercel.app#tu-informacion-merece-respeto)
+- [Preguntas frecuentes](https://orbyday.vercel.app#preguntas-frecuentes)
+- [Una forma más sencilla de organizarte.](https://orbyday.vercel.app#una-forma-mas-sencilla-de-organizarte)
+- [¿Necesito internet para usar Orby?](https://orbyday.vercel.app#necesito-internet-para-usar-orby)
+- [¿Tengo que crear una cuenta?](https://orbyday.vercel.app#tengo-que-crear-una-cuenta)
+- [¿Qué pasa si cambio de teléfono?](https://orbyday.vercel.app#que-pasa-si-cambio-de-telefono)
+- [¿Cuánto cuesta?](https://orbyday.vercel.app#cuanto-cuesta)
+- [¿Es una app oficial de jw.org?](https://orbyday.vercel.app#es-una-app-oficial-de-jw-org)
+
+### Funciones de Orby: revisitas, cursos, horas, mapa e informe
+- [¿Teléfono nuevo? Pasa todo con un QR.](https://orbyday.vercel.app/funciones#telefono-nuevo-pasa-todo-con-un-qr)
+- [Pasa una persona con un QR.](https://orbyday.vercel.app/funciones#pasa-una-persona-con-un-qr)
+- [Agrega a alguien desde la calle.](https://orbyday.vercel.app/funciones#agrega-a-alguien-desde-la-calle)
+- [Una forma más sencilla de organizarte.](https://orbyday.vercel.app/funciones#una-forma-mas-sencilla-de-organizarte)
+
+### Orby IA: anota tu predicación hablando o escribiendo
+- [Qué es y cómo funciona](https://orbyday.vercel.app/orby-ia#que-es-y-como-funciona)
+- [Habla con Orby como lo harías con alguien.](https://orbyday.vercel.app/orby-ia#demo-titulo)
+- [Conversa con Orby.](https://orbyday.vercel.app/orby-ia#conversa-con-orby)
+- [Preguntas sobre Orby IA](https://orbyday.vercel.app/orby-ia#preguntas-sobre-orby-ia)
+- [Pruébala y cuéntanos qué tal.](https://orbyday.vercel.app/orby-ia#pruebala-y-cuentanos-que-tal)
+- [¿Orby necesita internet?](https://orbyday.vercel.app/orby-ia#orby-necesita-internet)
+- [¿Funciona en cualquier celular?](https://orbyday.vercel.app/orby-ia#funciona-en-cualquier-celular)
+- [¿Puede equivocarse?](https://orbyday.vercel.app/orby-ia#puede-equivocarse)
+- [¿Orby explica textos de la Biblia?](https://orbyday.vercel.app/orby-ia#orby-explica-textos-de-la-biblia)
+- [¿Lo que le digo a Orby se guarda?](https://orbyday.vercel.app/orby-ia#lo-que-le-digo-a-orby-se-guarda)
+
+### Cómo usar Orby, la app para organizar tu predicación
+- [Únete a la prueba](https://orbyday.vercel.app/como-funciona#unete-a-la-prueba)
+- [Tu primer día con Orby](https://orbyday.vercel.app/como-funciona#tu-primer-dia-con-orby)
+- [Una forma más sencilla de organizarte.](https://orbyday.vercel.app/como-funciona#una-forma-mas-sencilla-de-organizarte)
+
+### Preguntas frecuentes sobre Orby, la app para el ministerio
+- [Sobre la app](https://orbyday.vercel.app/preguntas#sobre-la-app)
+- [Tus datos](https://orbyday.vercel.app/preguntas#tus-datos)
+- [Funciones](https://orbyday.vercel.app/preguntas#funciones)
+- [Orby IA](https://orbyday.vercel.app/preguntas#orby-ia)
+- [Una forma más sencilla de organizarte.](https://orbyday.vercel.app/preguntas#una-forma-mas-sencilla-de-organizarte)
+- [¿Qué es Orby?](https://orbyday.vercel.app/preguntas#que-es-orby)
+- [¿Cuánto cuesta?](https://orbyday.vercel.app/preguntas#cuanto-cuesta)
+- [¿Funciona en iPhone?](https://orbyday.vercel.app/preguntas#funciona-en-iphone)
+- [¿Dónde la descargo?](https://orbyday.vercel.app/preguntas#donde-la-descargo)
+- [¿Es una app oficial de jw.org?](https://orbyday.vercel.app/preguntas#es-una-app-oficial-de-jw-org)
+- [¿Tengo que crear una cuenta?](https://orbyday.vercel.app/preguntas#tengo-que-crear-una-cuenta)
+- [¿Dónde se guarda lo que anoto?](https://orbyday.vercel.app/preguntas#donde-se-guarda-lo-que-anoto)
+- [¿Qué pasa si cambio o pierdo mi teléfono?](https://orbyday.vercel.app/preguntas#que-pasa-si-cambio-o-pierdo-mi-telefono)
+- [¿Puedo usar Orby en dos teléfonos a la vez?](https://orbyday.vercel.app/preguntas#puedo-usar-orby-en-dos-telefonos-a-la-vez)
+- [¿Cómo borro todos mis datos?](https://orbyday.vercel.app/preguntas#como-borro-todos-mis-datos)
+- [¿Necesito internet?](https://orbyday.vercel.app/preguntas#necesito-internet)
+- [¿Cómo comparto una persona con otro hermano?](https://orbyday.vercel.app/preguntas#como-comparto-una-persona-con-otro-hermano)
+- [¿Cómo paso mis datos a un teléfono nuevo?](https://orbyday.vercel.app/preguntas#como-paso-mis-datos-a-un-telefono-nuevo)
+- [¿Cómo funciona el escáner de asignaciones?](https://orbyday.vercel.app/preguntas#como-funciona-el-escaner-de-asignaciones)
+- [¿Los avisos funcionan si reinicio el teléfono?](https://orbyday.vercel.app/preguntas#los-avisos-funcionan-si-reinicio-el-telefono)
+- [¿Puedo proteger la app con huella?](https://orbyday.vercel.app/preguntas#puedo-proteger-la-app-con-huella)
+- [¿La IA funciona sin internet?](https://orbyday.vercel.app/preguntas#la-ia-funciona-sin-internet)
+- [¿Qué necesito para la IA completa?](https://orbyday.vercel.app/preguntas#que-necesito-para-la-ia-completa)
+- [¿Y si Orby se equivoca?](https://orbyday.vercel.app/preguntas#y-si-orby-se-equivoca)
+
+### Probar Orby gratis en Android: únete en 3 pasos
+- [Elige tu versión](https://orbyday.vercel.app/solicitar#elige-tu-version)
+- [Únete al grupo de probadores](https://orbyday.vercel.app/solicitar#unete-al-grupo-de-probadores)
+- [Acepta y descárgala](https://orbyday.vercel.app/solicitar#acepta-y-descargala)
+
+### Novedades de Orby: todas las versiones de la app
+- [Todo en tu teléfono](https://orbyday.vercel.app/novedades#todo-en-tu-telefono)
+- [Menos escribir](https://orbyday.vercel.app/novedades#menos-escribir)
+- [Ahora se llama Orby](https://orbyday.vercel.app/novedades#ahora-se-llama-orby)
+- [En prueba: Orby IA](https://orbyday.vercel.app/novedades#en-prueba-orby-ia)
+
+### Contacto y soporte de Orby
+- [Correo](https://orbyday.vercel.app/contacto#correo)
+- [Si vas a reportar un error](https://orbyday.vercel.app/contacto#si-vas-a-reportar-un-error)
+
+### Seguridad de Orby: tus datos solo en tu teléfono
+- [Nuestro enfoque](https://orbyday.vercel.app/seguridad#enfoque)
+- [Bloqueo de la app](https://orbyday.vercel.app/seguridad#acceso)
+- [Tus datos en el teléfono](https://orbyday.vercel.app/seguridad#datos)
+- [Seguridad de Orby IA](https://orbyday.vercel.app/seguridad#ia)
+- [Enlaces para compartir](https://orbyday.vercel.app/seguridad#enlaces)
+- [Reportar una vulnerabilidad](https://orbyday.vercel.app/seguridad#reportar)
+
+### Política de privacidad | Orby
+- [Quién está detrás de Orby](https://orbyday.vercel.app/privacidad#responsable)
+- [Nuestra filosofía de privacidad](https://orbyday.vercel.app/privacidad#filosofia)
+- [Información que maneja la aplicación](https://orbyday.vercel.app/privacidad#datos)
+- [Información de terceras personas](https://orbyday.vercel.app/privacidad#terceros)
+- [Para qué se usa la información](https://orbyday.vercel.app/privacidad#finalidad)
+- [Almacenamiento y conservación](https://orbyday.vercel.app/privacidad#almacenamiento)
+- [Permisos del dispositivo](https://orbyday.vercel.app/privacidad#permisos)
+- [Ubicación y mapas](https://orbyday.vercel.app/privacidad#ubicacion)
+- [Micrófono y reconocimiento de voz](https://orbyday.vercel.app/privacidad#voz)
+- [Cámara y escáner](https://orbyday.vercel.app/privacidad#camara)
+- [Inteligencia artificial](https://orbyday.vercel.app/privacidad#ia)
+- [Servicios de terceros](https://orbyday.vercel.app/privacidad#proveedores)
+- [Compartir información](https://orbyday.vercel.app/privacidad#compartir)
+- [Pasar a otro teléfono](https://orbyday.vercel.app/privacidad#transferir)
+- [Copias de seguridad](https://orbyday.vercel.app/privacidad#copias)
+- [Seguridad](https://orbyday.vercel.app/privacidad#seguridad)
+- [Tus derechos](https://orbyday.vercel.app/privacidad#derechos)
+- [Menores de edad](https://orbyday.vercel.app/privacidad#menores)
+- [Transferencias internacionales](https://orbyday.vercel.app/privacidad#transferencias)
+- [Sitio web y cookies](https://orbyday.vercel.app/privacidad#web)
+- [Cambios en esta política](https://orbyday.vercel.app/privacidad#cambios)
+- [Contacto](https://orbyday.vercel.app/privacidad#contacto)
+
+### Términos de uso | Orby
+- [El servicio](https://orbyday.vercel.app/terminos#servicio)
+- [Aceptación](https://orbyday.vercel.app/terminos#aceptacion)
+- [Requisitos y cuentas](https://orbyday.vercel.app/terminos#requisitos)
+- [Uso permitido](https://orbyday.vercel.app/terminos#uso)
+- [Tus responsabilidades](https://orbyday.vercel.app/terminos#responsabilidades)
+- [Inteligencia artificial](https://orbyday.vercel.app/terminos#ia)
+- [Disponibilidad y cambios en la app](https://orbyday.vercel.app/terminos#disponibilidad)
+- [Servicios de terceros](https://orbyday.vercel.app/terminos#externos)
+- [Propiedad intelectual](https://orbyday.vercel.app/terminos#propiedad)
+- [Dejar de usar Orby](https://orbyday.vercel.app/terminos#terminacion)
+- [Limitación de responsabilidad](https://orbyday.vercel.app/terminos#responsabilidad)
+- [Modificaciones](https://orbyday.vercel.app/terminos#modificaciones)
+- [Ley aplicable](https://orbyday.vercel.app/terminos#ley)
+- [Contacto](https://orbyday.vercel.app/terminos#contacto)
+
+### Borrar mis datos | Orby
+- [Borrar todo](https://orbyday.vercel.app/borrar-datos#borrar-todo)
+- [Borrar solo una persona](https://orbyday.vercel.app/borrar-datos#borrar-solo-una-persona)
+- [Lo que no está en tu teléfono](https://orbyday.vercel.app/borrar-datos#lo-que-no-esta-en-tu-telefono)
+
+### Política de cookies | Orby
+- [En corto](https://orbyday.vercel.app/cookies#resumen)
+- [Qué usa y qué no](https://orbyday.vercel.app/cookies#tabla)
+- [Contenido de terceros](https://orbyday.vercel.app/cookies#terceros)
+- [Registros del servidor](https://orbyday.vercel.app/cookies#registros)
+- [¿Y la app?](https://orbyday.vercel.app/cookies#app)
+- [Cambios](https://orbyday.vercel.app/cookies#cambios)

@@ -77,10 +77,10 @@
 </svg></div></section>
 <section><div class="ancho">
   <div class="canales">
-    <a class="tarjeta canal" href="mailto:shmueldevsoftware@gmail.com"><span class="icono"><svg class="ic" aria-hidden="true"><use href="#i-correo"/></svg></span><h2 style="font-size:1.6rem">Correo</h2><span class="valor" style="overflow-wrap:anywhere">shmueldevsoftware@gmail.com</span><p>Para reportar errores, dudas de privacidad, pedir que borremos un mensaje tuyo o unirte a la prueba.</p></a>
+    <a class="tarjeta canal" href="mailto:shmueldevsoftware@gmail.com"><span class="icono"><svg class="ic" aria-hidden="true"><use href="#i-correo"/></svg></span><h2 id="correo" style="font-size:1.6rem">Correo</h2><span class="valor" style="overflow-wrap:anywhere">shmueldevsoftware@gmail.com</span><p>Para reportar errores, dudas de privacidad, pedir que borremos un mensaje tuyo o unirte a la prueba.</p></a>
   </div>
   <div class="tarjeta" style="margin-top:28px;padding:clamp(20px,3vw,32px);background:var(--cielo)">
-    <h2 style="font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem)">Si vas a reportar un error</h2>
+    <h2 id="si-vas-a-reportar-un-error" style="font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem)">Si vas a reportar un error</h2>
     <ul class="puntos"><li>Cuéntanos qué hiciste y qué esperabas que pasara</li><li>Incluye el modelo de tu teléfono y la versión de la app (está en Ajustes, Acerca de)</li><li>Si puedes, envía una captura de pantalla sin datos de otras personas</li></ul>
   </div>
   <p class="chico" style="margin-top:24px;max-width:70ch">Solo recibimos lo que tú decidas enviarnos y lo usamos para ayudarte. Puedes pedirnos que lo borremos cuando quieras. Más detalles en la <a href="/privacidad#soporte">política de privacidad</a>.</p>
@@ -105,5 +105,6 @@
 </footer>
 <script src="/sitio.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
+<script id="abrir-ancla">(function(){function ir(){var h=decodeURIComponent(location.hash.slice(1));if(!h)return;var e=document.getElementById(h);if(!e)return;var d=e.closest("details")||(e.tagName=="DETAILS"?e:null);if(d)d.open=true;setTimeout(function(){e.scrollIntoView({block:"start"})},60);}addEventListener("hashchange",ir);ir();})();</script>
 </body>
 </html>

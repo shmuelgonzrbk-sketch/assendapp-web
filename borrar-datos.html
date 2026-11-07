@@ -47,7 +47,7 @@
 <main id="contenido">
 <section class="cabecera"><div class="ancho"><div><span class="pega">Tus datos</span><h1>Cómo borrar tus datos de Orby.</h1><p class="lead">Orby no tiene cuentas ni servidores, así que no hay una cuenta que eliminar. Todo lo que guardaste está en tu teléfono y lo borras tú mismo, cuando quieras.</p></div></div></section>
 <section><div class="angosto">
-  <h2>Borrar todo</h2>
+  <h2 id="borrar-todo">Borrar todo</h2>
   <ol class="pasos" style="margin-top:28px">
     <li><div><h3>Abre Ajustes en Orby</h3><p>Desde el menú de la app, entra a Ajustes.</p></div></li>
     <li><div><h3>Toca «Borrar todos mis datos»</h3><p>Se eliminan personas, visitas, libretas, asignaciones, horas, informes y ajustes.</p></div></li>
@@ -58,10 +58,10 @@
     <p style="margin-top:8px;color:var(--gris)">Al desinstalar Orby, Android borra todo lo que la app guardó en tu teléfono, incluida la IA si la descargaste. Es la forma de dejar el teléfono como si nunca la hubieras instalado.</p>
   </div>
 
-  <h2 style="margin-top:56px">Borrar solo una persona</h2>
+  <h2 id="borrar-solo-una-persona" style="margin-top:56px">Borrar solo una persona</h2>
   <p class="lead" style="margin-top:12px">Si alguien te pide que borres sus datos, abre su ficha y toca Eliminar. Se borran también sus visitas y notas.</p>
 
-  <h2 style="margin-top:56px">Lo que no está en tu teléfono</h2>
+  <h2 id="lo-que-no-esta-en-tu-telefono" style="margin-top:56px">Lo que no está en tu teléfono</h2>
   <ul class="puntos">
     <li>Las copias de seguridad que creaste son archivos tuyos: bórralos de donde los guardaste (tu teléfono, Google Drive, tu computadora)</li>
     <li>Si nos escribiste por correo o WhatsApp, pídenos que borremos esos mensajes en <a href="/contacto" style="color:var(--azul);font-weight:700">Contacto</a></li>
@@ -87,5 +87,6 @@
 </footer>
 <script src="/sitio.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
+<script id="abrir-ancla">(function(){function ir(){var h=decodeURIComponent(location.hash.slice(1));if(!h)return;var e=document.getElementById(h);if(!e)return;var d=e.closest("details")||(e.tagName=="DETAILS"?e:null);if(d)d.open=true;setTimeout(function(){e.scrollIntoView({block:"start"})},60);}addEventListener("hashchange",ir);ir();})();</script>
 </body>
 </html>
