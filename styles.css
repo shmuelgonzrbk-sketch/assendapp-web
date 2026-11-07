@@ -1087,3 +1087,16 @@ html:has(.legal){scroll-padding-top:88px}
 
 /* web35: anclas sin quedar debajo de la barra */
 [id]{scroll-margin-top:96px}
+
+/* web38: Orby en imagen */
+img.adorno,img.nubi-final,img.perdido,img.dibujo-orby{height:auto;filter:none;transform:none}
+.final img.nubi-final{width:clamp(130px,17vw,220px)}
+.cabecera img.adorno{width:clamp(130px,19vw,240px)}
+@media (max-width:760px){.cabecera img.adorno{width:120px}}
+.e404 img.perdido{width:min(300px,70%);display:block;margin:0 auto}
+img.dibujo-orby{width:100%;max-width:320px;display:block;margin:0 auto}
+.listo-final img{width:110px;height:auto;animation:ico-salta 1s cubic-bezier(.3,1.6,.5,1) both}
+@media (prefers-reduced-motion:no-preference){
+  img.adorno,img.nubi-final{animation:orby-flota 4s ease-in-out infinite}
+  @keyframes orby-flota{0%,100%{translate:0 0}50%{translate:0 -6px}}
+}
