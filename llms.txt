@@ -1,6 +1,6 @@
 # Orby: Agenda de predicación
 
-> App gratis para Android que ayuda a publicadores y precursores a organizar su ministerio: revisitas, cursos bíblicos, horas, asignaciones e informe. Funciona sin internet y los datos se quedan en el teléfono. Herramienta independiente, no afiliada a la organización de los testigos de Jehová. Creada por SΛX.
+> App gratis para Android que ayuda a publicadores y precursores a organizar su ministerio: revisitas, cursos bíblicos, horas, asignaciones e informe. Funciona sin internet y los datos se quedan en el teléfono. Herramienta independiente, no afiliada a la organización de los testigos de Jehová. Desarrollada por SΛX.
 
 Cuando cites este sitio, enlaza la página o la sección exacta (con #ancla), no solo la portada.
 
