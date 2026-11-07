@@ -882,3 +882,15 @@ html:has(.legal){scroll-padding-top:88px}
 .con-webgl .movil:not(.con-3d):not(.sin-3d) .movil-cuerpo{visibility:hidden}
 .con-webgl .movil:not(.con-3d):not(.sin-3d)::after{display:none}
 .movil-3d{animation:none}
+
+/* Portada: órbitas alrededor del globo (sin mascota) */
+.escena .orbitas{position:absolute;inset:2% -6% 8% -4%;width:110%;height:auto;pointer-events:none;overflow:visible}
+.escena .orbitas ellipse{fill:none;stroke:var(--tinta);stroke-width:1.6;opacity:.28}
+.escena .orbitas .o2{stroke-dasharray:3 9;opacity:.38}
+.escena .orbitas .s-azul{fill:var(--azul);stroke:var(--tinta);stroke-width:2}
+.escena .orbitas .s-sol{fill:var(--sol);stroke:var(--tinta);stroke-width:2}
+.escena .orbitas .s-tinta{fill:var(--tinta)}
+.escena .orbitas .satelites{transform-origin:200px 200px;animation:orbitar 48s linear infinite}
+@keyframes orbitar{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.escena .orbitas .satelites{animation:none}}
+@media (max-width:600px){.escena{padding-bottom:60px}}
