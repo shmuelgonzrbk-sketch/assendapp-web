@@ -37,22 +37,26 @@ export function crearVoz({ ancho = 720, alto = 1600 } = {}) {
 
   // Ícono de la app: calendario con cara, sin contorno negro
   function icono(cx, cy, s) {
+    // Igual al logo: cuerpo blanco, franja azul, contorno negro, aros, ojos con brillo, mejillas, sonrisa y 4 cuadritos
     const k = s / 100;
-    ctx.save(); ctx.translate(cx * S, cy * S); ctx.scale(k * S, k * S); ctx.translate(-50, -50);
-    rr(8, 18, 84, 76, 18); ctx.fillStyle = '#F7F9FF'; ctx.fill();
-    ctx.save(); rr(8, 18, 84, 76, 18); ctx.clip(); ctx.fillStyle = '#2F5BE0'; ctx.fillRect(8, 18, 84, 22); ctx.restore();
-    ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(20,40,120,.25)'; rr(8, 18, 84, 76, 18); ctx.stroke();
-    [28, 64].forEach((x) => { rr(x, 6, 9, 22, 4.5); ctx.fillStyle = '#F7F9FF'; ctx.fill(); ctx.strokeStyle = '#1B3A9E'; ctx.lineWidth = 3; ctx.stroke(); });
-    ctx.fillStyle = '#16255F';
-    ctx.beginPath(); ctx.ellipse(37, 55, 4.5, 5.5, 0, 0, Math.PI * 2); ctx.fill();
-    ctx.beginPath(); ctx.ellipse(63, 55, 4.5, 5.5, 0, 0, Math.PI * 2); ctx.fill();
-    ctx.lineWidth = 3.4; ctx.lineCap = 'round'; ctx.strokeStyle = '#16255F';
-    ctx.beginPath(); ctx.moveTo(43, 64); ctx.quadraticCurveTo(50, 70, 57, 64); ctx.stroke();
-    for (let i = 0; i < 5; i++) for (let j = 0; j < 2; j++) {
-      rr(20 + i * 12.5, 74 + j * 9, 9, 6, 2); ctx.fillStyle = i === 3 && j === 1 ? '#2F5BE0' : '#D5DEF7'; ctx.fill();
-    }
+    ctx.save(); ctx.translate(cx * S, cy * S); ctx.scale(k * S, k * S); ctx.translate(-60, -60);
+    const N = '#171717';
+    rr(12, 22, 96, 88, 22); ctx.fillStyle = '#fff'; ctx.fill();
+    ctx.save(); rr(12, 22, 96, 88, 22); ctx.clip(); ctx.fillStyle = '#315CF5'; ctx.fillRect(12, 22, 96, 24); ctx.restore();
+    ctx.strokeStyle = N; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(12, 46); ctx.lineTo(108, 46); ctx.stroke();
+    rr(12, 22, 96, 88, 22); ctx.stroke();
+    [33, 74].forEach((x) => { rr(x, 8, 13, 27, 6.5); ctx.fillStyle = '#fff'; ctx.fill(); ctx.stroke(); });
+    ctx.fillStyle = N;
+    ctx.beginPath(); ctx.ellipse(44, 66, 6, 7.5, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(76, 66, 6, 7.5, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(46, 63, 2, 0, Math.PI * 2); ctx.fill(); ctx.beginPath(); ctx.arc(78, 63, 2, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#D9E3FF'; ctx.beginPath(); ctx.ellipse(33, 78, 6, 3.5, 0, 0, Math.PI * 2); ctx.fill(); ctx.beginPath(); ctx.ellipse(87, 78, 6, 3.5, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.lineWidth = 4.5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(51, 77); ctx.quadraticCurveTo(60, 86, 69, 77); ctx.stroke();
+    ctx.lineWidth = 2.5;
+    [27, 43, 59, 75].forEach((x, i) => { rr(x, 90, 11, 8, 2.5); ctx.fillStyle = i === 3 ? '#F2C94C' : '#D9E3FF'; ctx.fill(); ctx.stroke(); });
     ctx.restore();
   }
+
 
   function pintar(t) {
     const n = Math.floor(t / VUELTA) % GUION.length, g = GUION[n];
