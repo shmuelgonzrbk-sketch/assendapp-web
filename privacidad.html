@@ -1,150 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Política de privacidad | Orby</title>
-<meta name="description" content="Cómo Orby trata tu información: se guarda en tu teléfono, sin cuentas, sin anuncios y sin rastreo.">
-<link rel="canonical" href="https://orbyday.vercel.app/privacidad">
-<meta name="theme-color" content="#FAF9F6">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="es_PE">
-<meta property="og:site_name" content="Orby">
-<meta property="og:title" content="Política de privacidad | Orby">
-<meta property="og:description" content="Cómo Orby trata tu información: se guarda en tu teléfono, sin cuentas, sin anuncios y sin rastreo.">
-<meta property="og:url" content="https://orbyday.vercel.app/privacidad">
-<meta property="og:image" content="https://orbyday.vercel.app/nubi-512.png">
-<meta name="twitter:card" content="summary">
-<link rel="icon" href="/favicon.png?v=2" type="image/png" sizes="96x96">
-<link rel="apple-touch-icon" href="/nubi-192.png">
-<link rel="preload" href="/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css">
+<title>Política de privacidad · Orby</title>
+<meta name="description" content="Política de privacidad de Orby. Orby es una app 100% local: tus datos se guardan solo en tu dispositivo y no se recopilan ni se envían a ningún servidor.">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{ --az:#2f43c9; --ink:#171a2b; --sec:#5b6176; --line:#e7e9f2; --bg:#f7f8fb; --card:#fff; }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  .wrap{max-width:760px;margin:0 auto;padding:40px 20px 80px}
+  header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+  .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(145deg,#3a4fe0,#1e2a8a);display:grid;place-items:center}
+  h1{font-size:30px;font-weight:800;letter-spacing:-.5px;margin:18px 0 4px}
+  .updated{color:var(--sec);font-size:14px;margin-bottom:28px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 24px;margin-bottom:18px}
+  h2{font-size:19px;font-weight:700;margin:4px 0 10px;color:var(--ink)}
+  p{margin:0 0 12px;color:#2a2f45}
+  ul{margin:0 0 6px;padding-left:20px}
+  li{margin-bottom:8px;color:#2a2f45}
+  .em{background:rgba(47,67,201,.07);border:1px solid rgba(47,67,201,.16);border-radius:14px;padding:16px 18px;color:var(--ink);font-weight:600}
+  a{color:var(--az);font-weight:600}
+  footer{color:var(--sec);font-size:13px;margin-top:26px;text-align:center}
+</style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-persona" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></symbol><symbol id="i-casa" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-libro" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></symbol><symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol><symbol id="i-campana" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></symbol><symbol id="i-escaner" viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M7 12h10"/></symbol><symbol id="i-candado" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol><symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol><symbol id="i-estrella" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol><symbol id="i-llamar" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol><symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c.3 2.2 2.3 4.2 4.5 4.5l1-1.2 1.6.8-.4 1.4"/></symbol><symbol id="i-ruta" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h6a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h6"/></symbol><symbol id="i-compartir" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></symbol><symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol><symbol id="i-descarga" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol><symbol id="i-correo" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 7.5l9 6 9-6"/></symbol><symbol id="i-basura" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v5M14 11v5"/></symbol><symbol id="i-informe" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 8h6M9 12h6M9 16h4"/></symbol><symbol id="i-sinred" viewBox="0 0 24 24"><path d="M2 8.5a15 15 0 0 1 20 0M5.5 12a10 10 0 0 1 13 0M9 15.5a5 5 0 0 1 6 0M12 19h.01M3 3l18 18"/></symbol><symbol id="i-luna" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol><symbol id="i-deshacer" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></symbol><symbol id="i-ojo" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-flecha" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol><symbol id="i-huella" viewBox="0 0 24 24"><path d="M12 11v3a8 8 0 0 1-2 5.3M8 11a4 4 0 0 1 8 0v2a12 12 0 0 1-1 4.8M5 13v-2a7 7 0 0 1 12.6-4.2M19.5 10.5c.3 1 .5 2 .5 3a16 16 0 0 1-.6 4"/></symbol><symbol id="i-objetivo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol><symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3M21 14v.01M14 21h.01M18 18h3v3h-3z"/></symbol><symbol id="i-telefonos" viewBox="0 0 24 24"><rect x="2.5" y="5" width="8" height="15" rx="2"/><rect x="13.5" y="4" width="8" height="15" rx="2"/><path d="M8.5 11.5h7M13 9l2.5 2.5L13 14"/></symbol><symbol id="nubi" viewBox="0 0 120 120">
-<rect x="12" y="22" width="96" height="88" rx="22" fill="#fff"/>
-<path d="M12 46v-2a22 22 0 0 1 22-22h52a22 22 0 0 1 22 22v2z" fill="#315CF5"/>
-<path d="M12 46h96" stroke="#171717" stroke-width="5"/>
-<rect x="12" y="22" width="96" height="88" rx="22" fill="none" stroke="#171717" stroke-width="5"/>
-<rect x="33" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
-<rect x="74" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
-<ellipse cx="44" cy="66" rx="6" ry="7.5" fill="#171717"/><ellipse cx="76" cy="66" rx="6" ry="7.5" fill="#171717"/>
-<circle cx="46" cy="63" r="2" fill="#fff"/><circle cx="78" cy="63" r="2" fill="#fff"/>
-<ellipse cx="33" cy="78" rx="6" ry="3.5" fill="#D9E3FF"/><ellipse cx="87" cy="78" rx="6" ry="3.5" fill="#D9E3FF"/>
-<path d="M51 77q9 9 18 0" fill="none" stroke="#171717" stroke-width="4.5" stroke-linecap="round"/>
-<g stroke="#171717" stroke-width="2.5"><rect x="27" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="43" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="59" y="90" width="11" height="8" rx="2.5" fill="#D9E3FF"/><rect x="75" y="90" width="11" height="8" rx="2.5" fill="#F2C94C"/></g>
-</symbol></defs></svg>
-<a class="saltar" href="#contenido">Saltar al contenido</a>
-<header class="barra">
-  <div class="ancho">
-    <a class="marca" href="/" aria-label="Orby, ir al inicio"><span>Orby</span></a>
-    <nav class="menu-nav" id="menu" aria-label="Principal"><a href="/">Inicio</a><a href="/funciones">Funciones</a><a href="/orby-ia">Orby IA</a><a href="/como-funciona">Cómo funciona</a><a href="/privacidad" aria-current="page">Privacidad</a><a href="/preguntas">Preguntas</a><a class="btn azul" href="/como-funciona#probar">Quiero probarla</a></nav>
-    <a class="btn azul probar" href="/como-funciona#probar">Quiero probarla</a>
-    <button class="abrir-menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span></button>
-  </div>
-</header>
-<main id="contenido">
-<section class="cabecera"><div class="ancho"><div><span class="pega">Legal</span><h1>Política de privacidad.</h1><p class="lead">Lo que anotas en Orby se queda en tu teléfono. Aquí te explicamos con detalle qué información maneja la app, qué hacen los servicios que usa y cómo mantienes el control.</p></div></div></section>
-<div class="ancho legal">
-  <div class="doc">
-    <p class="fecha">Última actualización: 5 de noviembre de 2026 · Vigente desde: 5 de noviembre de 2026</p>
-    <h2 id="responsable">Quién está detrás de Orby</h2><p>Orby es un proyecto tecnológico independiente, creado y desarrollado por SΛX, con el propósito de ofrecer herramientas que faciliten la organización y gestión de las actividades personales.</p>
-<p>Si tienes alguna consulta, solicitud o inquietud relacionada con la privacidad y el tratamiento de tus datos personales, puedes comunicarte directamente con nosotros a través de <a href="mailto:shmueldevsoftware@gmail.com">correo a shmueldevsoftware@gmail.com</a>.</p>
-<h3>Independencia institucional</h3>
-<p>Orby es un proyecto independiente y no mantiene ninguna afiliación, relación de patrocinio ni respaldo institucional por parte de la Watch Tower Bible and Tract Society of Pennsylvania ni de ninguna entidad oficial de los testigos de Jehová.</p>
-<p>Esta política se aplica a la app Orby para Android (que en Google Play aparece por ahora como AscendProgress) y a este sitio web. En ella, «nosotros» se refiere al creador de Orby.</p><h2 id="filosofia">Nuestra filosofía de privacidad</h2><p>En Orby creemos que tu información personal debe permanecer bajo tu control. Por eso diseñamos la aplicación con un principio fundamental: <strong>tus datos se quedan en tu dispositivo siempre que sea posible.</strong></p>
-<div class="resumen"><ul>
-<li><strong>Transparencia:</strong> te explicamos qué información se usa, cuándo y para qué.</li>
-<li><strong>Privacidad local:</strong> lo que anotas se guarda en tu teléfono. No tenemos una nube ni un sistema propio de sincronización.</li>
-<li><strong>Control tuyo:</strong> puedes consultar, exportar y borrar tus datos cuando quieras.</li>
-</ul></div>
-<p>Orby no requiere crear una cuenta ni registrarte, y no necesitas entregarnos tus datos personales para usar sus funciones. La app no incluye publicidad, rastreadores comerciales ni herramientas de analítica.</p>
-<p>Algunas funciones usan servicios externos, como Google Play Services u OpenFreeMap, y este sitio web está alojado en Vercel. En esos casos te explicamos qué información interviene.</p>
-<p><strong>Nuestra intención es sencilla: ofrecerte una herramienta útil sin convertir tu información personal en un producto.</strong></p><h2 id="datos">Información que maneja la aplicación</h2><p>La app guarda únicamente lo que tú escribes o eliges en ella:</p>
-<ul>
-<li><strong>Tu perfil:</strong> el nombre con el que quieres que te saludemos, tu tipo de publicador y tus preferencias (color, modo oscuro, avisos, velocidad de la voz).</li>
-<li><strong>Personas que visitas:</strong> nombre, dirección, territorio, teléfono y ubicación del domicilio (si los agregas), tema de conversación, pregunta pendiente, progreso del curso, próxima visita y notas de tu libreta.</li>
-<li><strong>Tu actividad:</strong> visitas, horas, tu plan semanal (Mi Horario) e informes mensuales.</li>
-<li><strong>Asignaciones:</strong> partes de la reunión, eventos y recordatorios, con detalles como el ayudante o la sala.</li>
-<li><strong>Conversaciones con Orby</strong> y lo que le pides recordar.</li>
-</ul>
-<p>Todo es opcional, salvo tu nombre, que se usa solo para personalizar la app.</p><h2 id="terceros">Información de terceras personas</h2><p>Orby permite registrar información de las personas con las que interactúas durante tu actividad. Estos datos pueden incluir información personal y de contacto, como su dirección, su teléfono o la ubicación de su domicilio.</p>
-<p>Esa información la decides tú, se guarda en tu teléfono y queda bajo tu responsabilidad. Te recomendamos:</p>
-<ul>
-<li>Registrar únicamente la información necesaria para organizar tus actividades.</li>
-<li>Evitar incluir información íntima, sensible o innecesaria (por ejemplo, salud, situación económica o problemas familiares).</li>
-<li>No compartir fichas con personas que no deban recibirlas.</li>
-<li>Eliminar la información cuando deje de ser necesaria o cuando la persona lo pida. Al eliminar a alguien desde su ficha se borran también sus visitas y notas.</li>
-<li>Proteger tu teléfono con bloqueo de pantalla y, si quieres, activar el PIN o la huella de Orby.</li>
-</ul><h2 id="finalidad">Para qué se usa la información</h2><p>La información guardada en tu dispositivo se usa solo para que la app funcione para ti: mostrarte tu agenda, avisarte a tiempo, sumar tus horas, armar tu informe y que Orby pueda responderte.</p>
-<p>No utilizamos esa información para publicidad, elaboración de perfiles comerciales ni seguimiento, y no vendemos datos personales. Solo recibimos información cuando decides comunicarte con nosotros o cuando usas alguno de los servicios externos descritos en esta política.</p><h2 id="almacenamiento">Almacenamiento y conservación</h2><p>Tus datos se guardan en una base de datos dentro del espacio privado de la app en tu teléfono. Android impide que otras aplicaciones accedan a ese espacio. Ten en cuenta que estar en el espacio privado de la app no significa que la información esté cifrada por Orby: la protección principal es el bloqueo de tu teléfono.</p>
-<p>La información se conserva hasta que tú la borres o desinstales la app. No tenemos una copia en internet, así que si pierdes el teléfono o lo reseteas sin una copia de seguridad, los datos no se pueden recuperar.</p>
-<p>Según cómo tengas configurado tu teléfono, la copia de seguridad del sistema de Android (que gestiona Google) podría incluir datos de las aplicaciones que usas. Esa copia depende de los ajustes de tu cuenta de Google y no de Orby.</p>
-<table class="tabla"><thead><tr><th>Información</th><th>Cuánto tiempo se conserva</th></tr></thead><tbody>
-<tr><td>Lo que guardas en la app</td><td>En tu teléfono, hasta que lo borres o desinstales la app.</td></tr>
-<tr><td>Mensajes que nos envías por correo</td><td>El tiempo necesario para atender tu consulta. Puedes pedirnos que los borremos.</td></tr>
-<tr><td>Registros técnicos del sitio web</td><td>Los guarda Vercel por un tiempo limitado, según su propia política.</td></tr>
-<tr><td>Donaciones</td><td>No llevamos un registro propio; solo queda lo que muestran Yape o Plin.</td></tr>
-</tbody></table><h2 id="permisos">Permisos del dispositivo</h2><table class="tabla"><thead><tr><th>Permiso</th><th>Para qué</th></tr></thead><tbody>
-<tr><td>Notificaciones</td><td>Avisarte antes de tus visitas y asignaciones. Puedes desactivarlas cuando quieras.</td></tr>
-<tr><td>Alarmas y recordatorios</td><td>Que los avisos lleguen a la hora exacta que elegiste.</td></tr>
-<tr><td>Iniciar al encender</td><td>Volver a programar tus avisos después de reiniciar el teléfono.</td></tr>
-<tr><td>Ubicación (opcional)</td><td>Solo cuando guardas la ubicación de un domicilio o tocas «Mi ubicación» en el mapa. No se usa en segundo plano.</td></tr>
-<tr><td>Micrófono (opcional)</td><td>Solo cuando usas el dictado o el modo voz de Orby.</td></tr>
-<tr><td>Huella digital (opcional)</td><td>Desbloquear la app. La verifica Android: la app solo recibe un «sí» o un «no».</td></tr>
-<tr><td>Dispositivos cercanos (opcional)</td><td>Solo cuando usas «Pasar a otro teléfono», para que tus dos teléfonos se encuentren por Bluetooth y Wi-Fi directo. No se usa para nada más.</td></tr>
-<tr><td>Internet</td><td>Descargar las calles del mapa y, si la eliges, la IA de Orby desde Google Play.</td></tr>
-</tbody></table><h2 id="ubicacion">Ubicación y mapas</h2><p>Las ubicaciones que guardas quedan en tu teléfono. Para dibujar las calles, la app descarga imágenes del mapa desde <strong>OpenFreeMap</strong>. Esas solicitudes indican la zona del mapa que estás viendo e incluyen datos técnicos propios de cualquier conexión, como tu dirección IP. Tus personas, direcciones y notas no se envían: los pines se dibujan dentro de tu teléfono.</p>
-<p>Si tocas «Cómo llegar», se abre tu app de mapas con esa dirección y se aplica la política de esa app.</p><h2 id="voz">Micrófono y reconocimiento de voz</h2><p>El dictado y el modo voz usan el reconocimiento de voz de tu teléfono. Cuando tu teléfono lo permite, se procesa dentro del dispositivo. En otros casos usa el servicio de Google, que puede procesar el audio en sus servidores según la <a href="https://policies.google.com/privacy">política de privacidad de Google</a>. Orby recibe solo el texto y no guarda grabaciones.</p>
-<p>En el modo voz, el micrófono queda activo mientras la pantalla de conversación está abierta. Puedes silenciarlo con un botón o cerrar esa pantalla. Las respuestas en voz alta las genera el motor de voz de tu teléfono.</p><h2 id="camara">Cámara y escáner</h2><p>Para escanear tu hoja de asignación, la app usa el escáner de documentos de Google Play Services: ese servicio abre la cámara y la app solo recibe la imagen recortada. El texto se lee dentro de tu teléfono con ML Kit. La foto no se guarda. Para leer códigos QR (al compartir una persona o pasar tus datos) la app usa el lector de códigos de Google Play Services, que abre la cámara por su cuenta; la app solo recibe el texto del código.</p><h2 id="ia">Inteligencia artificial</h2><p>Orby IA usa un modelo de lenguaje (Gemma, de Google) que se descarga una vez a través de Google Play y se ejecuta dentro de tu teléfono. Lo que le escribes o le dices no se envía a nosotros ni a terceros para procesarlo. Tus conversaciones se guardan solo en tu teléfono y puedes borrarlas.</p>
-<p>Orby IA está en fase de prueba, puede equivocarse y puede no estar disponible en todas las versiones de la app. Revisa lo que hace y usa Deshacer si algo no es lo que querías.</p><h2 id="proveedores">Servicios de terceros</h2><table class="tabla"><thead><tr><th>Servicio</th><th>Qué hace y qué recibe</th></tr></thead><tbody>
-<tr><td>Google Play</td><td>Distribuye la app y la IA descargable. Recibe los datos propios de una descarga, según su política.</td></tr>
-<tr><td>Google Play Services</td><td>Escáner de documentos y, en algunos teléfonos, reconocimiento de voz.</td></tr>
-<tr><td>OpenFreeMap</td><td>Imágenes de las calles del mapa. Recibe la zona que se pide y datos técnicos de la conexión.</td></tr>
-<tr><td>Vercel</td><td>Aloja este sitio web. Registra datos técnicos de las visitas, como la IP y el navegador.</td></tr>
-<tr><td>Gmail</td><td>Canal de contacto con nosotros por correo. Se aplica la política de privacidad de Google.</td></tr>
-<tr><td>Yape y Plin</td><td>Donaciones voluntarias, fuera de la app.</td></tr>
-</tbody></table>
-<p>La app no incluye SDK de analítica, publicidad ni seguimiento.</p><h2 id="compartir">Compartir información</h2><p>No compartimos tu información con nadie, porque no la recibimos. La información solo sale de tu teléfono cuando tú lo decides:</p>
-<ul>
-<li><strong>Compartir un contacto:</strong> la app crea un enlace que lleva los datos dentro del propio enlace, después del símbolo #. Esa parte no se envía a nuestro sitio; la página la lee en el teléfono de quien la abre. El enlace sí pasa por la app que uses para enviarlo, como WhatsApp, y cualquiera que lo tenga puede ver esos datos.</li>
-<li><strong>Enviar tu informe</strong> por WhatsApp u otra app.</li>
-<li><strong>Mover una copia de seguridad</strong> a otro lugar.</li>
-</ul><h2 id="transferir">Pasar a otro teléfono</h2><p>Cuando pasas tus datos a otro teléfono, los dos se conectan directamente entre ellos con Nearby Connections de Google Play Services, usando Bluetooth y Wi-Fi directo. La conexión va cifrada, no usa internet y tus datos no pasan por ningún servidor, ni nuestro ni de terceros. Antes de enviar, los dos teléfonos muestran el mismo código para que confirmes que es tu teléfono. Se envía todo menos el PIN; en el teléfono nuevo, lo que llega reemplaza lo que hubiera.</p><h2 id="copias">Copias de seguridad</h2><p>En Ajustes puedes crear un archivo con todos tus datos. Ese archivo:</p>
-<ul>
-<li>Puede contener nombres, direcciones, teléfonos, ubicaciones, notas y conversaciones. Cualquier persona que tenga acceso al archivo podría consultar esa información.</li>
-<li>No está cifrado. Guárdalo en un lugar seguro y no lo compartas.</li>
-<li>Se guarda donde tú elijas. Si lo subes a Google Drive u otro servicio en la nube, ese servicio aplica sus propias condiciones de almacenamiento y tratamiento.</li>
-</ul><h2 id="seguridad">Seguridad</h2><p>El PIN se guarda como un hash con sal, nunca en texto normal, y la huella la verifica Android. Más detalles en la página de <a href="/seguridad">seguridad</a>. Ninguna medida es infalible: la mejor protección es el bloqueo de pantalla de tu teléfono.</p><h2 id="derechos">Tus derechos</h2><p>Respetamos la Ley N.º 29733, Ley de Protección de Datos Personales del Perú, y su Reglamento aprobado por el Decreto Supremo N.º 016-2024-JUS. Como tus datos están en tu teléfono, los controlas directamente:</p>
-<ul><li><strong>Acceso y rectificación:</strong> todo lo que guardaste se ve y se edita en la app.</li>
-<li><strong>Portabilidad:</strong> exporta un archivo con tus datos desde Copia de seguridad.</li>
-<li><strong>Cancelación:</strong> borra personas una por una, usa Ajustes, Borrar todos mis datos, o desinstala la app. <a href="/borrar-datos">Ver los pasos</a>.</li>
-<li><strong>Oposición:</strong> puedes dejar de usar cualquier función opcional, como la ubicación, el micrófono o Orby IA.</li></ul>
-<p>Para los mensajes que nos hayas enviado, escríbenos por <a href="mailto:shmueldevsoftware@gmail.com">correo a shmueldevsoftware@gmail.com</a>. Si no quedas conforme con nuestra respuesta, puedes acudir a la Autoridad Nacional de Protección de Datos Personales del Ministerio de Justicia y Derechos Humanos.</p><h2 id="menores">Menores de edad</h2><p>Orby no está dirigida a menores de 13 años. Como la app no nos envía datos, no recibimos información de nadie, sea cual sea su edad.</p><h2 id="transferencias">Transferencias internacionales</h2><p>Nosotros no transferimos tu información porque no la recibimos. Los servicios de terceros mencionados (Google, OpenFreeMap, Vercel, WhatsApp) pueden operar servidores fuera del Perú cuando los usas.</p><h2 id="web">Sitio web y cookies</h2><p>Este sitio no usa cookies ni publicidad. Para saber cuántas personas lo visitan y a qué hora, usamos <strong>Vercel Web Analytics</strong>, que cuenta visitas sin cookies y sin identificarte: registra la página, el país aproximado, el tipo de dispositivo y el navegador, de forma agregada. La app no usa ninguna analítica. Ver la <a href="/cookies">política de cookies</a>.</p><h2 id="cambios">Cambios en esta política</h2><p>Si cambia la forma en que Orby maneja la información, actualizaremos esta página y su fecha, y lo avisaremos en la actualización de la app. Nunca empezaremos a enviar tus datos a un servidor sin decírtelo claramente antes.</p><h2 id="contacto">Contacto</h2><p>¿Dudas sobre tu privacidad o quieres ejercer tus derechos? Escríbenos por <a href="mailto:shmueldevsoftware@gmail.com">correo a shmueldevsoftware@gmail.com</a>.</p>
-  </div>
-</div>
-</main>
-<footer class="pie">
-  <div class="ancho">
-    <div class="cols">
-      <div>
-        <a class="marca" href="/"><span>Orby</span></a>
-        <p>Una agenda para el ministerio con una asistente que te ayuda a organizarte. Desarrollada por SΛX.</p>
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       </div>
-      <nav aria-labelledby="pie-producto"><h2 id="pie-producto">Producto</h2><ul>
-        <li><a href="/">Inicio</a></li><li><a href="/funciones">Funciones</a></li><li><a href="/orby-ia">Orby IA</a></li><li><a href="/como-funciona">Cómo funciona</a></li><li><a href="/novedades">Novedades</a></li><li><a href="/como-funciona#probar">Quiero probarla</a></li></ul></nav>
-      <nav aria-labelledby="pie-ayuda"><h2 id="pie-ayuda">Ayuda</h2><ul>
-        <li><a href="/preguntas">Preguntas frecuentes</a></li><li><a href="/contacto">Contacto y soporte</a></li><li><a href="/seguridad">Seguridad</a></li><li><a href="/borrar-datos">Borrar mis datos</a></li></ul></nav>
-      <nav aria-labelledby="pie-legal"><h2 id="pie-legal">Legal</h2><ul>
-        <li><a href="/privacidad">Privacidad</a></li><li><a href="/terminos">Términos de uso</a></li><li><a href="/cookies">Cookies</a></li></ul></nav>
+      <strong style="font-size:18px">Orby</strong>
+    </header>
+
+    <h1>Política de privacidad</h1>
+    <div class="updated">Última actualización: 16 de noviembre de 2026</div>
+
+    <div class="em">
+      Orby es una aplicación <strong>100% local</strong>. Toda tu información se guarda únicamente en tu dispositivo. No recopilamos, no vemos ni recibimos ningún dato personal tuyo, y la app no necesita cuenta ni conexión con nuestros servidores (no tenemos servidores que reciban tus datos).
     </div>
-    <p class="independencia">Orby es una herramienta independiente. No está afiliada, patrocinada ni aprobada por la Watch Tower Bible and Tract Society of Pennsylvania ni por los testigos de Jehová. jw.org es una marca de sus respectivos propietarios.</p>
-    <div class="base"><span>© <span id="anio">2026</span> Orby. Todos los derechos reservados.</span><span>Desarrollada por SΛX</span></div>
+
+    <div class="card">
+      <h2>1. Qué información se guarda</h2>
+      <p>Orby te permite registrar tu actividad y tus contactos del ministerio. Esos datos los creas tú y se almacenan solo en tu teléfono, por ejemplo:</p>
+      <ul>
+        <li>Personas que agregas (nombre, dirección, teléfono y notas que tú escribas).</li>
+        <li>Visitas, cursos bíblicos y revisitas que registras.</li>
+        <li>Horas de predicación, asignaciones e informes.</li>
+        <li>Preferencias de la app (tema, recordatorios, etc.).</li>
+      </ul>
+      <p>Esta información nunca sale de tu dispositivo por acción de Orby.</p>
+    </div>
+
+    <div class="card">
+      <h2>2. Qué NO hacemos</h2>
+      <ul>
+        <li>No recopilamos ni transmitimos tus datos a ningún servidor.</li>
+        <li>No usamos cuentas, inicio de sesión ni perfiles de usuario.</li>
+        <li>No incluimos anuncios ni rastreadores de terceros.</li>
+        <li>No usamos herramientas de analítica que te identifiquen.</li>
+        <li>No vendemos ni compartimos tu información con nadie.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>3. Permisos del dispositivo</h2>
+      <p>Orby puede pedir algunos permisos solo para funciones que tú uses, y siempre de forma local:</p>
+      <ul>
+        <li><strong>Notificaciones / alarmas:</strong> para recordarte tus visitas o asignaciones. Los recordatorios se programan en tu dispositivo.</li>
+        <li><strong>Ubicación (opcional):</strong> solo si decides guardar la ubicación de un contacto en el mapa. Se guarda localmente y no se envía a ningún lado.</li>
+        <li><strong>Almacenamiento (opcional):</strong> solo cuando tú exportas o importas una copia de seguridad.</li>
+      </ul>
+      <p>Si no usas una función, su permiso no es necesario.</p>
+    </div>
+
+    <div class="card">
+      <h2>4. Copias de seguridad</h2>
+      <p>Puedes exportar una copia de seguridad de tus datos como un archivo. Ese archivo lo controlas tú: decides dónde guardarlo y con quién compartirlo. Orby no lo sube a ningún servicio por su cuenta.</p>
+    </div>
+
+    <div class="card">
+      <h2>5. Cómo eliminar tus datos</h2>
+      <p>Como todo vive en tu dispositivo, puedes borrar tu información cuando quieras:</p>
+      <ul>
+        <li>Desde la app, usando la opción <strong>“Borrar todo”</strong> en Configuración.</li>
+        <li>Desinstalando Orby, lo que elimina todos los datos de la app del dispositivo.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>6. Menores de edad</h2>
+      <p>Orby no está dirigida a niños y no recopila datos de forma intencional de menores. Al ser una app local sin recolección de datos, la información que exista en el dispositivo es la que el propio usuario registre.</p>
+    </div>
+
+    <div class="card">
+      <h2>7. Cambios en esta política</h2>
+      <p>Si en el futuro cambiamos algo relevante, actualizaremos esta página y la fecha de “Última actualización”.</p>
+    </div>
+
+    <div class="card">
+      <h2>8. Contacto</h2>
+      <p>Si tienes dudas sobre esta política o sobre Orby, puedes escribir a:
+        <a href="mailto:shmueldevsoftware@gmail.com">shmueldevsoftware@gmail.com</a>
+      </p>
+    </div>
+
+    <footer>© 2026 Orby. Todos los derechos reservados.</footer>
   </div>
-</footer>
-<script src="/sitio.js" defer></script>
-<script defer src="/_vercel/insights/script.js"></script>
-<script id="abrir-ancla">(function(){function ir(){var h=decodeURIComponent(location.hash.slice(1));if(!h)return;var e=document.getElementById(h);if(!e)return;var d=e.closest("details")||(e.tagName=="DETAILS"?e:null);if(d)d.open=true;setTimeout(function(){e.scrollIntoView({block:"start"})},60);}addEventListener("hashchange",ir);ir();})();</script>
 </body>
 </html>
