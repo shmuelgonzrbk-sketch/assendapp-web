@@ -1100,3 +1100,77 @@ img.dibujo-orby{width:100%;max-width:320px;display:block;margin:0 auto}
   img.adorno,img.nubi-final{animation:orby-flota 4s ease-in-out infinite}
   @keyframes orby-flota{0%,100%{translate:0 0}50%{translate:0 -6px}}
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   REDISEÑO PROFESIONAL (solo estética) · nov 2026
+   No cambia el HTML. Mantiene el teléfono 3D giratorio y los hover.
+   Objetivo: limpio, simple, profesional — sin look de caricatura.
+   ═══════════════════════════════════════════════════════════════════ */
+:root{
+  --papel:#FBFBFD;
+  --tinta:#161923;
+  --gris:#5a6072;
+  --azul:#2E5BF0; --azul-osc:#2246C4;
+  --cielo:#EAF1FF; --sol:#FBF4E6; --arena:#F3F4F7;
+  --borde:#E6E8EF;
+  --trazo:1px;
+  --linea:1px solid var(--borde);
+  --sombra:0 8px 24px -12px rgba(22,25,35,.16);
+  --sombra-s:0 2px 10px rgba(22,25,35,.07);
+  --sombra-l:0 22px 50px -20px rgba(22,25,35,.24);
+  --r-s:12px; --r:16px; --r-l:24px;
+}
+
+/* Iconos un poco más finos (menos "marcador grueso") */
+.ic{stroke-width:1.9}
+
+/* Botones: se mantiene el movimiento al hover, pero con sombra suave */
+.btn{box-shadow:none;border:1px solid var(--borde);font-weight:700}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--sombra)}
+.btn:active{transform:translateY(0);box-shadow:var(--sombra-s)}
+.btn.azul{border-color:transparent;box-shadow:0 10px 24px -10px rgba(46,91,240,.45)}
+.btn.azul:hover{box-shadow:0 16px 32px -12px rgba(46,91,240,.6)}
+
+/* Navegación */
+.menu-nav a:hover{border-color:transparent;background:var(--cielo)}
+.menu-nav a[aria-current="page"]{border-color:transparent;background:var(--cielo)}
+
+/* Aplanar las inclinaciones decorativas (orden y limpieza) */
+.ficha,.hoja,.form-lleno,.mapa-dibujo,.ia .chat-ia,
+.ficha-app,.meta-app,.semana-app,
+.aviso:nth-child(1),.aviso:nth-child(2),.aviso:nth-child(3),
+.pegatinas li:nth-child(3n+1),.pegatinas li:nth-child(4n+2),.pegatinas li:nth-child(5n),
+.final .nubi-final{transform:none}
+.aviso:nth-child(1),.aviso:nth-child(3){margin-right:0}
+.aviso:nth-child(2){margin-left:0}
+.dibujo .etiqueta-flotante{position:static;transform:none;right:auto;bottom:auto;margin-top:14px;display:inline-flex}
+
+/* Sombras duras de imágenes → suaves */
+.escena .nubi-grande,.final .nubi-final{filter:drop-shadow(0 12px 22px rgba(22,25,35,.16))}
+
+/* Sombras duras internas → suaves */
+.md-ficha{box-shadow:0 12px 32px -12px rgba(22,25,35,.28)}
+.movil-pista,.movil-reiniciar{box-shadow:var(--sombra-s)}
+.pegatinas li.vivo.arriba,.avisos .aviso.arriba{box-shadow:var(--sombra)}
+
+/* Pegatinas y realces: de "sticker" a chip sobrio */
+.pega{background:var(--cielo);box-shadow:none;font-weight:700}
+.pegatinas li{box-shadow:var(--sombra-s)}
+.pegatinas li:nth-child(5n){background:var(--sol)}
+
+/* Bordes negros gruesos de componentes/mockups → finos y suaves */
+.globo,.botones-chat span,.mini-ficha,.escribiendo,
+.semanas div,.contactar span,.hoja .caja i,.hoja .r,
+.semana .d,.ev,.hoy-lista div,.leyenda i,
+.puntos li::before,.faq summary::after,.legal .indice-movil summary::after,
+.avatar,.aviso .ico,.pasos > li::before,.deshacer,
+.mosaico .icono,.canal .icono,.frase q,.frase p,
+.doc .fecha,.tabla,.tabla th,.tabla td,
+.indice-lateral,.movil-pista,.movil-reiniciar{border-color:var(--borde)}
+
+/* El globo propio sigue azul (contraste), el ajeno con borde suave */
+.globo.yo{border-color:transparent}
+
+/* Tipografía de encabezados un poco menos apretada (más pro) */
+h1,h2,h3,h4{letter-spacing:-.02em}
+h1{letter-spacing:-.025em}
