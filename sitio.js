@@ -23,7 +23,7 @@
   menu.setAttribute('aria-label', 'Principal');
 
   var fondo = function () { return [].slice.call(document.body.children).filter(function (n) { return n.tagName !== 'HEADER' && n !== velo && n.tagName !== 'SCRIPT'; }); };
-  var abierto = false, cerrando = 0;
+  var abierto = false, cerrando = 0, yMenu = 0;
 
   function poner(abrir) {
     if (abrir === abierto) return;
@@ -33,7 +33,7 @@
     boton.setAttribute('aria-label', abrir ? 'Cerrar menú' : 'Abrir menú');
     if (abrir) {
       menu.setAttribute('role', 'dialog'); menu.setAttribute('aria-modal', 'true');
-      document.documentElement.classList.add('menu-bloqueo');
+      yMenu = window.scrollY; var bar = document.querySelector('.barra'); document.body.style.paddingTop = bar ? bar.offsetHeight + 'px' : ''; document.documentElement.classList.add('menu-bloqueo'); window.scrollTo(0, yMenu);
       fondo().forEach(function (n) { n.inert = true; });
       menu.classList.remove('cerrandose');
       menu.classList.add('abierto'); velo.classList.add('ver');
@@ -42,7 +42,7 @@
       menu.classList.add('cerrandose');
       menu.classList.remove('abierto'); velo.classList.remove('ver');
       fondo().forEach(function (n) { n.inert = false; });
-      document.documentElement.classList.remove('menu-bloqueo');
+      document.documentElement.classList.remove('menu-bloqueo'); document.body.style.paddingTop = ''; window.scrollTo(0, yMenu);
       menu.removeAttribute('role'); menu.removeAttribute('aria-modal');
       cerrando = setTimeout(function () { menu.classList.remove('cerrandose'); }, 260);
       if (movil.matches) boton.focus({ preventScroll: true });

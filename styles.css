@@ -1832,3 +1832,4 @@ html[data-tema="oscuro"] .md-zoom{box-shadow:0 2px 12px rgba(0,0,0,.5)}
 html[data-tema="oscuro"] .md-zoom button + button{border-top-color:#27324B}
 html[data-tema="oscuro"] .md-yo{color:#8FB0FF;box-shadow:0 2px 12px rgba(0,0,0,.55)}
 html[data-tema="oscuro"] .saltar{background:#131B2F;color:var(--tinta)}
+html.menu-bloqueo .barra{position:fixed;top:0;left:0;right:0}
