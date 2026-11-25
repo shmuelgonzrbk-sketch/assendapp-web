@@ -1,15 +1,10 @@
-// Teléfono 3D interactivo de la portada (Three.js, geometría hecha aquí mismo).
-// Si no hay WebGL o algo falla, se queda el teléfono de CSS que ya está en la página.
 import * as THREE from './vendor/three.module.min.js';
 import { RoomEnvironment } from './vendor/RoomEnvironment.js';
 import { crearChat } from './chat-nubi.js';
 import { crearVoz } from './voz-nubi.js';
 
-// Cada .movil de la página se vuelve un teléfono 3D.
-// data-respaldo="chat" o "voz": mientras no exista su video, la pantalla muestra esa animación.
 document.querySelectorAll('.movil').forEach((caja) => iniciar(caja).catch((e) => { caja.classList.add('sin-3d'); console.warn('Teléfono 3D no disponible:', e); }));
 
-// Sin WebGL: el chat animado va dentro del teléfono de CSS
 function chatSinWebGL(caja, chat, menosMovimiento) {
   const pant = caja.querySelector('.movil-pantalla');
   if (!pant) return;
@@ -28,7 +23,6 @@ function hayWebGL() {
   } catch (e) { return false; }
 }
 
-// Rectángulo con esquinas redondeadas centrado en el origen
 function forma(w, h, r) {
   const s = new THREE.Shape(), x = -w / 2, y = -h / 2;
   s.moveTo(x + r, y);
@@ -39,7 +33,6 @@ function forma(w, h, r) {
   return s;
 }
 
-// Plano con forma redondeada y UV de 0 a 1 (para poner el video)
 function planoRedondo(w, h, r) {
   const g = new THREE.ShapeGeometry(forma(w, h, r), 24);
   const p = g.attributes.position, uv = g.attributes.uv;
@@ -69,7 +62,6 @@ async function iniciar(caja) {
   let chat = caja.dataset.respaldo === 'chat' ? crearChat() : caja.dataset.respaldo === 'voz' ? crearVoz() : null;
   if (!hayWebGL()) { caja.classList.add('sin-3d'); if (chat) chatSinWebGL(caja, chat, menosMovimiento); return; }
 
-  // ── Escenario ──
   const escenario = document.createElement('div');
   escenario.className = 'movil-3d';
   escenario.innerHTML = `
@@ -91,33 +83,53 @@ async function iniciar(caja) {
   const pmrem = new THREE.PMREMGenerator(renderer);
   escena.environment = pmrem.fromScene(new RoomEnvironment(renderer), 0.04).texture;
 
-  const camara = new THREE.PerspectiveCamera(24, 1, 20, 160); // capas separadas: más precisión de profundidad en celulares
+  const camara = new THREE.PerspectiveCamera(24, 1, 20, 160);
   camara.position.set(0, 4.5, 46);
 
   const luz = new THREE.DirectionalLight(0xffffff, 1.6); luz.position.set(-12, 18, 20); escena.add(luz);
   const contra = new THREE.DirectionalLight(0xd9e3ff, 1.1); contra.position.set(14, -4, -16); escena.add(contra);
 
-  // ── Pantalla: primero la portada o el chat animado; el video entra cuando de verdad se reproduce ──
   const fuente = caja.querySelector('video source')?.src;
   const portada = caja.querySelector('video')?.poster;
   let mapa = null;
   if (chat) { mapa = new THREE.CanvasTexture(chat.canvas); if (menosMovimiento) chat.final(); else chat.avanzar(0); }
   else if (portada) mapa = new THREE.TextureLoader().load(portada);
   if (mapa) { mapa.colorSpace = THREE.SRGBColorSpace; mapa.anisotropy = 4; }
+  const videoN = document.createElement('video');
+  let texDia = null, texNoche = null, nocheOk = false;
+  const esNoche = () => document.documentElement.dataset.tema === 'oscuro';
+  const ponerTex = () => {
+    const usar = esNoche() && nocheOk ? texNoche : texDia;
+    if (!usar || pantallaMat.map === usar) return;
+    const de = usar === texNoche ? video : videoN, a = usar === texNoche ? videoN : video;
+    if (a.duration && Math.abs(a.currentTime - de.currentTime) > 0.12) a.currentTime = de.currentTime % a.duration;
+    if (a.paused && !de.paused) a.play().catch(() => {});
+    pantallaMat.map = usar; pantallaMat.needsUpdate = true;
+  };
+  new MutationObserver(ponerTex).observe(document.documentElement, { attributes: true, attributeFilter: ['data-tema'] });
   const video = document.createElement('video');
   if (fuente) {
     Object.assign(video, { src: fuente, muted: true, loop: true, playsInline: true, preload: 'auto' });
     video.setAttribute('playsinline', '');
     video.addEventListener('playing', () => {
       const vt = new THREE.VideoTexture(video); vt.colorSpace = THREE.SRGBColorSpace;
-      pantallaMat.map = vt; pantallaMat.color.set(0xffffff); pantallaMat.needsUpdate = true;
+      texDia = vt; pantallaMat.map = vt; pantallaMat.color.set(0xffffff); pantallaMat.needsUpdate = true;
       chat = null;
+      Object.assign(videoN, { src: fuente.replace('nubi-app.mp4', 'nubi-app-noche.mp4'), muted: true, loop: true, playsInline: true, preload: 'auto' });
+      videoN.setAttribute('playsinline', '');
+      videoN.addEventListener('loadeddata', () => {
+        texNoche = new THREE.VideoTexture(videoN); texNoche.colorSpace = THREE.SRGBColorSpace;
+        nocheOk = true;
+        if (video.duration) videoN.currentTime = video.currentTime % (videoN.duration || video.duration);
+        if (!video.paused) videoN.play().catch(() => {});
+        ponerTex();
+      }, { once: true });
+      videoN.load();
     }, { once: true });
-    video.addEventListener('error', () => { /* sin video: se queda la portada o el chat */ });
+    video.addEventListener('error', () => {   });
     video.play().catch(() => {});
   }
 
-  // ── Teléfono (medidas en mm/10: 7,2 × 15,6 × 0,82 cm) ──
   const W = 7.2, H = 15.6, D = 0.62, R = 1.05, B = 0.1;
   const telefono = new THREE.Group();
   escena.add(telefono);
@@ -127,31 +139,28 @@ async function iniciar(caja) {
   const traseraMat = new THREE.MeshPhysicalMaterial({ color: 0x24272c, metalness: 0.2, roughness: 0.42, clearcoat: 0.6, clearcoatRoughness: 0.35 });
   const oscuro = new THREE.MeshStandardMaterial({ color: 0x0d0e10, metalness: 0.3, roughness: 0.6 });
 
-  // Marco metálico
   telefono.add(new THREE.Mesh(bloque(W - 2 * B, H - 2 * B, D, R, B), metal));
 
   const zFrente = D / 2 + B, zAtras = -(D / 2 + B);
-  // Cristal frontal (negro, con reflejos)
+
   const frente = new THREE.Mesh(planoRedondo(W - 0.16, H - 0.16, R - 0.08), vidrioNegro);
   frente.position.z = zFrente + 0.02; telefono.add(frente);
-  // Pantalla con el video
+
   const SW = W - 0.42, SH = SW * 20 / 9 > H - 0.42 ? H - 0.42 : SW * 20 / 9;
   const pantallaMat = new THREE.MeshBasicMaterial({ map: mapa || null, color: mapa ? 0xffffff : 0x111111, toneMapped: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -8 });
   const pantalla = new THREE.Mesh(planoRedondo(SW, SH, R - 0.22), pantallaMat);
   pantalla.position.z = zFrente + 0.05; pantalla.renderOrder = 1; telefono.add(pantalla);
-  // Capa de vidrio encima: solo aporta reflejos suaves
+
   const brillo = new THREE.Mesh(planoRedondo(W - 0.16, H - 0.16, R - 0.08),
     new THREE.MeshPhysicalMaterial({ color: 0xffffff, transparent: true, opacity: 0.06, roughness: 0.02, metalness: 0, clearcoat: 1, envMapIntensity: 1.6, depthWrite: false }));
   brillo.position.z = zFrente + 0.09; brillo.renderOrder = 2; telefono.add(brillo);
-  // Cámara frontal
-  const perforacion = new THREE.Mesh(new THREE.CircleGeometry(0.17, 32), new THREE.MeshPhysicalMaterial({ color: 0x020203, roughness: 0.1, clearcoat: 1 }));
-  perforacion.position.set(0, SH / 2 - 0.42, zFrente + 0.07); perforacion.renderOrder = 2; telefono.add(perforacion);
 
-  // Tapa trasera de vidrio esmerilado
+  const perforacion = new THREE.Mesh(new THREE.CircleGeometry(0.17, 32), new THREE.MeshPhysicalMaterial({ color: 0x020203, roughness: 0.1, clearcoat: 1 }));
+  perforacion.position.set(0, SH / 2 - 0.42, zFrente + 0.07); perforacion.renderOrder = 2;
+
   const atras = new THREE.Mesh(planoRedondo(W - 0.16, H - 0.16, R - 0.08), traseraMat);
   atras.rotation.y = Math.PI; atras.position.z = zAtras - 0.02; telefono.add(atras);
 
-  // Módulo de cámaras traseras
   const modulo = new THREE.Mesh(bloque(2.5, 3.4, 0.08, 0.55, 0.06), new THREE.MeshPhysicalMaterial({ color: 0x1b1d21, metalness: 0.6, roughness: 0.25, clearcoat: 1 }));
   modulo.rotation.y = Math.PI; modulo.position.set(W / 2 - 1.65, H / 2 - 2.15, zAtras - 0.09); telefono.add(modulo);
   const anillo = new THREE.MeshPhysicalMaterial({ color: 0x8d9198, metalness: 1, roughness: 0.18 });
@@ -169,14 +178,12 @@ async function iniciar(caja) {
   const flash = new THREE.Mesh(new THREE.CircleGeometry(0.16, 24), new THREE.MeshStandardMaterial({ color: 0xf3ead2, roughness: 0.4, emissive: 0x3a3320 }));
   flash.rotation.y = Math.PI; flash.position.set(W / 2 - 2.55, H / 2 - 2.15, zAtras - 0.135); telefono.add(flash);
 
-  // Botones laterales (derecha: volumen y encendido)
   const boton = (y, largo) => {
     const g = bloque(0.16, largo, 0.18, 0.07, 0.03);
     const m = new THREE.Mesh(g, metal); m.position.set(W / 2 + 0.04, y, 0); telefono.add(m);
   };
   boton(3.4, 2.1); boton(0.9, 1.1);
 
-  // Bordes inferiores: puerto USB-C, parlante y micrófono
   const usb = new THREE.Mesh(bloque(0.9, 0.26, 0.02, 0.12, 0.01), oscuro);
   usb.rotation.x = Math.PI / 2; usb.position.set(0, -H / 2 - 0.005, 0); telefono.add(usb);
   for (let i = 0; i < 6; i++) {
@@ -185,26 +192,24 @@ async function iniciar(caja) {
   }
   const mic = new THREE.Mesh(new THREE.CircleGeometry(0.06, 16), oscuro);
   mic.rotation.x = Math.PI / 2; mic.position.set(-1.3, -H / 2 - 0.006, 0); telefono.add(mic);
-  // Líneas de antena en el marco
+
   [[W / 2 + 0.005, H / 2 - 1.6, 0, Math.PI / 2], [-W / 2 - 0.005, H / 2 - 1.6, 0, -Math.PI / 2],
    [W / 2 + 0.005, -H / 2 + 1.6, 0, Math.PI / 2], [-W / 2 - 0.005, -H / 2 + 1.6, 0, -Math.PI / 2]].forEach(([x, y, z, ry]) => {
     const l = new THREE.Mesh(new THREE.PlaneGeometry(D + 0.1, 0.07), new THREE.MeshStandardMaterial({ color: 0x77797e, roughness: 0.5 }));
     l.position.set(x, y, z); l.rotation.y = ry; telefono.add(l);
   });
 
-  // Sombra de contacto en el piso (cambia con la orientación)
   const sombra = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ map: texturaSombra(), transparent: true, depthWrite: false }));
   sombra.rotation.x = -Math.PI / 2; sombra.position.y = -H / 2 - 0.45; escena.add(sombra);
 
-  // ── Movimiento ──
   const REPOSO_Y = -0.38, REPOSO_X = 0.07, LIM_X = 0.55;
   let rotY = REPOSO_Y, rotX = REPOSO_X, velY = 0, velX = 0;
   let arrastrando = false, ultimoToque = -1e9, ultimoX = 0, ultimoY = 0, ultimoT = 0, volviendo = false;
   let tiempo = 0;
-  let intro = matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 0;   // vuelta de entrada
-  // Solo en celular: la entrada empieza cuando el teléfono ya se ve bien en la pantalla
+  let intro = matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 0;
+
   let introListo = !matchMedia('(max-width: 900px), (pointer: coarse)').matches;
-  // Mientras el teléfono entra, la página no se mueve (para que la animación no se corte)
+
   let bloqueado = false;
   const frenar = (e) => { if (bloqueado) e.preventDefault(); };
   const teclas = (e) => { if (bloqueado && [' ', 'ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End'].includes(e.key)) e.preventDefault(); };
@@ -221,21 +226,21 @@ async function iniciar(caja) {
     addEventListener('wheel', frenar, { passive: false });
     addEventListener('keydown', teclas);
     document.documentElement.style.overscrollBehavior = 'none';
-    caja.scrollIntoView({ behavior: 'smooth', block: 'center' });   // lo deja centrado para verlo entrar
-    setTimeout(desbloquear, 4500);                                  // por si acaso, nunca queda trabado
+    caja.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(desbloquear, 4500);
   };
   if (!introListo) new IntersectionObserver(([en], ob) => {
     if (en.intersectionRatio >= 0.45) { introListo = true; ob.disconnect(); bloquearScroll(); }
   }, { threshold: [0.45] }).observe(caja);
 
   const idaAlReposo = () => {
-    // El reposo más cercano a la vuelta actual, para no dar media vuelta de regreso
+
     const k = Math.round((rotY - REPOSO_Y) / (Math.PI * 2));
     return REPOSO_Y + k * Math.PI * 2;
   };
 
   canvas.addEventListener('pointerdown', (e) => {
-    if (bloqueado) return;                // mientras entra no se puede agarrar
+    if (bloqueado) return;
     arrastrando = true; volviendo = false; velY = velX = 0;
     ultimoX = e.clientX; ultimoY = e.clientY; ultimoT = performance.now();
     canvas.setPointerCapture?.(e.pointerId);
@@ -249,7 +254,7 @@ async function iniciar(caja) {
     const dx = e.clientX - ultimoX, dy = e.clientY - ultimoY;
     const fx = 0.0095, fy = 0.006;
     rotY += dx * fx;
-    // Resistencia tipo goma al pasar el límite de inclinación
+
     const fuera = Math.abs(rotX) > LIM_X ? 0.3 : 1;
     rotX += dy * fy * fuera;
     rotX = Math.max(-LIM_X - 0.3, Math.min(LIM_X + 0.3, rotX));
@@ -279,8 +284,6 @@ async function iniciar(caja) {
     canvas.focus({ preventScroll: true });
   });
 
-  // ── Tamaño ──
-  // La cámara se aleja sola cuando el teléfono gira, para que siempre se vea completo
   let distBase = 0, camZ = 0;
   const _rot = new THREE.Matrix4(), _eul = new THREE.Euler(), _v = new THREE.Vector3();
   const distNecesaria = () => {
@@ -298,7 +301,7 @@ async function iniciar(caja) {
     if (!r.width) return;
     renderer.setSize(r.width, r.height, false);
     camara.aspect = r.width / r.height;
-    // Que el teléfono quepa a lo alto con un margen
+
     const alto = H * 1.2;
     const dist = (alto / 2) / Math.tan(THREE.MathUtils.degToRad(camara.fov / 2));
     distBase = Math.max(dist, (W * 1.35 / 2) / Math.tan(THREE.MathUtils.degToRad(camara.fov / 2)) / camara.aspect);
@@ -307,7 +310,6 @@ async function iniciar(caja) {
   };
   new ResizeObserver(ajustar).observe(escenario);
 
-  // ── Bucle: solo mientras se ve ──
   let visible = true, anterior = performance.now(), idBucle = 0;
   const reloj = (ahora) => {
     idBucle = requestAnimationFrame(reloj);
@@ -315,18 +317,18 @@ async function iniciar(caja) {
     const f = dt * 60;
 
     if (!arrastrando) {
-      // Inercia con desaceleración progresiva
+
       rotY += velY * f; rotX += velX * f;
       const roce = Math.pow(0.935, f);
       velY *= roce; velX *= roce;
-      // Rebote suave en el límite de inclinación
+
       if (Math.abs(rotX) > LIM_X) {
         const borde = Math.sign(rotX) * LIM_X;
         velX += (borde - rotX) * 0.12 * f; velX *= Math.pow(0.82, f);
       }
       const quieto = Math.abs(velY) < 0.0008 && Math.abs(velX) < 0.0008;
       const pausa = performance.now() - ultimoToque;
-      // Volver con calma a una orientación bonita tras unos segundos sin tocar
+
       if (volviendo || (quieto && pausa > 3500)) {
         const meta = idaAlReposo();
         const vaiven = menosMovimiento ? 0 : Math.sin(tiempo * 0.55) * 0.16;
@@ -337,17 +339,17 @@ async function iniciar(caja) {
         if (pausa > 3500 && Math.abs(meta - rotY) < 0.25) reiniciar.hidden = true;
       }
     }
-    // Entrada: sale desde lejos, chiquito y girando con fuerza, y crece hasta su tamaño
+
     let escalaIntro = 1;
-    if (intro < 1 && !introListo) escalaIntro = 0.001;           // en celular: espera a que llegues al teléfono
+    if (intro < 1 && !introListo) escalaIntro = 0.001;
     else if (intro < 1) {
       if (arrastrando) intro = 1;
       else {
         intro = Math.min(1, intro + dt / 2.8);
         if (intro >= 1) desbloquear();
-        const e = 1 - Math.pow(1 - intro, 5);                       // gira rápido y frena suave
+        const e = 1 - Math.pow(1 - intro, 5);
         rotY = REPOSO_Y - (1 - e) * Math.PI * 6; rotX = REPOSO_X + (1 - e) * 0.35; velY = velX = 0;
-        const c = Math.min(1, intro / 0.85);                        // crece poco a poco, como acercándose
+        const c = Math.min(1, intro / 0.85);
         escalaIntro = 0.03 + 0.97 * (1 - Math.pow(1 - c, 2.2));
       }
     }
@@ -361,7 +363,6 @@ async function iniciar(caja) {
     }
     telefono.position.y = menosMovimiento ? 0 : Math.sin(tiempo * 0.9) * 0.12;
 
-    // La sombra se ensancha o se angosta según cuánto del frente se ve
     const ancho = Math.abs(Math.cos(rotY)) * W + Math.abs(Math.sin(rotY)) * (D + 0.4);
     sombra.scale.set(ancho * 1.6 + 1.5, 3.2 + Math.abs(Math.sin(rotY)) * 1.5, 1);
     sombra.material.opacity = (0.75 - Math.abs(rotX) * 0.5) * escalaIntro;
@@ -370,12 +371,11 @@ async function iniciar(caja) {
     renderer.render(escena, camara);
   };
 
-  const empezar = () => { if (!idBucle) { anterior = performance.now(); idBucle = requestAnimationFrame(reloj); if (fuente) video.play().catch(() => {}); } };
-  const parar = () => { cancelAnimationFrame(idBucle); idBucle = 0; if (fuente) video.pause(); };
+  const empezar = () => { if (!idBucle) { anterior = performance.now(); idBucle = requestAnimationFrame(reloj); if (fuente) { video.play().catch(() => {}); if (nocheOk) videoN.play().catch(() => {}); } } };
+  const parar = () => { cancelAnimationFrame(idBucle); idBucle = 0; if (fuente) { video.pause(); videoN.pause(); } };
   new IntersectionObserver(([en]) => { visible = en.isIntersecting; visible && !document.hidden ? empezar() : parar(); }).observe(escenario);
   document.addEventListener('visibilitychange', () => { document.hidden ? parar() : visible && empezar(); });
 
-  // Cambiar el teléfono de CSS por el 3D
   caja.appendChild(escenario);
   caja.classList.add('con-3d');
   caja.querySelector('.movil-cuerpo video')?.pause();

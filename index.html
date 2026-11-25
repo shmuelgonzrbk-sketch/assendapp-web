@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<script>(function(){var t=null;try{t=localStorage.getItem('orby-tema')}catch(e){}if(t!=='oscuro'&&t!=='claro'){t=matchMedia('(prefers-color-scheme: dark)').matches?'oscuro':'claro'}document.documentElement.dataset.tema=t})()</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Orby: app gratis para tu predicación — revisitas, horas e informe</title>
 <meta name="description" content="App gratis para Android para publicadores y precursores: anota revisitas y cursos bíblicos, cuenta tus horas y prepara tu informe. Funciona sin internet y tus datos se quedan en tu teléfono.">
@@ -19,11 +20,13 @@
 <link rel="apple-touch-icon" href="/nubi-192.png">
 <link rel="preload" href="/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css">
-<script>(function(){var h=document.documentElement;try{var c=document.createElement('canvas');if(c.getContext('webgl2')||c.getContext('webgl'))h.classList.add('con-webgl');}catch(e){}
-setTimeout(function(){document.querySelectorAll('.movil:not(.con-3d)').forEach(function(m){m.classList.add('sin-3d')});},15000);})();</script>
+<link rel="stylesheet" href="/styles.css?v=6">
+<script>
+(function(){var h=document.documentElement;try{var c=document.createElement('canvas');if(c.getContext('webgl2')||c.getContext('webgl'))h.classList.add('con-webgl');}catch(e){}
+setTimeout(function(){document.querySelectorAll('.movil:not(.con-3d)').forEach(function(m){m.classList.add('sin-3d')});},15000);})();
+</script>
 <link rel="modulepreload" href="/vendor/three.module.min.js">
-<link rel="modulepreload" href="/telefono3d.js">
+<link rel="modulepreload" href="/telefono3d.js?v=3">
 <link rel="modulepreload" href="/vendor/RoomEnvironment.js">
 <link rel="modulepreload" href="/chat-nubi.js">
 <link rel="modulepreload" href="/voz-nubi.js">
@@ -39,11 +42,12 @@ setTimeout(function(){document.querySelectorAll('.movil:not(.con-3d)').forEach(f
 <meta name="robots" content="index, follow, max-image-preview:large">
 <script type="application/ld+json" id="ld-app">{"@context": "https://schema.org", "@graph": [{"@type": "MobileApplication", "@id": "https://orbyday.vercel.app/#app", "name": "Orby", "alternateName": ["Orby agenda de predicación", "AssendApp"], "description": "App gratis para Android para publicadores y precursores: anota revisitas y cursos bíblicos, cuenta tus horas y prepara tu informe. Funciona sin internet y tus datos se quedan en tu teléfono.", "url": "https://orbyday.vercel.app", "image": "https://orbyday.vercel.app/orby-og.png", "operatingSystem": "Android", "applicationCategory": "UtilitiesApplication", "inLanguage": "es", "isAccessibleForFree": true, "downloadUrl": "https://play.google.com/store/apps/details?id=com.assendapp.app", "installUrl": "https://play.google.com/store/apps/details?id=com.assendapp.app", "featureList": ["Revisitas y cursos bíblicos", "Contador de horas", "Informe mensual", "Asignaciones", "Mapa de revisitas", "Avisos", "Funciona sin internet"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "PEN"}, "author": {"@type": "Person", "name": "SΛX"}}, {"@type": "WebSite", "@id": "https://orbyday.vercel.app/#web", "name": "Orby", "url": "https://orbyday.vercel.app", "inLanguage": "es", "publisher": {"@id": "https://orbyday.vercel.app/#org"}}, {"@type": "Organization", "@id": "https://orbyday.vercel.app/#org", "name": "Orby", "url": "https://orbyday.vercel.app", "logo": "https://orbyday.vercel.app/nubi-512.png"}]}</script>
 <meta name="google-site-verification" content="PLJ9YLplZ3LpGzWUqqRcr6cKp75X1fsRBS4aH4t8KtM">
+<script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&"IntersectionObserver" in window)document.documentElement.classList.add("m-pre")</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-persona" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></symbol><symbol id="i-casa" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-libro" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></symbol><symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol><symbol id="i-campana" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></symbol><symbol id="i-escaner" viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M7 12h10"/></symbol><symbol id="i-candado" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol><symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol><symbol id="i-estrella" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol><symbol id="i-llamar" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol><symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c.3 2.2 2.3 4.2 4.5 4.5l1-1.2 1.6.8-.4 1.4"/></symbol><symbol id="i-ruta" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h6a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h6"/></symbol><symbol id="i-compartir" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></symbol><symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol><symbol id="i-descarga" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol><symbol id="i-correo" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 7.5l9 6 9-6"/></symbol><symbol id="i-basura" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v5M14 11v5"/></symbol><symbol id="i-informe" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 8h6M9 12h6M9 16h4"/></symbol><symbol id="i-sinred" viewBox="0 0 24 24"><path d="M2 8.5a15 15 0 0 1 20 0M5.5 12a10 10 0 0 1 13 0M9 15.5a5 5 0 0 1 6 0M12 19h.01M3 3l18 18"/></symbol><symbol id="i-luna" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol><symbol id="i-deshacer" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></symbol><symbol id="i-ojo" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-flecha" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol><symbol id="i-huella" viewBox="0 0 24 24"><path d="M12 11v3a8 8 0 0 1-2 5.3M8 11a4 4 0 0 1 8 0v2a12 12 0 0 1-1 4.8M5 13v-2a7 7 0 0 1 12.6-4.2M19.5 10.5c.3 1 .5 2 .5 3a16 16 0 0 1-.6 4"/></symbol><symbol id="i-objetivo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol><symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3M21 14v.01M14 21h.01M18 18h3v3h-3z"/></symbol><symbol id="i-telefonos" viewBox="0 0 24 24"><rect x="2.5" y="5" width="8" height="15" rx="2"/><rect x="13.5" y="4" width="8" height="15" rx="2"/><path d="M8.5 11.5h7M13 9l2.5 2.5L13 14"/></symbol><symbol id="nubi" viewBox="0 0 120 120">
 <rect x="12" y="22" width="96" height="88" rx="22" fill="#fff"/>
-<path d="M12 46v-2a22 22 0 0 1 22-22h52a22 22 0 0 1 22 22v2z" fill="#315CF5"/>
+<path d="M12 46v-2a22 22 0 0 1 22-22h52a22 22 0 0 1 22 22v2z" fill="#1C3D8F"/>
 <path d="M12 46h96" stroke="#171717" stroke-width="5"/>
 <rect x="12" y="22" width="96" height="88" rx="22" fill="none" stroke="#171717" stroke-width="5"/>
 <rect x="33" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/>
@@ -58,8 +62,7 @@ setTimeout(function(){document.querySelectorAll('.movil:not(.con-3d)').forEach(f
 <header class="barra">
   <div class="ancho">
     <a class="marca" href="/" aria-label="Orby, ir al inicio"><span>Orby</span></a>
-    <nav class="menu-nav" id="menu" aria-label="Principal"><a href="/" aria-current="page">Inicio</a><a href="/funciones">Funciones</a><a href="/orby-ia">Orby IA</a><a href="/como-funciona">Cómo funciona</a><a href="/privacidad">Privacidad</a><a href="/preguntas">Preguntas</a><a class="btn azul" href="/como-funciona#probar">Quiero probarla</a></nav>
-    <a class="btn azul probar" href="/como-funciona#probar">Quiero probarla</a>
+    <nav class="menu-nav" id="menu" aria-label="Principal"><a href="/" aria-current="page">Inicio</a><div class="menu-grupo"><button class="menu-desp" type="button" aria-expanded="false" aria-controls="sub-explorar">Explorar<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="menu-sub" id="sub-explorar"><a href="/funciones"><b>Funciones</b><small>Todo lo que hace Orby</small></a><a href="/como-funciona"><b>Cómo funciona</b><small>Empieza en pocos minutos</small></a><a href="/novedades"><b>Novedades</b><small>Lo último que cambió</small></a></div></div><div class="menu-grupo"><button class="menu-desp" type="button" aria-expanded="false" aria-controls="sub-ayuda">Ayuda<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="menu-sub" id="sub-ayuda"><a href="/preguntas"><b>Preguntas frecuentes</b><small>Respuestas rápidas</small></a><a href="/preguntas#contacto"><b>Contacto</b><small>Escríbenos</small></a><a href="/borrar-datos"><b>Borrar mis datos</b><small>Cómo eliminarlos</small></a></div></div></nav>
     <button class="abrir-menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span></button>
   </div>
 </header>
@@ -68,10 +71,14 @@ setTimeout(function(){document.querySelectorAll('.movil:not(.con-3d)').forEach(f
 <section class="portada"><div class="ancho">
   <div>
     <span class="pega">Gratis para Android</span>
-    <h1>Organiza tu ministerio. Simplifica cada día.</h1>
-    <p class="lead">Orby reúne tus revisitas, cursos, horas, asignaciones y tu horario en un solo lugar. Y si prefieres, se lo cuentas a Orby y ella lo anota por ti.</p>
-    <div class="acciones"><a class="btn azul" href="/como-funciona#probar">Quiero probarla</a><a class="btn" href="/funciones">Ver qué hace</a></div>
-    <p class="nota"><span><svg class="ic" aria-hidden="true"><use href="#i-persona"/></svg>Sin cuentas</span><span><svg class="ic" aria-hidden="true"><use href="#i-sinred"/></svg>Funciona sin internet</span><span><svg class="ic" aria-hidden="true"><use href="#i-candado"/></svg>Tus datos no salen del teléfono</span></p>
+    <h1>Tu ministerio, <span class="h1-azul">organizado en un solo lugar.</span></h1>
+    <p class="lead">Gestiona tus revisitas, cursos bíblicos, horas y asignaciones. Planifica tus actividades y mantén todo organizado desde una sola aplicación, incluso sin conexión a internet.</p>
+    <div class="acciones"><a class="btn azul" href="/funciones">Explorar funciones</a><a class="enlace-flecha" href="/como-funciona">Conocer Orby <span aria-hidden="true">→</span></a></div>
+    <ul class="confianza" aria-label="Por qué Orby">
+      <li><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-persona"/></svg></span>Sin cuentas</li>
+      <li><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-sinred"/></svg></span>Sin internet</li>
+      <li><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-candado"/></svg></span>Privado</li>
+    </ul>
   </div>
   <div class="escena">
     <div class="fondo"></div>
@@ -85,22 +92,44 @@ setTimeout(function(){document.querySelectorAll('.movil:not(.con-3d)').forEach(f
       <div class="movil-cuerpo">
         <span class="boton b1"></span><span class="boton b2"></span>
         <div class="movil-pantalla">
-          <video autoplay muted loop playsinline preload="metadata" poster="/video/nubi-app.jpg" aria-hidden="true">
-            <source src="/video/nubi-app.mp4" type="video/mp4">
+          <video autoplay muted loop playsinline preload="metadata" poster="/video/nubi-app.jpg?v=1795584257" aria-hidden="true">
+            <source src="/video/nubi-app.mp4?v=1795584257" type="video/mp4">
           </video>
           <span class="camara"></span>
           <span class="brillo"></span>
         </div>
       </div>
     </div>
-    
 
   </div>
 </div></section>
 
+<section class="video-demo" aria-labelledby="video-titulo"><div class="ancho vd-grid">
+  <div class="vd-texto">
+    <span class="pega">Mírala en acción</span>
+    <h2 id="video-titulo">Un día de predicación con Orby</h2>
+    <p class="lead">Así se ve en la mano de un hermano: anota la visita, suma sus horas, recibe el aviso y envía su informe.</p>
+  </div>
+  <div class="vd-marco">
+    <video class="vd-corto" muted loop playsinline preload="none" data-src="/video/orby-demo-corto.mp4" aria-label="Video corto de Orby en uso, sin sonido"></video>
+    <div class="vd-poster" aria-hidden="true">
+      <img src="/img/orby-como-funciona.png" alt="" width="240" height="240" loading="lazy" decoding="async">
+      <b>Pronto verás aquí a Orby en uso</b>
+      <span>Estamos grabando el video</span>
+    </div>
+    <button class="vd-play" type="button" aria-label="Ver el video completo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></button>
+    <span class="vd-etq">Sin sonido · 20 s</span>
+  </div>
+</div></section>
+<dialog class="vd-modal" aria-label="Video de Orby">
+  <button class="vd-cerrar" type="button" aria-label="Cerrar video">×</button>
+  <video class="vd-completo" hidden controls playsinline preload="none" data-src="/video/orby-demo.mp4"><track kind="subtitles" srclang="es" label="Español" src="/video/orby-demo.vtt" default></video>
+  <div class="vd-falta" hidden><img src="/img/orby-como-funciona.png" alt="" width="160" height="160"><b>El video completo llega muy pronto</b><span>Mientras tanto, mira cómo funciona paso a paso.</span><a class="btn" href="/como-funciona">Ver cómo funciona</a></div>
+</dialog>
+
 <section class="intro-mod"><div class="ancho">
-  <div><h2 id="todo-lo-que-necesitas-en-un-solo-lugar">Todo lo que necesitas. En un solo lugar.</h2>
-  <p class="lead">Orby es una agenda hecha para el ministerio. Anotas a quién visitaste, de qué hablaron y cuándo vuelves. La app te avisa, suma tus horas y arma tu informe del mes.</p></div>
+  <div><h2 id="todo-lo-que-necesitas-en-un-solo-lugar">Diseñado para organizar cada aspecto de tu ministerio.</h2>
+  <p class="lead">Registra tus revisitas y cursos bíblicos, consulta tus notas y programa tus próximas actividades. Mantén tus horas organizadas y lleva un seguimiento claro de tu actividad mensual.</p></div>
   <ul class="pegatinas" aria-label="Lo que puedes organizar">
     <li><svg class="ic" aria-hidden="true"><use href="#i-persona"/></svg>Personas</li><li><svg class="ic" aria-hidden="true"><use href="#i-casa"/></svg>Revisitas</li><li><svg class="ic" aria-hidden="true"><use href="#i-libro"/></svg>Cursos bíblicos</li><li><svg class="ic" aria-hidden="true"><use href="#i-reloj"/></svg>Horas</li><li><svg class="ic" aria-hidden="true"><use href="#i-escaner"/></svg>Asignaciones</li>
     <li><svg class="ic" aria-hidden="true"><use href="#i-calendario"/></svg>Calendario</li><li><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Mapa</li><li><svg class="ic" aria-hidden="true"><use href="#i-campana"/></svg>Avisos</li><li><svg class="ic" aria-hidden="true"><use href="#i-informe"/></svg>Informe</li><li><svg class="ic" aria-hidden="true"><use href="#i-objetivo"/></svg>Mi Horario</li>
@@ -109,9 +138,9 @@ setTimeout(function(){document.querySelectorAll('.movil:not(.con-3d)').forEach(f
 </div></section>
 
 <section class="bloque"><div class="ancho">
-  <div class="texto"><span class="pega cielo">Personas y revisitas</span><h2 id="cada-persona-con-su-historia">Cada persona, con su historia.</h2>
-  <p class="lead">Guarda su dirección, el tema que conversaron, la pregunta que quedó pendiente y una libreta por visita. Antes de tocar la puerta ya sabes por dónde seguir.</p>
-  <ul class="puntos"><li>Llama, escribe por WhatsApp o abre la ruta desde su ficha</li><li>Marca cuándo vuelves y recibe un aviso antes</li><li>Los cursos llevan la lección en la que van</li><li>Pasa un contacto a otro publicador con un enlace</li></ul></div>
+  <div class="texto"><span class="pega cielo">Personas y revisitas</span><h2 id="cada-persona-con-su-historia">Cada contacto, con toda su información.</h2>
+  <p class="lead">Mantén organizados tus contactos, registra los detalles de cada conversación y añade notas para futuras visitas. Consulta su historial y ten siempre presente cómo continuar cada conversación.</p>
+  <ul class="puntos"><li>Acceso directo a llamadas, WhatsApp y ubicación.</li><li>Recordatorios de visitas para organizar tus próximos encuentros.</li><li>Seguimiento de cursos bíblicos, con registro del progreso de cada lección.</li><li>Compartir contactos con otros publicadores mediante enlaces o códigos QR.</li></ul></div>
   <div class="dibujo"><div class="ficha-app" id="fichaApp">
   <button class="fa-cab" type="button" aria-expanded="true" aria-controls="faCuerpo">
     <span class="fa-avatar">A</span>
@@ -138,9 +167,9 @@ setTimeout(function(){document.querySelectorAll('.movil:not(.con-3d)').forEach(f
 </div></section>
 
 <section class="bloque invertido"><div class="ancho">
-  <div class="texto"><span class="pega cielo">Horas</span><h2 id="tus-horas-sin-sacar-cuentas">Tus horas, sin sacar cuentas.</h2>
-  <p class="lead">Suma o resta horas con un toque y Orby hace las cuentas: cuánto llevas, cuánto te falta y si vas al día con tu semana. Pruébalo aquí al lado.</p>
-  <ul class="puntos"><li>Meta mensual o semanal según tu tipo de publicador</li><li>Tu informe se arma solo y lo envías por WhatsApp</li><li>Mi Horario compara lo que planeaste con lo que hiciste</li></ul></div>
+  <div class="texto"><span class="pega cielo">Horas</span><h2 id="tus-horas-sin-sacar-cuentas">Lleva el control de tus horas con facilidad.</h2>
+  <p class="lead">Registra tus horas de actividad y consulta tu progreso en cualquier momento. Visualiza cuánto has acumulado, revisa tus objetivos y mantén un seguimiento claro de tu actividad semanal y mensual.</p>
+  <ul class="puntos"><li>Objetivos de horas mensuales o semanales según tu tipo de publicador.</li><li>Informes automáticos listos para compartir por WhatsApp.</li><li>Seguimiento de actividad para comparar tu horario planificado con las horas realizadas.</li></ul></div>
   <div class="dibujo"><div class="horas-demo" id="horasDemo">
   <div class="hd-card">
     <div class="hd-cab"><span class="hd-mes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg><span id="hdMes">Este mes</span></span><span class="hd-pill">Regular</span></div>
@@ -167,43 +196,27 @@ setTimeout(function(){document.querySelectorAll('.movil:not(.con-3d)').forEach(f
 </div></section>
 
 <section class="bloque"><div class="ancho">
-  <div class="texto"><span class="pega cielo">Asignaciones</span><h2 id="tu-hoja-de-asignacion-en-una-foto">Tu hoja de asignación, en una foto.</h2>
-  <p class="lead">Escanea la hoja que te dieron y el formulario se llena solo: nombre, ayudante, fecha y tipo de parte. Lo revisas, guardas y Orby te avisa antes.</p>
-  <ul class="puntos"><li>El texto de la hoja se lee dentro de tu teléfono</li><li>La hora queda a las 7:00 p. m. y la cambias si tu reunión es a otra hora</li><li>También puedes agregar partes, eventos y recordatorios a mano</li></ul></div>
-  <div class="dibujo"><div class="hojas" role="img" aria-label="Una hoja de asignación fotografiada se convierte en un formulario lleno">
-  <div class="hoja"><div class="t">Hoja de asignación</div><div class="r">Nombre: Sam</div><div class="r">Ayudante: Pedro</div><div class="r">Fecha: 13 nov</div>
-  <div class="caja"><i></i>Lectura</div><div class="caja"><i class="x"></i>Revisita</div><div class="caja"><i></i>Discurso</div></div>
-  <svg class="flecha" viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="20" fill="#F2C94C" stroke="#171717" stroke-width="2.5"/><path d="M13 23h18M25 16l7 7-7 7" fill="none" stroke="#171717" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <div class="tarjeta form-lleno"><div class="ok"><small>Tipo</small>Revisita</div><div><small>Fecha y hora</small>Jue 13 nov, 7:00 p. m.</div><div><small>Ayudante</small>Pedro</div></div>
-</div></div>
+  <div class="texto"><span class="pega cielo">Asignaciones</span><h2 id="tu-hoja-de-asignacion-en-una-foto">Todas tus asignaciones, organizadas.</h2>
+  <p class="lead">Registra y administra tus asignaciones de reunión, consulta los detalles de cada participación y programa recordatorios para estar preparado con anticipación. Mantén tus próximas actividades siempre organizadas.</p>
+  <ul class="puntos"><li>Registro de asignaciones con nombre, ayudante, fecha y tipo de participación.</li><li>Recordatorios automáticos para recibir avisos antes de cada asignación.</li><li>Gestión de actividades para agregar partes, eventos y recordatorios manualmente.</li></ul></div>
+  <div class="dibujo"><div class="asig-demo" role="img" aria-label="Orby muestra tus próximas asignaciones y te avisa un día antes">
+   <div class="asig-noti"><div class="asig-noti-cab"><img src="/nubi-192.png" alt="" width="18" height="18"><b>Orby</b><span>· 9:00</span></div><b>Mañana tienes asignación</b><p>Lectura de la Biblia · 7:00 p. m.</p></div>
+   <div class="asig-card">
+    <div class="asig-cab"><b>Próximas asignaciones</b><span>3</span></div>
+    <ul>
+     <li class="pronto"><span class="asig-fecha"><small>Jue</small>12</span><div><b>Lectura de la Biblia</b><small>Nov · 7:00 p. m.</small></div><span class="asig-tag">Mañana</span></li>
+     <li><span class="asig-fecha"><small>Jue</small>26</span><div><b>Empiece conversaciones</b><small>Ayudante: Pedro · 7:00 p. m.</small></div><span class="asig-tag gris">En 15 días</span></li>
+     <li><span class="asig-fecha"><small>Dom</small>6</span><div><b>Discurso</b><small>Dic · 10:00 a. m.</small></div><span class="asig-tag gris">En 25 días</span></li>
+    </ul>
+    <div class="asig-rec"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10.3 20a1.9 1.9 0 0 0 3.4 0"/></svg>Te avisa 1 día antes y 1 hora antes</div>
+   </div>
+  </div></div>
 </div></section>
 
-<section class="ia" aria-labelledby="ia-titulo">
-  <div class="ancho">
-    <div><span class="pega">En prueba</span><h2 id="ia-titulo">Tu organización, ahora más inteligente.</h2>
-    <p class="lead">Háblale o escríbele como a un compañero de predicación. Orby entiende lo que le pides y lo convierte en acciones dentro de tu app.</p>
-    <ul class="puntos"><li>Anotar horas</li><li>Agregar personas</li><li>Programar revisitas</li><li>Corregir datos</li><li>Contarte tu semana</li><li>Armar tu horario</li><li>Crear asignaciones</li><li>Pasarte un contacto</li></ul>
-    <p class="aviso-ia">Orby funciona dentro de tu teléfono. Si hace algo que no querías, toca Deshacer. Está en fase de prueba y puede equivocarse.</p>
-    <div class="acciones"><a class="btn sol" href="/orby-ia">Descubre Orby IA</a></div></div>
-    <div><div class="movil movil-ia" data-respaldo="chat">
-      <div class="movil-cuerpo">
-        <span class="boton b1"></span><span class="boton b2"></span>
-        <div class="movil-pantalla">
-          <video muted loop playsinline preload="none" aria-hidden="true">
-            <source src="/video/nubi-chat.mp4" type="video/mp4">
-          </video>
-          <span class="camara"></span>
-          <span class="brillo"></span>
-        </div>
-      </div>
-    </div></div>
-  </div>
-</section>
-
 <section class="bloque"><div class="ancho">
-  <div class="texto"><span class="pega cielo">Mapa</span><h2 id="tus-revisitas-mejor-organizadas">Tus revisitas, mejor organizadas.</h2>
-  <p class="lead">Mira en el mapa dónde vive cada persona y planea tu recorrido por zona. Toca una calle para agregar a alguien justo ahí.</p>
-  <ul class="puntos"><li>Descarga tu zona y úsalo sin señal</li><li>Los cursos bíblicos llevan una estrella</li><li>Arrastra el pin para elegir la dirección exacta</li><li>Los pines se dibujan en tu teléfono: las ubicaciones no se envían a nadie</li></ul></div>
+  <div class="texto"><span class="pega cielo">Mapa</span><h2 id="tus-revisitas-mejor-organizadas">Visualiza tus contactos y organiza tus recorridos.</h2>
+  <p class="lead">Consulta la ubicación de tus contactos en el mapa, organiza tus visitas por zonas y gestiona las direcciones desde un mismo lugar. Planifica tus recorridos y accede a la información incluso sin conexión.</p>
+  <ul class="puntos"><li>Mapas sin conexión para consultar tus zonas sin depender de internet.</li><li>Identificación de cursos bíblicos mediante marcadores especiales.</li><li>Ubicaciones precisas con la posibilidad de ajustar manualmente cada marcador.</li><li>Privacidad de ubicación: los marcadores se procesan en tu teléfono y las ubicaciones no se envían a terceros.</li></ul></div>
   <div class="dibujo"><div class="tarjeta mapa-dibujo" id="mapaDemo"><svg viewBox="0 0 520 400" role="img" aria-label="Ilustración del mapa de Orby con los pines de varias personas, un grupo de tres y un pin para agregar a alguien nuevo">
 <rect width="520" height="400" fill="#E9E5DD"/>
 <path d="M330 250h190v150H300z" fill="#D9E3FF" stroke="#171717" stroke-width="3"/>
@@ -214,21 +227,21 @@ setTimeout(function(){document.querySelectorAll('.movil:not(.con-3d)').forEach(f
 <path d="M215 -20V420" fill="none" stroke="#171717" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/><path d="M215 -20V420" fill="none" stroke="#fff" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M-20 320C120 300 180 260 215 240S330 200 540 210" fill="none" stroke="#171717" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20 320C120 300 180 260 215 240S330 200 540 210" fill="none" stroke="#fff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M380 -20L320 175" fill="none" stroke="#171717" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><path d="M380 -20L320 175" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M90 175 C150 175 170 120 215 110 S300 120 320 175" fill="none" stroke="#315CF5" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>
-<g transform="translate(90,172)"><ellipse cx="0" cy="2" rx="9" ry="3.5" fill="#171717" opacity=".25"/><path d="M0 0C-4-10-18-18-18-33a18 18 0 1 1 36 0C18-18 4-10 0 0z" fill="#315CF5" stroke="#171717" stroke-width="3.5" stroke-linejoin="round"/><text x="0" y="-27" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="17" fill="#fff">R</text></g>
-<g transform="translate(320,172)"><ellipse cx="0" cy="2" rx="9" ry="3.5" fill="#171717" opacity=".25"/><path d="M0 0C-4-10-18-18-18-33a18 18 0 1 1 36 0C18-18 4-10 0 0z" fill="#315CF5" stroke="#171717" stroke-width="3.5" stroke-linejoin="round"/><text x="0" y="-27" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="17" fill="#fff">P</text><g transform="translate(13,-50)"><circle r="10" fill="#F2C94C" stroke="#171717" stroke-width="3"/><path d="M0-5.5l1.7 3.4 3.8.6-2.7 2.6.6 3.7L0 3 -3.4 4.8l.6-3.7-2.7-2.6 3.8-.6z" fill="#171717"/></g></g>
+<path d="M90 175 C150 175 170 120 215 110 S300 120 320 175" fill="none" stroke="#1C3D8F" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>
+<g transform="translate(90,172)"><ellipse cx="0" cy="2" rx="9" ry="3.5" fill="#171717" opacity=".25"/><path d="M0 0C-4-10-18-18-18-33a18 18 0 1 1 36 0C18-18 4-10 0 0z" fill="#1C3D8F" stroke="#171717" stroke-width="3.5" stroke-linejoin="round"/><text x="0" y="-27" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="17" fill="#fff">R</text></g>
+<g transform="translate(320,172)"><ellipse cx="0" cy="2" rx="9" ry="3.5" fill="#171717" opacity=".25"/><path d="M0 0C-4-10-18-18-18-33a18 18 0 1 1 36 0C18-18 4-10 0 0z" fill="#1C3D8F" stroke="#171717" stroke-width="3.5" stroke-linejoin="round"/><text x="0" y="-27" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="17" fill="#fff">P</text><g transform="translate(13,-50)"><circle r="10" fill="#F2C94C" stroke="#171717" stroke-width="3"/><path d="M0-5.5l1.7 3.4 3.8.6-2.7 2.6.6 3.7L0 3 -3.4 4.8l.6-3.7-2.7-2.6 3.8-.6z" fill="#171717"/></g></g>
 <g transform="translate(215,108)"><ellipse cx="0" cy="2" rx="9" ry="3.5" fill="#171717" opacity=".25"/><path d="M0 0C-4-10-18-18-18-33a18 18 0 1 1 36 0C18-18 4-10 0 0z" fill="#fff" stroke="#171717" stroke-width="3.5" stroke-linejoin="round"/><text x="0" y="-27" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="17" fill="#171717">M</text></g>
-<g transform="translate(110,300)"><circle r="28" fill="#315CF5" stroke="#171717" stroke-width="3.5"/><circle r="20" fill="#fff" stroke="#171717" stroke-width="3"/><text y="7" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="20" fill="#171717">3</text></g>
+<g transform="translate(110,300)"><circle r="28" fill="#1C3D8F" stroke="#171717" stroke-width="3.5"/><circle r="20" fill="#fff" stroke="#171717" stroke-width="3"/><text y="7" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="20" fill="#171717">3</text></g>
 <g transform="translate(405,124)"><g transform="translate(0,0)"><ellipse cx="0" cy="2" rx="9" ry="3.5" fill="#171717" opacity=".25"/><path d="M0 0C-4-10-18-18-18-33a18 18 0 1 1 36 0C18-18 4-10 0 0z" fill="#F2C94C" stroke="#171717" stroke-width="3.5" stroke-linejoin="round"/><text x="0" y="-27" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="17" fill="#171717">+</text></g>
 <g transform="translate(-85,-112)"><rect width="170" height="40" rx="12" fill="#171717"/><text x="85" y="25" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="13.5" fill="#fff">Agregar persona aquí</text><path d="M77 39l8 9 8-9z" fill="#171717"/></g></g>
-<g transform="translate(270,290)"><circle r="16" fill="#315CF5" opacity=".2"/><circle r="8" fill="#315CF5" stroke="#fff" stroke-width="3.5"/></g>
+<g transform="translate(270,290)"><circle r="16" fill="#1C3D8F" opacity=".2"/><circle r="8" fill="#1C3D8F" stroke="#fff" stroke-width="3.5"/></g>
 </svg></div></div>
 </div></section>
 
 <section class="bloque invertido"><div class="ancho">
   <div class="texto"><span class="pega cielo">Calendario</span><h2 id="una-vision-mas-clara-de-tu-semana">Una visión más clara de tu semana.</h2>
-  <p class="lead">Revisitas, salidas a predicar y asignaciones juntas en un calendario. Míralo por día, semana, mes o año, y arrastra una visita para moverla.</p>
-  <ul class="puntos"><li>Planifica cuándo vas a salir cada semana</li><li>Orby te avisa si dos cosas chocan a la misma hora</li><li>Modo oscuro para revisar de noche</li></ul></div>
+  <p class="lead">Consulta tus revisitas, salidas a predicar y asignaciones desde un mismo calendario. Visualiza tus actividades por día, semana, mes o año y modifica su programación fácilmente.</p>
+  <ul class="puntos"><li>Planificación semanal para organizar tus días y horarios de actividad.</li><li>Detección de conflictos para identificar actividades programadas a la misma hora.</li><li>Modo oscuro para adaptar la visualización a tus preferencias.</li></ul></div>
   <div class="dibujo"><div class="semana-app" id="semanaApp">
   <div class="sa-cab"><b>Semana</b><span class="sa-ver">Ver todo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></div>
   <div class="sa-rango"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg><span id="saRango">Esta semana</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg><span class="sa-hoy">Hoy</span></div>
@@ -239,9 +252,9 @@ setTimeout(function(){document.querySelectorAll('.movil:not(.con-3d)').forEach(f
 </div></section>
 
 <section class="bloque"><div class="ancho">
-  <div class="texto"><span class="pega cielo">Avisos</span><h2 id="recordatorios-que-llegan-a-tiempo">Recordatorios que llegan a tiempo.</h2>
-  <p class="lead">Orby te recuerda tus visitas y asignaciones antes de la hora, aunque apagues o reinicies el teléfono. Tú eliges cuánto antes.</p>
-  <ul class="puntos"><li>Funcionan sin internet</li><li>Los desactivas cuando quieras</li></ul></div>
+  <div class="texto"><span class="pega cielo">Avisos</span><h2 id="recordatorios-que-llegan-a-tiempo">Mantente al tanto de tus próximas actividades.</h2>
+  <p class="lead">Recibe recordatorios de tus revisitas y asignaciones con anticipación. Configura cuándo deseas recibir cada aviso y mantén tus actividades presentes, incluso sin conexión a internet.</p>
+  <ul class="puntos"><li>Recordatorios programados antes de cada visita o asignación.</li><li>Funcionamiento sin conexión para recibir avisos sin depender de internet.</li><li>Control de notificaciones para activarlas o desactivarlas cuando quieras.</li></ul></div>
   <div class="dibujo"><div class="avisos" data-empujar="14" aria-label="Ejemplos de avisos de Orby">
   <div class="aviso"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-campana"/></svg></span><div><b>Visita a Rosa en 30 min</b><p>Quedó pendiente: ¿qué pasa cuando morimos?</p><small>3:30 p. m.</small></div></div>
   <div class="aviso"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-calendario"/></svg></span><div><b>Mañana tienes asignación</b><p>Revisita con Pedro, sala principal</p><small>Ayer, 8:00 p. m.</small></div></div>
@@ -250,25 +263,31 @@ setTimeout(function(){document.querySelectorAll('.movil:not(.con-3d)').forEach(f
 </div></section>
 
 <section class="privada"><div class="ancho"><div class="panel">
-  <div><h2 id="tu-informacion-merece-respeto">Tu información merece respeto.</h2>
-  <p class="lead">Cuando alguien te abre la puerta, confía en ti. Por eso lo que anotas en Orby se queda en tu teléfono. No tenemos servidores ni cuentas.</p>
+  <div><h2 id="tu-informacion-merece-respeto">Tu información está en buenas manos.</h2>
+  <p class="lead">Sabemos que la información que guardas es importante. Por eso, Orby está diseñado para que tus datos permanezcan en tu teléfono. Sin cuentas, sin servidores externos y con el control siempre en tus manos.</p>
   <ul class="hechos">
-    <li><b><svg class="ic" aria-hidden="true"><use href="#i-persona"/></svg>Sin cuentas</b><span>No pedimos correo, contraseña ni número.</span></li>
-    <li><b><svg class="ic" aria-hidden="true"><use href="#i-candado"/></svg>Todo en tu teléfono</b><span>Personas, notas, horas e informes viven solo ahí.</span></li>
-    <li><b><svg class="ic" aria-hidden="true"><use href="#i-ojo"/></svg>Sin anuncios ni rastreo</b><span>No hay publicidad ni estadísticas de uso.</span></li>
-    <li><b><svg class="ic" aria-hidden="true"><use href="#i-basura"/></svg>Tú decides</b><span>Exporta una copia o borra todo cuando quieras.</span></li>
+    <li><b><svg class="ic" aria-hidden="true"><use href="#i-persona"/></svg>Sin registros</b><span>No necesitas crear una cuenta ni proporcionar datos personales para utilizar la aplicación.</span></li>
+    <li><b><svg class="ic" aria-hidden="true"><use href="#i-candado"/></svg>Todo en tu teléfono</b><span>Tus contactos, notas, horas e informes se almacenan en tu dispositivo.</span></li>
+    <li><b><svg class="ic" aria-hidden="true"><use href="#i-ojo"/></svg>Sin anuncios</b><span>Utiliza la aplicación sin publicidad ni seguimiento de actividad.</span></li>
+    <li><b><svg class="ic" aria-hidden="true"><use href="#i-basura"/></svg>Tú decides</b><span> Puedes exportar una copia de tus datos o eliminarlos cuando quieras.</span></li>
   </ul>
-  <div class="acciones"><a class="btn azul" href="/privacidad">Leer la política de privacidad</a><a class="btn" href="/seguridad">Cómo protegemos la app</a></div></div>
+  <div class="acciones"><a class="btn azul" href="/privacidad">Leer la política de privacidad</a><a class="btn" href="/seguridad">Conocer cómo protegemos tus datos</a></div></div>
   <div class="dibujo" style="max-width:320px"><img class="dibujo-orby" src="/img/orby-seguridad.png?v=1" alt="Orby protege tus datos con un escudo" width="480" height="480" loading="lazy" decoding="async"></div>
 </div></div></section>
 
-<section class="preguntas"><div class="angosto">
-  <div class="faq-cab"><h2 id="preguntas-frecuentes">Preguntas frecuentes</h2><a class="btn" href="/preguntas">Ver todas</a></div>
-  <div class="faq"><details id="necesito-internet-para-usar-orby"><summary>¿Necesito internet para usar Orby?</summary><div><p>No. Todo funciona sin conexión, incluida la asistente Orby. Solo el mapa necesita internet para cargar las calles, y puedes descargar tu zona para usarlo sin señal.</p></div></details><details id="tengo-que-crear-una-cuenta"><summary>¿Tengo que crear una cuenta?</summary><div><p>No. Orby no tiene cuentas: no te pedimos correo ni contraseña. Solo te pregunta cómo quieres que te salude.</p></div></details><details id="que-pasa-si-cambio-de-telefono"><summary>¿Qué pasa si cambio de teléfono?</summary><div><p>Como no hay servidores, tus datos no se copian solos. En Ajustes puedes guardar una copia de seguridad en un archivo y restaurarla en tu teléfono nuevo. Te recomendamos hacerlo una vez al mes.</p></div></details><details id="cuanto-cuesta"><summary>¿Cuánto cuesta?</summary><div><p>Nada. Es gratis, sin anuncios y sin compras dentro de la app.</p></div></details><details id="es-una-app-oficial-de-jw-org"><summary>¿Es una app oficial de jw.org?</summary><div><p>No. Orby es una herramienta independiente, desarrollada por SΛX para ayudar a los publicadores. No está afiliada a la Watch Tower Bible and Tract Society ni a jw.org, y no explica textos ni doctrina: para eso, consulta jw.org.</p></div></details></div>
+<section class="preguntas fq"><div class="ancho fq-grid">
+  <div class="fq-intro">
+    <span class="pega">Preguntas</span>
+    <h2 id="preguntas-frecuentes">Lo que más nos preguntan</h2>
+    <p class="lead">Respuestas cortas a las dudas de quienes empiezan con Orby.</p>
+    <a class="enlace-flecha" href="/preguntas">Ver todas las preguntas <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="fq-lista"><details id="necesito-internet-para-usar-orby" open><summary><span class="fq-ico"><svg class="ic" aria-hidden="true"><use href="#i-sinred"/></svg></span><span class="fq-q">¿Necesito internet para usar Orby?</span><span class="fq-mas" aria-hidden="true"></span></summary><div class="fq-r"><p>No. Puedes usarla donde sea, aunque no tengas señal. Lo único que usa internet es el mapa, para cargar las calles, y puedes descargar tu zona antes de salir.</p></div></details><details id="tengo-que-crear-una-cuenta"><summary><span class="fq-ico"><svg class="ic" aria-hidden="true"><use href="#i-persona"/></svg></span><span class="fq-q">¿Tengo que crear una cuenta?</span><span class="fq-mas" aria-hidden="true"></span></summary><div class="fq-r"><p>No. No hay registro, ni correo, ni contraseña. La primera vez solo te pregunta cómo quieres que te salude, y ya puedes empezar.</p></div></details><details id="que-pasa-si-cambio-de-telefono"><summary><span class="fq-ico"><svg class="ic" aria-hidden="true"><use href="#i-telefonos"/></svg></span><span class="fq-q">¿Qué pasa si cambio de teléfono?</span><span class="fq-mas" aria-hidden="true"></span></summary><div class="fq-r"><p>Puedes pasar todo al nuevo sin internet: en Ajustes, «Pasar a otro teléfono», y escaneas un QR. Como tus datos no se guardan en internet, si pierdes el teléfono solo podrás recuperarlos con una copia de seguridad. Por eso te recomendamos guardar una copia una vez al mes.</p></div></details><details id="cuanto-cuesta"><summary><span class="fq-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><span class="fq-q">¿Cuánto cuesta?</span><span class="fq-mas" aria-hidden="true"></span></summary><div class="fq-r"><p>Nada. Orby es gratis, sin anuncios y sin compras dentro de la app.</p></div></details></div>
+  <div class="fq-ayuda"><b>¿No encuentras tu respuesta?</b><span>Escríbenos y te respondemos personalmente.</span><a href="/preguntas#contacto">Ir a contacto</a></div>
 </div></section>
 <section class="final"><div class="ancho"><div class="panel">
-  <div><h2 id="una-forma-mas-sencilla-de-organizarte">Una forma más sencilla de organizarte.</h2><p class="lead">Orby está en prueba cerrada en Google Play. Únete a los probadores y ayúdanos a publicarla para todos.</p>
-  <div class="acciones"><a class="btn azul" href="/como-funciona#probar">Quiero probarla</a><a class="btn" href="/contacto">Escríbenos</a></div></div>
+  <div><h2 id="una-forma-mas-sencilla-de-organizarte">Tu ministerio, siempre organizado.</h2><p class="lead">Todo lo que necesitas para organizar tus revisitas, cursos, horas y actividades, en una sola aplicación.</p>
+  <div class="acciones"><a class="insignia-play" href="https://play.google.com/store/apps/details?id=com.assendapp.app" target="_blank" rel="noopener"><img src="/img/google-play.png" alt="Disponible en Google Play" width="646" height="250" loading="lazy" decoding="async"></a></div></div>
   <img class="nubi-final" src="/img/orby-saluda.png?v=1" alt="Orby saludando" width="480" height="480" loading="lazy" decoding="async">
 </div></div></section>
 </main>
@@ -277,25 +296,49 @@ setTimeout(function(){document.querySelectorAll('.movil:not(.con-3d)').forEach(f
     <div class="cols">
       <div>
         <a class="marca" href="/"><span>Orby</span></a>
-        <p>Una agenda para el ministerio con una asistente que te ayuda a organizarte. Desarrollada por SΛX.</p>
+        <p>Una agenda gratis para el ministerio que te ayuda a organizarte. Desarrollada por SΛX.</p>
       </div>
       <nav aria-labelledby="pie-producto"><h2 id="pie-producto">Producto</h2><ul>
-        <li><a href="/">Inicio</a></li><li><a href="/funciones">Funciones</a></li><li><a href="/orby-ia">Orby IA</a></li><li><a href="/como-funciona">Cómo funciona</a></li><li><a href="/novedades">Novedades</a></li><li><a href="/como-funciona#probar">Quiero probarla</a></li></ul></nav>
+        <li><a href="/">Inicio</a></li><li><a href="/funciones">Funciones</a></li><li><a href="/como-funciona">Cómo funciona</a></li><li><a href="/novedades">Novedades</a></li><li><a href="https://play.google.com/store/apps/details?id=com.assendapp.app" target="_blank" rel="noopener">Descargar en Google Play</a></li></ul></nav>
       <nav aria-labelledby="pie-ayuda"><h2 id="pie-ayuda">Ayuda</h2><ul>
-        <li><a href="/preguntas">Preguntas frecuentes</a></li><li><a href="/contacto">Contacto y soporte</a></li><li><a href="/seguridad">Seguridad</a></li><li><a href="/borrar-datos">Borrar mis datos</a></li></ul></nav>
+        <li><a href="/preguntas">Preguntas frecuentes</a></li><li><a href="/preguntas#contacto">Contacto y soporte</a></li><li><a href="/seguridad">Seguridad</a></li><li><a href="/borrar-datos">Borrar mis datos</a></li></ul></nav>
       <nav aria-labelledby="pie-legal"><h2 id="pie-legal">Legal</h2><ul>
-        <li><a href="/privacidad">Privacidad</a></li><li><a href="/terminos">Términos de uso</a></li><li><a href="/cookies">Cookies</a></li></ul></nav>
+        <li><a href="/privacidad">Privacidad</a></li><li><a href="/terminos">Términos de uso</a></li><li><a href="/privacidad#cookies">Cookies</a></li></ul></nav>
     </div>
-    <p class="independencia">Orby es una herramienta independiente. No está afiliada, patrocinada ni aprobada por la Watch Tower Bible and Tract Society of Pennsylvania ni por los testigos de Jehová. jw.org es una marca de sus respectivos propietarios.</p>
     <div class="base"><span>© <span id="anio">2026</span> Orby. Todos los derechos reservados.</span><span>Desarrollada por SΛX</span></div>
   </div>
 </footer>
-<script src="/sitio.js" defer></script>
-<script type="module" src="/telefono3d.js"></script>
+<script src="/sitio.js?v=5" defer></script>
+<script src="/video-demo.js?v=1" defer></script>
+<script src="/movimiento.js?v=1" defer></script>
+<script type="module" src="/telefono3d.js?v=3"></script>
 <script type="module" src="/mapa-demo.js"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script src="/pegatinas.js" defer></script>
 <script src="/horas-demo.js" defer></script>
 <script id="abrir-ancla">(function(){function ir(){var h=decodeURIComponent(location.hash.slice(1));if(!h)return;var e=document.getElementById(h);if(!e)return;var d=e.closest("details")||(e.tagName=="DETAILS"?e:null);if(d)d.open=true;setTimeout(function(){e.scrollIntoView({block:"start"})},60);}addEventListener("hashchange",ir);ir();})();</script>
+<script id="fq-anim">
+(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.fq-lista details').forEach(d => {
+    const sum = d.querySelector('summary'), r = d.querySelector('.fq-r');
+    let anim = null;
+    sum.addEventListener('click', e => {
+      e.preventDefault();
+      if (anim) anim.cancel();
+      if (d.open) {
+        d.classList.add('cerrando');
+        anim = r.animate([{ height: r.offsetHeight + 'px', opacity: 1 }, { height: '0px', opacity: 0 }], { duration: 260, easing: 'cubic-bezier(.4,0,.2,1)' });
+        anim.onfinish = () => { d.open = false; d.classList.remove('cerrando'); anim = null; };
+      } else {
+        d.open = true;
+        const h = r.offsetHeight;
+        anim = r.animate([{ height: '0px', opacity: 0 }, { height: h + 'px', opacity: 1 }], { duration: 300, easing: 'cubic-bezier(.2,.7,.2,1)' });
+        anim.onfinish = () => { anim = null; };
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>

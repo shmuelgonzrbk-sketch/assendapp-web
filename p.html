@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<script>(function(){var t=null;try{t=localStorage.getItem('orby-tema')}catch(e){}if(t!=='oscuro'&&t!=='claro'){t=matchMedia('(prefers-color-scheme: dark)').matches?'oscuro':'claro'}document.documentElement.dataset.tema=t})()</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Te compartieron un contacto | Orby</title>
 <meta name="description" content="Alguien te compartió un contacto para que lo agregues en Orby.">
@@ -14,7 +15,7 @@
 <link rel="icon" href="/favicon.png?v=2" type="image/png" sizes="96x96">
 <link rel="preload" href="/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/styles.css?v=6">
 <style>
 body{min-height:100vh;display:flex;flex-direction:column}
 .cp-barra{border-bottom:var(--linea);background:var(--papel)}
@@ -23,7 +24,6 @@ body{min-height:100vh;display:flex;flex-direction:column}
 .cp-etiqueta svg{width:15px;height:15px}
 main{flex:1}
 
-/* Escena principal */
 .cp-hero{padding-block:clamp(28px,4vw,72px) clamp(40px,5vw,88px)}
 .cp-hero .ancho{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,6vw,96px);align-items:center}
 .cp-texto h1{font-size:clamp(2.1rem,1.3rem + 3.4vw,4.1rem);margin-top:16px;max-width:14ch}
@@ -59,7 +59,6 @@ main{flex:1}
 }
 @media (max-width:380px){.cp-etiqueta{font-size:.72rem;padding:4px 9px}.con-barra .cp-acciones{grid-template-columns:minmax(0,1fr)}}
 
-/* El contacto que llega */
 .cp-objeto{position:relative;display:grid;place-items:center;min-height:clamp(380px,40vw,520px);perspective:1200px}
 .cp-halo{position:absolute;width:min(440px,92%);aspect-ratio:1;border:var(--linea);border-radius:50%;background:var(--cielo)}
 .cp-halo::after{content:"";position:absolute;inset:14%;border:2px dashed var(--tinta);border-radius:50%;opacity:.35}
@@ -82,7 +81,6 @@ main{flex:1}
 .cp-chispa{position:absolute;width:28px;height:28px}
 .cp-chispa.a{left:8%;top:12%}.cp-chispa.b{right:6%;bottom:14%;width:20px;height:20px}
 
-/* Entrada: el contacto "llega" */
 .listo .cp-halo{animation:halo .7s cubic-bezier(.2,.8,.2,1) both}
 .listo .cp-tarjeta{animation:llega .9s cubic-bezier(.16,1,.3,1) .15s both}
 .listo .cp-datos li{animation:dato .5s cubic-bezier(.2,.8,.2,1) both}
@@ -95,7 +93,6 @@ main{flex:1}
 @keyframes dato{from{transform:translateY(12px);opacity:0}}
 @keyframes sello{from{transform:rotate(30deg) scale(0);opacity:0}}
 
-/* Privacidad */
 .cp-privacidad{border-top:var(--linea);background:var(--blanco);padding-block:clamp(48px,6vw,96px)}
 .cp-privacidad .ancho{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,72px);align-items:center}
 .cp-privacidad h2{font-size:clamp(1.8rem,1.3rem + 2.2vw,3rem)}
@@ -110,7 +107,6 @@ main{flex:1}
 @keyframes llego{from{opacity:0;transform:scale(.4)}}
 @media (max-width:860px){.cp-privacidad .ancho{grid-template-columns:minmax(0,1fr)}}
 
-/* Escritorio: QR para pasar al celular */
 .cp-qr{display:flex;gap:16px;align-items:center;margin-top:22px;padding:14px;border:2px solid var(--tinta);border-radius:18px;background:var(--blanco);max-width:420px;box-shadow:3px 3px 0 var(--tinta)}
 .cp-qr[hidden]{display:none}
 #qrDibujo{flex-shrink:0;width:112px;height:112px}
@@ -132,7 +128,7 @@ main{flex:1}
 </div></header>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-<symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3M21 14v.01M14 21h.01M18 18h3v3h-3z"/></symbol><symbol id="i-telefonos" viewBox="0 0 24 24"><rect x="2.5" y="5" width="8" height="15" rx="2"/><rect x="13.5" y="4" width="8" height="15" rx="2"/><path d="M8.5 11.5h7M13 9l2.5 2.5L13 14"/></symbol><symbol id="nubi" viewBox="0 0 120 120"><rect x="12" y="22" width="96" height="88" rx="22" fill="#fff"/><path d="M12 46v-2a22 22 0 0 1 22-22h52a22 22 0 0 1 22 22v2z" fill="#315CF5"/><path d="M12 46h96" stroke="#171717" stroke-width="5"/><rect x="12" y="22" width="96" height="88" rx="22" fill="none" stroke="#171717" stroke-width="5"/><rect x="33" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/><rect x="74" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/><ellipse cx="44" cy="66" rx="6" ry="7.5" fill="#171717"/><ellipse cx="76" cy="66" rx="6" ry="7.5" fill="#171717"/><circle cx="46" cy="63" r="2" fill="#fff"/><circle cx="78" cy="63" r="2" fill="#fff"/><path d="M51 77q9 9 18 0" fill="none" stroke="#171717" stroke-width="4.5" stroke-linecap="round"/></symbol>
+<symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3M21 14v.01M14 21h.01M18 18h3v3h-3z"/></symbol><symbol id="i-telefonos" viewBox="0 0 24 24"><rect x="2.5" y="5" width="8" height="15" rx="2"/><rect x="13.5" y="4" width="8" height="15" rx="2"/><path d="M8.5 11.5h7M13 9l2.5 2.5L13 14"/></symbol><symbol id="nubi" viewBox="0 0 120 120"><rect x="12" y="22" width="96" height="88" rx="22" fill="#fff"/><path d="M12 46v-2a22 22 0 0 1 22-22h52a22 22 0 0 1 22 22v2z" fill="#1C3D8F"/><path d="M12 46h96" stroke="#171717" stroke-width="5"/><rect x="12" y="22" width="96" height="88" rx="22" fill="none" stroke="#171717" stroke-width="5"/><rect x="33" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/><rect x="74" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="5"/><ellipse cx="44" cy="66" rx="6" ry="7.5" fill="#171717"/><ellipse cx="76" cy="66" rx="6" ry="7.5" fill="#171717"/><circle cx="46" cy="63" r="2" fill="#fff"/><circle cx="78" cy="63" r="2" fill="#fff"/><path d="M51 77q9 9 18 0" fill="none" stroke="#171717" stroke-width="4.5" stroke-linecap="round"/></symbol>
 </defs></svg>
 
 <main>
@@ -170,16 +166,16 @@ main{flex:1}
     </ul>
   </div>
   <svg class="cp-viaje" id="viaje" viewBox="0 0 560 300" role="img" aria-label="Un contacto pasa directo de un teléfono a otro, sin pasar por un servidor">
-    <path d="M118 140 C 200 40, 360 40, 442 140" fill="none" stroke="#315CF5" stroke-width="4" stroke-dasharray="3 12" stroke-linecap="round"/>
+    <path d="M118 140 C 200 40, 360 40, 442 140" fill="none" stroke="#1C3D8F" stroke-width="4" stroke-dasharray="3 12" stroke-linecap="round"/>
     <g transform="translate(50,120)"><rect width="136" height="170" rx="22" fill="#171717"/><rect x="9" y="9" width="118" height="152" rx="15" fill="#FAF9F6"/><rect x="24" y="30" width="88" height="16" rx="6" fill="#D9E3FF" stroke="#171717" stroke-width="2.5"/><rect x="24" y="56" width="62" height="12" rx="5" fill="#E9E5DD"/><rect x="24" y="76" width="74" height="12" rx="5" fill="#E9E5DD"/></g>
-    <g transform="translate(374,120)"><rect width="136" height="170" rx="22" fill="#171717"/><rect x="9" y="9" width="118" height="152" rx="15" fill="#FAF9F6"/><g class="llego"><rect x="20" y="28" width="96" height="58" rx="12" fill="#fff" stroke="#171717" stroke-width="3"/><circle cx="42" cy="57" r="12" fill="#F2C94C" stroke="#171717" stroke-width="2.5"/><rect x="60" y="48" width="44" height="8" rx="4" fill="#171717"/><rect x="60" y="62" width="30" height="7" rx="3.5" fill="#E9E5DD"/></g><path d="M48 124l14 14 28-30" fill="none" stroke="#315CF5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" class="llego"/></g>
+    <g transform="translate(374,120)"><rect width="136" height="170" rx="22" fill="#171717"/><rect x="9" y="9" width="118" height="152" rx="15" fill="#FAF9F6"/><g class="llego"><rect x="20" y="28" width="96" height="58" rx="12" fill="#fff" stroke="#171717" stroke-width="3"/><circle cx="42" cy="57" r="12" fill="#F2C94C" stroke="#171717" stroke-width="2.5"/><rect x="60" y="48" width="44" height="8" rx="4" fill="#171717"/><rect x="60" y="62" width="30" height="7" rx="3.5" fill="#E9E5DD"/></g><path d="M48 124l14 14 28-30" fill="none" stroke="#1C3D8F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" class="llego"/></g>
     <g class="viajero"><g transform="translate(-34,-22)"><rect width="68" height="44" rx="10" fill="#fff" stroke="#171717" stroke-width="3"/><circle cx="18" cy="22" r="9" fill="#F2C94C" stroke="#171717" stroke-width="2.5"/><rect x="32" y="15" width="26" height="6" rx="3" fill="#171717"/><rect x="32" y="26" width="18" height="5" rx="2.5" fill="#E9E5DD"/></g></g>
     <g transform="translate(280,225)"><path d="M-34 12a18 18 0 0 1 4-35 24 24 0 0 1 46-4 16 16 0 0 1 18 22 14 14 0 0 1-6 17z" fill="#E9E5DD" stroke="#171717" stroke-width="3" stroke-linejoin="round"/><path d="M-44-34L44 30" stroke="#D6453D" stroke-width="6" stroke-linecap="round"/><text y="56" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="15" fill="#171717">Sin servidor</text></g>
   </svg>
 </div></section>
 </main>
 
-<footer class="cp-pie"><div class="ancho"><span>Orby es una herramienta independiente. No está afiliada a la Watch Tower Bible and Tract Society of Pennsylvania.</span><span><a href="/privacidad">Privacidad</a> · <a href="/">Conoce Orby</a></span></div></footer>
+<footer class="cp-pie"><div class="ancho"><span><a href="/privacidad">Privacidad</a> · <a href="/">Conoce Orby</a></span></div></footer>
 
 <script>
 const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
@@ -194,7 +190,6 @@ const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
   var abrir = $('abrir'), play = $('play'), nota = $('nota'), aviso = $('avisoApp'), tarjeta = $('tarjeta');
   play.href = PLAY;
 
-  // ── Leer el contacto (mismo formato que la app: JSON en base64url después del #) ──
   function leer(dato) {
     if (!dato) return { error: 'vacio' };
     try {
@@ -226,13 +221,13 @@ const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
   }
   function colorDe(n) {
     var h = 0; for (var i = 0; i < n.length; i++) h = (h * 31 + n.charCodeAt(i)) >>> 0;
-    return [['#F2C94C', '#171717'], ['#315CF5', '#fff'], ['#D9E3FF', '#171717']][h % 3];
+    return [['#F2C94C', '#171717'], ['#1C3D8F', '#fff'], ['#D9E3FF', '#171717']][h % 3];
   }
 
   var c = leer(d);
 
   if (c.error) {
-    // ── Enlace inválido o dañado ──
+
     $('pega').textContent = 'Enlace incompleto';
     $('titulo').textContent = 'Este enlace no trae un contacto.';
     $('subtitulo').textContent = c.error === 'vacio'
@@ -247,7 +242,7 @@ const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
     cab.appendChild(av); cab.appendChild(t); tarjeta.appendChild(cab);
     tarjeta.appendChild(el('p', 'cp-solo', 'Por privacidad, los datos del contacto viajan solo dentro del enlace. Si el enlace llegó cortado, no hay otra copia en ningún lado.'));
   } else {
-    // ── Contacto listo ──
+
     document.title = 'Te compartieron a ' + c.nombre + ' | Orby';
     $('titulo').textContent = 'Alguien quiere compartir a ' + c.nombre.split(/\s+/)[0] + ' contigo.';
     var cab2 = el('div', 'cab');
@@ -275,13 +270,11 @@ const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
 
   if (!c.error && esAndroid) document.body.classList.add('con-barra');
 
-  // ── Dentro de WhatsApp, Instagram, etc. ──
   if (enAppInterna && !c.error) {
     aviso.hidden = false;
     aviso.innerHTML = 'Estás dentro de otra app. Si «Abrir en Orby» no funciona, toca <b>⋮</b> arriba a la derecha y elige <b>Abrir en Chrome</b>.';
   }
 
-  // ── En computadora o iPhone: Orby es para Android ──
   if (!esAndroid && !c.error) {
     abrir.textContent = 'Orby es solo para Android';
     abrir.disabled = true; abrir.classList.remove('azul');
@@ -301,7 +294,6 @@ const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
     }
   }
 
-  // ── Abrir la app (mismo mecanismo de siempre: esquema ascendprogress:// e intent:// de respaldo) ──
   var etiquetaAbrir = abrir.textContent;
   function restaurar() { abrir.disabled = false; abrir.textContent = etiquetaAbrir; }
   if (esAndroid && !c.error) abrir.addEventListener('click', function () {
@@ -314,7 +306,7 @@ const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
     location.href = 'ascendprogress://persona?d=' + d;
     setTimeout(function () {
       if (!salio && !document.hidden && Date.now() - inicio < 3000) {
-        // No se abrió: probamos con intent://, que manda a Google Play si la app no está instalada
+
         location.href = 'intent://persona?d=' + d + '#Intent;scheme=ascendprogress;package=com.assendapp.app;S.browser_fallback_url=' + encodeURIComponent(PLAY) + ';end';
       }
       setTimeout(function () {
@@ -322,7 +314,7 @@ const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
         if (!salio) nota.innerHTML = '¿No se abrió? Si aún no tienes Orby, <b>instálala</b> y vuelve a este mismo enlace: el contacto seguirá aquí.';
       }, 1800);
     }, 2000);
-    // Al volver al navegador, el enlace sigue sirviendo
+
     document.addEventListener('visibilitychange', function volver() {
       if (!document.hidden && salio) {
         restaurar();
@@ -333,7 +325,6 @@ const PLAY = "https://play.google.com/store/apps/details?id=com.assendapp.app";
     });
   });
 
-  // ── Movimiento: entrada y leve inclinación al pasar el mouse ──
   if (!menosMov) {
     document.body.classList.add('listo');
     var obj = $('objeto');

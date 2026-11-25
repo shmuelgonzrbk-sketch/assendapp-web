@@ -1,7 +1,3 @@
-// Animación del chat de Orby dibujada en un canvas (se usa como pantalla
-// del teléfono mientras no exista el video real /video/nubi-chat.mp4).
-// Copia el diseño del chat de la app: cabecera, burbujas, chips y barra para escribir.
-
 const AZUL = '#2443A6', TINTA = '#1d2433', GRIS = '#6b7385', FONDO = '#F3F4FA';
 const FUENTE = '"Manrope", "Roboto", system-ui, sans-serif';
 
@@ -25,10 +21,9 @@ export function crearChat({ ancho = 720, alto = 1600 } = {}) {
   const canvas = document.createElement('canvas');
   canvas.width = ancho; canvas.height = alto;
   const ctx = canvas.getContext('2d');
-  const S = ancho / 360;            // diseño en 360 × 800
+  const S = ancho / 360;
   const AREA_TOP = 96, AREA_FIN = 722;
 
-  // Arma la línea de tiempo una vez
   let eventos = [], t = 0;
   for (const [tipo, v] of GUION) {
     if (tipo === 'pausa') { t += v; continue; }
@@ -83,7 +78,6 @@ export function crearChat({ ancho = 720, alto = 1600 } = {}) {
     ctx.restore();
   }
 
-  // Cada elemento del chat con su altura (en unidades de diseño)
   function bloque(ev) {
     if (ev._b) return ev._b;
     let b;
@@ -107,7 +101,6 @@ export function crearChat({ ancho = 720, alto = 1600 } = {}) {
     g.addColorStop(0, 'rgba(217,227,255,.55)'); g.addColorStop(.35, 'rgba(243,244,250,0)');
     ctx.fillStyle = g; ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Qué se ve ahora
     const visibles = [];
     let escribiendo = '';
     for (const ev of eventos) {
@@ -116,13 +109,12 @@ export function crearChat({ ancho = 720, alto = 1600 } = {}) {
       if (ev.tipo === 'pensando') { if (tl < ev.fin) visibles.push(ev); continue; }
       visibles.push(ev);
     }
-    // Alto total y desplazamiento suave
+
     let total = 0; visibles.forEach((ev) => { total += bloque(ev).h + 10; });
     const meta = Math.max(0, AREA_TOP + 8 + total - AREA_FIN);
     desplazamiento += (meta - desplazamiento) * Math.min(1, dt * 7);
     if (tl < 0.2) desplazamiento = 0;
 
-    // Mensajes
     ctx.save(); ctx.beginPath(); ctx.rect(0, AREA_TOP * S, canvas.width, (AREA_FIN - AREA_TOP) * S); ctx.clip();
     let y = AREA_TOP + 8 - desplazamiento;
     visibles.forEach((ev, i) => {
@@ -179,34 +171,31 @@ export function crearChat({ ancho = 720, alto = 1600 } = {}) {
     });
     ctx.restore(); ctx.globalAlpha = 1;
 
-    // Barra de estado
     texto('12:07', 24, 21, 12, 700, TINTA);
     ctx.fillStyle = TINTA;
     [0, 1, 2, 3].forEach((k) => ctx.fillRect((284 + k * 4) * S, (20 - k * 2.5) * S, 2.6 * S, (3 + k * 2.5) * S));
     rr(310 * S, 11 * S, 22 * S, 11 * S, 3 * S); ctx.lineWidth = 1.3 * S; ctx.strokeStyle = TINTA; ctx.stroke();
     rr(312 * S, 13 * S, 14 * S, 7 * S, 1.5 * S); ctx.fill();
 
-    // Cabecera
     ctx.lineWidth = 2.2 * S; ctx.strokeStyle = TINTA; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     ctx.beginPath(); ctx.moveTo(14 * S, 55 * S); ctx.lineTo(19 * S, 60 * S); ctx.lineTo(24 * S, 55 * S); ctx.stroke();
     nubiMini(32, 40, 38);
     texto('Orby', 78, 56, 17, 800, TINTA);
     ctx.beginPath(); ctx.arc(81 * S, 69 * S, 2.6 * S, 0, Math.PI * 2); ctx.fillStyle = '#9aa0b0'; ctx.fill();
     texto('Modo básico', 88, 73, 11.5, 600, GRIS);
-    // altavoz silenciado
+
     ctx.strokeStyle = TINTA; ctx.lineWidth = 2 * S;
     ctx.beginPath(); ctx.moveTo(250 * S, 55 * S); ctx.lineTo(255 * S, 55 * S); ctx.lineTo(261 * S, 50 * S); ctx.lineTo(261 * S, 66 * S); ctx.lineTo(255 * S, 61 * S); ctx.lineTo(250 * S, 61 * S); ctx.closePath(); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(266 * S, 53 * S); ctx.lineTo(274 * S, 63 * S); ctx.moveTo(274 * S, 53 * S); ctx.lineTo(266 * S, 63 * S); ctx.stroke();
-    // botón de voz
+
     ctx.beginPath(); ctx.arc(302 * S, 58 * S, 17 * S, 0, Math.PI * 2); ctx.fillStyle = AZUL; ctx.fill();
     ctx.strokeStyle = '#fff'; ctx.lineWidth = 2.2 * S;
     [[-7, 3], [-3.5, 6], [0, 9], [3.5, 6], [7, 3]].forEach(([dx, h]) => { ctx.beginPath(); ctx.moveTo((302 + dx) * S, (58 - h) * S); ctx.lineTo((302 + dx) * S, (58 + h) * S); ctx.stroke(); });
-    // reiniciar
+
     ctx.strokeStyle = TINTA; ctx.lineWidth = 2 * S;
     ctx.beginPath(); ctx.arc(338 * S, 58 * S, 7 * S, -Math.PI * 0.35, Math.PI * 1.45); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(340 * S, 49 * S); ctx.lineTo(344 * S, 52 * S); ctx.lineTo(340 * S, 55 * S); ctx.stroke();
 
-    // Barra para escribir
     rr(14 * S, 730 * S, 284 * S, 44 * S, 22 * S); ctx.fillStyle = '#E9EBF3'; ctx.fill();
     if (escribiendo) {
       ctx.save(); rr(14 * S, 730 * S, 284 * S, 44 * S, 22 * S); ctx.clip();
@@ -225,14 +214,14 @@ export function crearChat({ ancho = 720, alto = 1600 } = {}) {
       ctx.beginPath(); ctx.arc(326 * S, 751 * S, 7.5 * S, 0.1 * Math.PI, 0.9 * Math.PI); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(326 * S, 758.5 * S); ctx.lineTo(326 * S, 763 * S); ctx.stroke();
     }
-    // Barra de gestos
+
     rr(130 * S, 789 * S, 100 * S, 4 * S, 2 * S); ctx.fillStyle = TINTA; ctx.fill();
   }
 
   let tiempo = 0;
   return {
     canvas,
-    // Avanza la animación; devuelve true si redibujó
+
     avanzar(dt) { tiempo += dt; pintar(tiempo, dt); return true; },
     final() { tiempo = DURACION - 4.2; desplazamiento = 1e4; pintar(tiempo, 1); desplazamiento = 0; },
   };

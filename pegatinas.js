@@ -1,11 +1,7 @@
-// Cosas vivas de la web: pegatinas, tarjetas y avisos.
-// - Cada ícono está dibujado por partes y tiene su propia animación al pasar el cursor o tocarlo.
-// - Las piezas de un mismo grupo se empujan entre ellas, como si fueran calcomanías.
 (function () {
   const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fino = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  // Íconos dibujados por partes para poder mover cada pieza
   const PIEZAS = {
     'i-persona': '<circle class="p-cabeza" cx="12" cy="8" r="4"/><path class="p-cuerpo" d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/>',
     'i-casa': '<path class="c-techo" d="M3 11l9-7 9 7"/><path class="c-base" d="M5 11.5V20a1 1 0 0 0 1 1h3v-6h6v6h3a1 1 0 0 0 1-1v-8.5"/>',
@@ -34,7 +30,6 @@
     'i-estrella': '<path class="st" d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>'
   };
 
-  // Cambia el <use> por el ícono dibujado por partes
   function preparar(el) {
     if (el.dataset.ic) return;
     const svg = el.querySelector('svg.ic'), use = svg && svg.querySelector('use');
@@ -48,7 +43,6 @@
     clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove('anima'), 1400);
   }
 
-  // Grupos que se empujan: pegatinas, tarjetas de funciones y avisos
   const grupos = [
     ...[...document.querySelectorAll('.pegatinas')].map((g) => ({ g, items: [...g.children], fuerza: 26, radio: 230, crece: 1.18 })),
     ...[...document.querySelectorAll('[data-empujar]')].map((g) => ({ g, items: [...g.children], fuerza: +g.dataset.empujar || 12, radio: 360, crece: 1.04 }))
@@ -65,7 +59,7 @@
         o.classList.remove('arriba');
         const b = o.getBoundingClientRect(), bx = b.left + b.width / 2, by = b.top + b.height / 2;
         const dx = bx - ax, dy = by - ay, d = Math.hypot(dx, dy) || 1;
-        const f = Math.max(0, radio - d) / radio;          // las cercanas se mueven más
+        const f = Math.max(0, radio - d) / radio;
         o.style.setProperty('--dx', (dx / d * f * fuerza).toFixed(1) + 'px');
         o.style.setProperty('--dy', (dy / d * f * fuerza * 0.7).toFixed(1) + 'px');
         o.style.setProperty('--s', (1 - f * 0.06).toFixed(3));
@@ -83,7 +77,6 @@
     if (fino) g.addEventListener('mouseleave', () => { soltar = setTimeout(calmar, 80); });
   });
 
-  // Avisos: van llegando uno por uno y sus íconos se mueven solos de vez en cuando
   document.querySelectorAll('.avisos').forEach((caja) => {
     const lista = [...caja.querySelectorAll('.aviso')];
     lista.forEach(preparar);

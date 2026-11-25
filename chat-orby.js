@@ -1,6 +1,3 @@
-// «Habla con Orby»: un chat de verdad, que corre en tu navegador con datos de ejemplo.
-// Entiende lo básico (horas, personas, visitas, agenda y asignaciones). La IA de la app,
-// que vive en el teléfono, entiende mucho más. Aquí nada se envía a ningún lado.
 (function () {
   const raiz = document.getElementById('chatOrby');
   if (!raiz) return;
@@ -14,7 +11,6 @@
   const en = (n) => { const d = new Date(hoy); d.setDate(d.getDate() + n); return d; };
   const proximo = (dow) => { let n = (dow - hoy.getDay() + 7) % 7; if (n === 0) n = 7; return en(n); };
 
-  // Datos de ejemplo (inventados)
   const S = {
     meta: 50, horas: 8,
     personas: [
@@ -25,9 +21,8 @@
     asig: [{ parte: 'Lectura de la Biblia', fecha: proximo(4), hora: '19:00' }]
   };
   let ultimaPersona = null, ultimoTema = null;
-  const pila = [];                                     // para Deshacer
+  const pila = [];
 
-  // ── Utilidades de texto ──
   const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[¿?¡!.,;]/g, ' ').replace(/\s+/g, ' ').trim();
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const fmtH = (h) => { const t = Math.round(h * 60), a = Math.floor(t / 60), m = t % 60; return a ? (m ? a + ' h ' + m + ' min' : a + ' h') : m + ' min'; };
@@ -76,12 +71,10 @@
     return mejor;
   }
 
-  // ── Entender ──
   function entender(texto) {
-    const t = norm(texto), r = [];          // r: lista de respuestas { txt, tags, botones, deshacer }
+    const t = norm(texto), r = [];
     if (!t) return r;
 
-    // Biblia y doctrina: no es su tema
     if (/\b(biblia dice|significa|apocalipsis|genesis|versiculo|texto biblico|doctrina|profecia|que dice la biblia)\b/.test(t) && !/lectura de la biblia/.test(t)) {
       r.push({ txt: 'De la Biblia prefiero no opinar. Para eso te recomiendo jw.org, JW Library o hablar con un anciano.' }); return r;
     }
@@ -96,7 +89,7 @@
     if (/^deshace|^deshaz|^cancela lo ultimo/.test(t)) { r.push(deshacer()); return r; }
 
     let hecho = false, hipo = false;
-    // Horas: anotar o quitar
+
     const mH = t.match(/(\d+(?:[.,]\d+)?|una|un|uno|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez)\s*(horas?|horitas?|hr?s?)\b(\s+y\s+media)?|\b(media hora)\b|(\d+)\s*(min|minutos)\b/);
     const quiere = /\b(anota|anotame|apunta|apuntame|suma|sumale|agrega|agregame|registra|ponme|pon|hice|sali|predique|estuve|meti|llevo hoy)\b/.test(t);
     const quitar = /\b(quita|quitame|resta|restale|borra|me equivoque)\b/.test(t);
@@ -114,14 +107,14 @@
       const h = mH[4] ? 0.5 : numero(mH[1] || '0') + (mH[3] ? 0.5 : 0), falta = Math.max(0, S.meta - S.horas - h);
       r.push({ txt: 'Si haces ' + fmtH(h) + ' más, llegarías a ' + fmtH(S.horas + h) + '. Te quedarían ' + fmtH(falta) + ' para tu meta.' }); hecho = hipo = true;
     }
-    // Horas: consultas
+
     if (!hipo && /cuant[oa]s? (horas )?(llevo|tengo|hice|me faltan?|falta)|como voy|como va mi (mes|meta)|mi meta|y cuanto me falta|cuanto me falta/.test(t) || (!hipo && /\bfalta\b/.test(t) && ultimoTema === 'horas')) {
       const falta = Math.max(0, S.meta - S.horas), dias = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0).getDate() - hoy.getDate() + 1;
       r.push({ txt: 'Llevas ' + fmtH(S.horas) + ' de ' + S.meta + ' h este mes. ' + (falta ? 'Te faltan ' + fmtH(falta) + ', unas ' + fmtH(falta / dias) + ' por día.' : '¡Ya llegaste a tu meta!'),
         tags: [['Progreso: ' + Math.round(S.horas / S.meta * 100) + '%', 'dato']] });
       ultimoTema = 'horas'; hecho = true;
     }
-    // Nueva persona
+
     const mNueva = t.match(/(?:conoci a|agrega a|agregame a|anade a|nueva revisita|nuevo curso|agrega una revisita|agrega un curso|empece un curso con|empece a estudiar con|se llama)\s+(?:una? (?:senora|senor|joven|chica|chico|persona)\s+(?:que se llama\s+|llamad[ao]\s+)?)?(?:que se llama\s+|llamad[ao]\s+|se llama\s+)?([a-z]+(?:\s+(?!en\b|de\b|y\b|el\b|la\b|a\b|vive\b|que\b|para\b|como\b|lo\b|le\b)[a-z]+)?)/);
     if (!hecho && mNueva && !/^(una?|la|el|mi)$/.test(mNueva[1])) {
       const nombre = mNueva[1].split(' ').map((x) => x[0].toUpperCase() + x.slice(1)).join(' ');
@@ -137,7 +130,7 @@
     } else if (!hecho && /\b(agrega|agregar|nueva|nuevo|anade)\b.*\b(revisita|persona|curso)\b/.test(t)) {
       r.push({ txt: 'Dale. ¿Cómo se llama y cuándo vuelves a visitarla?' }); hecho = true;
     }
-    // Mover una visita
+
     if (!hecho && /\b(cambia|mueve|muevelo|muevela|pasa|pasala|pasalo|cambiala|cambialo|reprograma|posterga)\b/.test(t)) {
       const p = buscarPersona(t), f = leerFecha(t), h = leerHora(t);
       if (!p) r.push({ txt: '¿De quién es la visita que quieres mover? Tengo a ' + S.personas.map((x) => x.nombre.split(' ')[0]).join(', ') + '.' });
@@ -149,7 +142,7 @@
       }
       hecho = true;
     }
-    // Asignación
+
     const mAsig = t.match(/\b(lectura de la biblia|lectura|discurso|empiece conversaciones|haga revisitas|haga discipulos|perlas escondidas|perlas|presidente|oracion)\b/);
     if (!hecho && mAsig && /\b(tengo|me toca|me dieron|me asignaron|anota|agrega)\b/.test(t)) {
       const NOMBRES = { 'lectura de la biblia': 'Lectura de la Biblia', lectura: 'Lectura de la Biblia', 'perlas escondidas': 'Perlas escondidas', perlas: 'Perlas escondidas', oracion: 'Oración' };
@@ -161,7 +154,7 @@
       }
       hecho = true;
     }
-    // Agenda
+
     const mAg = t.match(/que (tengo|hay|me toca)\s*(para\s+)?(hoy|manana|esta semana|la semana|el \w+|\w+)?/);
     if (!hecho && (mAg || /a quien me toca|mi agenda|mi semana/.test(t))) {
       let desde = 0, hasta = 0, etiqueta = 'hoy';
@@ -178,7 +171,7 @@
         : { txt: 'No tienes nada para ' + etiqueta + '. Buen momento para salir a predicar.' });
       hecho = true;
     }
-    // Ficha de una persona
+
     if (!hecho && /dime todo de|quien es|donde vive|telefono de|numero de|cuando (vuelvo|veo|visito)|su (direccion|telefono|numero)|que tema/.test(t)) {
       const p = buscarPersona(t);
       if (!p) r.push({ txt: 'No encontré a esa persona. Tengo a ' + S.personas.map((x) => x.nombre).join(', ') + '.' });
@@ -208,7 +201,6 @@
     f(); return { txt: 'Listo, lo deshice.', tags: [['Cambio deshecho', 'dato']] };
   }
 
-  // ── Pintar ──
   const fila = (html) => { const d = document.createElement('div'); d.innerHTML = html; const n = d.firstElementChild; cuerpo.appendChild(n); cuerpo.scrollTop = cuerpo.scrollHeight; return n; };
   const AV = '<svg class="dc-av" viewBox="0 0 120 120" aria-hidden="true"><use href="#nubi"/></svg>';
   function responder(lista) {

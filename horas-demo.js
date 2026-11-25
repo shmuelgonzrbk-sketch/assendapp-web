@@ -1,5 +1,3 @@
-// «Tus horas, sin sacar cuentas»: la pantalla de Horas de la app, de verdad.
-// Usa la fecha de hoy, guarda lo que anotas solo en este navegador y no hace nada más.
 (function () {
   const raiz = document.getElementById('horasDemo');
   if (!raiz) return;
@@ -10,10 +8,10 @@
   const hoy = new Date();
   const clave = 'orbyHorasDemo-' + hoy.toISOString().slice(0, 10);
   const diasMes = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0).getDate();
-  const diaSemana = ((hoy.getDay() + 6) % 7) + 1;                 // lunes = 1 … domingo = 7
+  const diaSemana = ((hoy.getDay() + 6) % 7) + 1;
   const metaSemana = Math.round(META * 7 / diasMes * 2) / 2;
   const esperadoHoy = metaSemana * diaSemana / 7;
-  // Lo que «ya llevabas» antes de hoy: un poco atrasado, para que se note el cambio al anotar
+
   const semanaAntes = Math.max(0, Math.round((esperadoHoy - 2.5) * 2) / 2);
   const mesAntes = Math.max(semanaAntes, Math.round(META * (hoy.getDate() - 1) / diasMes * 0.8 * 2) / 2);
 
@@ -50,7 +48,7 @@
     $('#hdFalta').textContent = falta > 0 ? 'Te faltan ' + fmt(falta) + ' · unas ' + fmt(falta / dias) + ' por día' : '¡Llegaste a tu meta del mes!';
     $('#hdHoy').textContent = fmt(horasHoy);
     $('#hdMenos').disabled = horasHoy <= 0;
-    // Franja de la semana
+
     const banda = $('#hdSemana'), vaBien = semana >= esperadoHoy;
     banda.classList.toggle('bien', vaBien);
     $('#hdSemTit').textContent = vaBien ? 'Vas bien con tu meta semanal' : 'Vas atrasado esta semana';

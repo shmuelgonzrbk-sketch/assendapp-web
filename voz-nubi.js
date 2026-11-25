@@ -1,10 +1,6 @@
-// Animación del modo voz de Orby dibujada en un canvas (pantalla del teléfono
-// mientras no exista el video real /video/nubi-voz.mp4). Copia la pantalla "Hablar con Orby" de la app.
-
 const AZUL = '#2443A6', AZUL2 = '#315CF5', TINTA = '#1d2433', GRIS = '#6b7385';
 const FUENTE = '"Manrope", "Roboto", system-ui, sans-serif';
 
-// Cada vuelta: escucha → piensa → habla
 const GUION = [
   { oye: '¿Qué tengo hoy?', dice: 'Hoy tienes el curso de Ana Lucía a las 11:00 y la visita a José a las 4:00 p. m.' },
   { oye: 'Anota dos horas y media', dice: 'Listo, anoté 2 h 30 min. Llevas 10 h 30 min este mes.' },
@@ -35,9 +31,8 @@ export function crearVoz({ ancho = 720, alto = 1600 } = {}) {
     if (l) out.push(l); return out;
   }
 
-  // Ícono de la app: calendario con cara, sin contorno negro
   function icono(cx, cy, s) {
-    // Igual al logo: cuerpo blanco, franja azul, contorno negro, aros, ojos con brillo, mejillas, sonrisa y 4 cuadritos
+
     const k = s / 100;
     ctx.save(); ctx.translate(cx * S, cy * S); ctx.scale(k * S, k * S); ctx.translate(-60, -60);
     const N = '#171717';
@@ -57,7 +52,6 @@ export function crearVoz({ ancho = 720, alto = 1600 } = {}) {
     ctx.restore();
   }
 
-
   function pintar(t) {
     const n = Math.floor(t / VUELTA) % GUION.length, g = GUION[n];
     const lt = t % VUELTA;
@@ -68,14 +62,12 @@ export function crearVoz({ ancho = 720, alto = 1600 } = {}) {
     f.addColorStop(0, '#F1F1FA'); f.addColorStop(1, '#E6E7F6');
     ctx.fillStyle = f; ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Barra de estado
     texto('12:33', 24, 21, 12, 700, TINTA, 'left');
     ctx.fillStyle = TINTA;
     [0, 1, 2, 3].forEach((k) => ctx.fillRect((284 + k * 4) * S, (20 - k * 2.5) * S, 2.6 * S, (3 + k * 2.5) * S));
     rr(310 * S, 11 * S, 22 * S, 11 * S, 3 * S); ctx.lineWidth = 1.3 * S; ctx.strokeStyle = TINTA; ctx.stroke();
     rr(312 * S, 13 * S, 14 * S, 7 * S, 1.5 * S); ctx.fill();
 
-    // Cerrar y "Voz rápida"
     ctx.strokeStyle = TINTA; ctx.lineWidth = 2.2 * S; ctx.lineCap = 'round';
     ctx.beginPath(); ctx.moveTo(22 * S, 64 * S); ctx.lineTo(34 * S, 76 * S); ctx.moveTo(34 * S, 64 * S); ctx.lineTo(22 * S, 76 * S); ctx.stroke();
     rr(236 * S, 55 * S, 108 * S, 30 * S, 15 * S); ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.fill();
@@ -83,7 +75,6 @@ export function crearVoz({ ancho = 720, alto = 1600 } = {}) {
     ctx.beginPath(); ctx.moveTo(254 * S, 72 * S); ctx.lineTo(258 * S, 67 * S); ctx.stroke();
     texto('Voz rápida', 300, 75, 12.5, 800, TINTA);
 
-    // Círculo de Orby con anillos
     const cx = 180, cy = 330;
     let pulso = 0;
     if (fase === 'habla') pulso = (Math.sin(lt * 9) * 0.5 + 0.5) * 0.7 + (Math.sin(lt * 23) * 0.5 + 0.5) * 0.3;
@@ -92,7 +83,7 @@ export function crearVoz({ ancho = 720, alto = 1600 } = {}) {
     ctx.beginPath(); ctx.arc(cx * S, cy * S, r1 * S, 0, Math.PI * 2); ctx.fillStyle = 'rgba(70,90,190,.13)'; ctx.fill();
     ctx.beginPath(); ctx.arc(cx * S, cy * S, r2 * S, 0, Math.PI * 2); ctx.fillStyle = 'rgba(60,80,180,.28)'; ctx.fill();
     if (fase === 'habla') {
-      // Ondas que salen mientras habla
+
       for (let k = 0; k < 2; k++) {
         const p = ((lt * 0.8 + k * 0.5) % 1);
         ctx.beginPath(); ctx.arc(cx * S, cy * S, (66 + p * 60) * S, 0, Math.PI * 2);
@@ -106,16 +97,14 @@ export function crearVoz({ ancho = 720, alto = 1600 } = {}) {
     const rebote = fase === 'habla' ? Math.sin(lt * 9) * 1.5 : 0;
     icono(cx, cy + rebote, 90);
 
-    // Estado
     const estado = fase === 'oye' ? 'Te escucho…' : fase === 'piensa' ? 'Pensando…' : 'Orby está hablando';
     texto(estado, 180, 448, 15.5, 800, TINTA);
 
-    // Lo que oye (se va escribiendo) o lo que responde (subtítulo)
     if (fase === 'oye') {
       const k = Math.min(1, Math.max(0, (lt - 0.6) / (T_OIR - 1.2)));
       const parcial = g.oye.slice(0, Math.ceil(g.oye.length * k));
       if (parcial) texto('«' + parcial + (k < 1 ? '' : '»'), 180, 482, 15, 600, AZUL);
-      // Barras de voz
+
       for (let i = 0; i < 5; i++) {
         const h = 6 + (Math.sin(lt * 11 + i * 1.3) * 0.5 + 0.5) * 16 * (lt > 0.4 && k < 1 ? 1 : 0.15);
         rr((162 + i * 8) * S, (520 - h / 2) * S, 4 * S, h * S, 2 * S); ctx.fillStyle = AZUL2; ctx.fill();
@@ -140,7 +129,6 @@ export function crearVoz({ ancho = 720, alto = 1600 } = {}) {
       ctx.globalAlpha = 1;
     }
 
-    // Botón de micrófono
     const mic = fase === 'oye';
     if (mic) { ctx.beginPath(); ctx.arc(180 * S, 698 * S, (38 + Math.sin(lt * 6) * 2) * S, 0, Math.PI * 2); ctx.fillStyle = 'rgba(36,67,166,.15)'; ctx.fill(); }
     ctx.beginPath(); ctx.arc(180 * S, 698 * S, 31 * S, 0, Math.PI * 2); ctx.fillStyle = AZUL; ctx.fill();
@@ -150,7 +138,6 @@ export function crearVoz({ ancho = 720, alto = 1600 } = {}) {
     ctx.beginPath(); ctx.moveTo(180 * S, 705 * S); ctx.lineTo(180 * S, 710 * S); ctx.stroke();
     texto(mic ? 'Habla cuando quieras' : 'Toca a Orby para interrumpirla', 180, 752, 12, 600, GRIS);
 
-    // Barra de gestos
     rr(130 * S, 789 * S, 100 * S, 4 * S, 2 * S); ctx.fillStyle = TINTA; ctx.fill();
   }
 

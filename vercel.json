@@ -4,7 +4,27 @@
   "redirects": [
     {
       "source": "/nubi-ia",
-      "destination": "/orby-ia",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/orby-ia",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/solicitar",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/contacto",
+      "destination": "/preguntas#contacto",
+      "permanent": true
+    },
+    {
+      "source": "/cookies",
+      "destination": "/privacidad#cookies",
       "permanent": true
     }
   ],

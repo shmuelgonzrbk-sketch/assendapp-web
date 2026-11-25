@@ -1,7 +1,3 @@
-// Mapa de demostración de la portada: calles reales (OpenFreeMap, igual que la app),
-// personas inventadas alrededor de donde está quien visita la página.
-// La ubicación solo se usa aquí, en el navegador, para centrar el mapa.
-
 const caja = document.getElementById('mapaDemo');
 if (caja) {
   new IntersectionObserver((e, ob) => {
@@ -13,7 +9,7 @@ if (caja) {
 }
 
 const ESTILO = window.NUBI_ESTILO_MAPA || 'https://tiles.openfreemap.org/styles/liberty';
-const RESPALDO = [-79.0288, -8.1116];          // Trujillo, si no hay permiso de ubicación
+const RESPALDO = [-79.0288, -8.1116];
 const menosMov = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const PERSONAS = [
@@ -47,7 +43,7 @@ const PIN = (color, letra, estrella) => `
   <text x="20" y="25" text-anchor="middle" font-family="Manrope,Roboto,sans-serif" font-weight="800" font-size="15" fill="#fff">${letra}</text>
   ${estrella ? '<g transform="translate(31,7)"><circle r="7" fill="#F2C94C" stroke="#fff" stroke-width="2"/><path d="M0-3.8l1.1 2.3 2.5.4-1.8 1.7.4 2.5L0 1.9-2.2 3.1l.4-2.5L-3.6-1.1l2.5-.4z" fill="#7a5a00"/></g>' : ''}</svg>`;
 
-const NUBI = `<svg viewBox="0 0 120 120" aria-hidden="true"><rect x="12" y="22" width="96" height="88" rx="22" fill="#fff"/><path d="M12 46v-2a22 22 0 0 1 22-22h52a22 22 0 0 1 22 22v2z" fill="#315CF5"/><path d="M12 46h96" stroke="#171717" stroke-width="6"/><rect x="12" y="22" width="96" height="88" rx="22" fill="none" stroke="#171717" stroke-width="6"/><rect x="33" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="6"/><rect x="74" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="6"/><ellipse cx="44" cy="66" rx="6.5" ry="8" fill="#171717"/><ellipse cx="76" cy="66" rx="6.5" ry="8" fill="#171717"/><path d="M50 78q10 10 20 0" fill="none" stroke="#171717" stroke-width="5" stroke-linecap="round"/></svg>`;
+const NUBI = `<svg viewBox="0 0 120 120" aria-hidden="true"><rect x="12" y="22" width="96" height="88" rx="22" fill="#fff"/><path d="M12 46v-2a22 22 0 0 1 22-22h52a22 22 0 0 1 22 22v2z" fill="#1C3D8F"/><path d="M12 46h96" stroke="#171717" stroke-width="6"/><rect x="12" y="22" width="96" height="88" rx="22" fill="none" stroke="#171717" stroke-width="6"/><rect x="33" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="6"/><rect x="74" y="8" width="13" height="27" rx="6.5" fill="#fff" stroke="#171717" stroke-width="6"/><ellipse cx="44" cy="66" rx="6.5" ry="8" fill="#171717"/><ellipse cx="76" cy="66" rx="6.5" ry="8" fill="#171717"/><path d="M50 78q10 10 20 0" fill="none" stroke="#171717" stroke-width="5" stroke-linecap="round"/></svg>`;
 
 function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
 function esc(s) { return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
@@ -56,7 +52,6 @@ function iniciar() {
   if (!hayWebGL() || !window.maplibregl) { caja.classList.add('sin-mapa'); return; }
   const ml = window.maplibregl;
 
-  // ── Estructura dentro de la tarjeta ──
   caja.classList.add('con-mapa');
   const marco = el('div', 'md-marco');
   marco.innerHTML = `
@@ -89,7 +84,7 @@ function iniciar() {
   });
   map.addControl(new ml.AttributionControl({ compact: true }), 'bottom-left');
   map.touchZoomRotate.disableRotation();
-  // En la PC la rueda sigue bajando la página; con Ctrl (o el gesto de pellizcar del trackpad) acerca el mapa
+
   map.scrollZoom.disable();
   nodoMapa.addEventListener('wheel', (e) => {
     if (!(e.ctrlKey || e.metaKey)) return;
@@ -100,7 +95,6 @@ function iniciar() {
   let centro = RESPALDO, marcadorYo = null, nuevo = null, personas = [], filtro = 'todos';
   const ir = (o) => (menosMov ? map.jumpTo(o) : map.easeTo({ ...o, duration: 700 }));
 
-  // ── Nombres de calles reales a partir de lo que ya está dibujado ──
   function calles() {
     const fs = map.queryRenderedFeatures();
     const out = [];
@@ -129,7 +123,6 @@ function iniciar() {
     return c ? `${c.nombre} ${numero()}` : 'Cerca de aquí';
   }
 
-  // ── Marcadores ──
   function ponerYo(lngLat) {
     if (marcadorYo) { marcadorYo.setLngLat(lngLat); return; }
     const e = el('div', 'md-nubi', `<span class="halo"></span>${NUBI}`);
@@ -142,7 +135,7 @@ function iniciar() {
     personas.forEach((p) => p.m.remove());
     const lista = calles(), usados = [];
     personas = PERSONAS.map((d, i) => {
-      // Alrededor del centro, entre 150 y 900 m, repartidas en círculo
+
       const ang = (i / PERSONAS.length) * Math.PI * 2 + Math.random() * 0.6;
       const dist = (180 + Math.random() * 520) / 111320;
       let lng = centro[0] + Math.cos(ang) * dist / Math.cos(centro[1] * Math.PI / 180), lat = centro[1] + Math.sin(ang) * dist;
@@ -173,7 +166,6 @@ function iniciar() {
   marco.querySelectorAll('.md-zoom button').forEach((b) => b.addEventListener('click', () => (menosMov ? map.setZoom(map.getZoom() + +b.dataset.z) : map.zoomTo(map.getZoom() + +b.dataset.z, { duration: 300 }))));
   marco.querySelector('.md-yo').addEventListener('click', () => { pedirUbicacion(true); });
 
-  // ── Ficha de una persona (solo muestra información) ──
   function mostrarFicha(p) {
     quitarNuevo();
     pista.hidden = true;
@@ -197,7 +189,6 @@ function iniciar() {
   }
   function cerrarFicha() { ficha.classList.remove('abierta'); setTimeout(() => { if (!ficha.classList.contains('abierta')) ficha.hidden = true; }, 250); }
 
-  // ── Tocar el mapa: pin para agregar a alguien aquí ──
   function quitarNuevo() { if (nuevo) { nuevo.remove(); nuevo = null; } }
   function ponerNuevo(lngLat) {
     cerrarFicha(); pista.hidden = true;
@@ -218,7 +209,6 @@ function iniciar() {
   let tt;
   function toast(t) { aviso.textContent = t; aviso.hidden = false; aviso.classList.add('ver'); clearTimeout(tt); tt = setTimeout(() => { aviso.classList.remove('ver'); setTimeout(() => (aviso.hidden = true), 300); }, 2600); }
 
-  // ── Ubicación de quien visita ──
   function centrarEn(ll, animar) {
     centro = ll; ponerYo(ll);
     animar ? ir({ center: ll, zoom: 15 }) : map.jumpTo({ center: ll, zoom: 15 });
